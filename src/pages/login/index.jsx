@@ -1,15 +1,17 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import 'react-toastify/dist/ReactToastify.css';
 import { useHistory } from 'react-router';
-import { Container, Button, Form, Span } from './styles';
+import { toast } from 'react-toastify';
+
+import { useAuth } from '../../providers/AuthContext';
 
 import { Input, InputPassword } from '../../components/Input';
-import { useAuth } from '../../providers/AuthContext';
-import { toast } from 'react-toastify';
+import { Button } from '../../components/Button';
+
 import logoLogin from '../../assets/logoLogin.png';
 import flowersLogin from '../../assets/flowersLogin.png';
+import { Container, Form, Span } from './styles';
 
 export const Login = () => {
   const history = useHistory();
