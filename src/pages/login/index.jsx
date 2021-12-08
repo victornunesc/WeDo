@@ -11,6 +11,13 @@ export const Login = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data) => console.log(data);
-  return <form></form>;
+  const formValue = (data) => console.log(data);
+  return (
+    <form onSubmit={handleSubmit(formValue)}>
+      <label>username</label>
+      <input {...register("username")} />
+      <label>password</label>
+      <input {...register("password")} />
+    </form>
+  );
 };
