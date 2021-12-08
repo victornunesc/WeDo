@@ -3,14 +3,14 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import "react-toastify/dist/ReactToastify.css";
 import { useHistory } from "react-router";
-import { Container, Button, Input, Form, Span } from "./styles";
+import { Container, Button, Form } from "./styles";
+
+import { Input, InputPassword } from "../../components/Input";
 import { useAuth } from "../../providers/AuthContext";
-import { toast } from "react-toastify";
 import logoLogin from "../../assets/logoLogin.png";
 import flowersLogin from "../../assets/flowersLogin.png";
 
 export const Login = () => {
-  const history = useHistory();
   const schema = yup
     .object({
       username: yup.string().required("username obrigatório!"),
@@ -21,6 +21,8 @@ export const Login = () => {
     })
     .required();
 
+  const history = useHistory();
+
   const {
     register,
     handleSubmit,
@@ -29,39 +31,27 @@ export const Login = () => {
     resolver: yupResolver(schema),
   });
 
-  //const { signIn } = useAuth();
+  const { signIn } = useAuth();
 
   const formValue = (data) => {
-    /* signIn(data).catch((err) => {
-      toast.error("Email ou senha inválida");
-    }); */
+    signIn(data);
   };
-  console.log(!!errors.password?.message, !!errors.username?.message);
+
   return (
     <Container>
       <Form onSubmit={handleSubmit(formValue)}>
-        <div className="inputs">
-          <label>Username</label>
-          <Input
-            type="text"
-            {...register("username")}
-            isError={!!errors.username?.message}
-          />
-          <Span isError={!!errors.username?.message}>
-            {errors.username?.message}
-          </Span>
-        </div>
-        <div className="inputs">
-          <label>Password</label>
-          <Input
-            type="password"
-            {...register("password")}
-            isError={!!errors.password?.message}
-          />
-          <Span isError={!!errors.password?.message}>
-            {errors.password?.message}
-          </Span>
-        </div>
+        <Input
+          placeholder="Username"
+          register={register}
+          name="username"
+          errors={errors}
+        />
+        <InputPassword
+          placeholder="Senha"
+          register={register}
+          name="password"
+          errors={errors}
+        />
         <Button type="submit">Login</Button>
 
         <p className="redirect">
