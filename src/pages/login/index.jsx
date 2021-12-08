@@ -5,12 +5,10 @@ import "react-toastify/dist/ReactToastify.css";
 import { useHistory } from "react-router";
 import { Container, Button, Input, Form, Span } from "./styles";
 import { useAuth } from "../../providers/AuthContext";
-import { toast } from "react-toastify";
 import logoLogin from "../../assets/logoLogin.png";
 import flowersLogin from "../../assets/flowersLogin.png";
 
 export const Login = () => {
-  const history = useHistory();
   const schema = yup
     .object({
       username: yup.string().required("username obrigatório!"),
@@ -21,6 +19,8 @@ export const Login = () => {
     })
     .required();
 
+  const history = useHistory();
+
   const {
     register,
     handleSubmit,
@@ -29,14 +29,12 @@ export const Login = () => {
     resolver: yupResolver(schema),
   });
 
-  //const { signIn } = useAuth();
+  const { signIn } = useAuth();
 
   const formValue = (data) => {
-    /* signIn(data).catch((err) => {
-      toast.error("Email ou senha inválida");
-    }); */
+    signIn(data);
   };
-  console.log(!!errors.password?.message, !!errors.username?.message);
+
   return (
     <Container>
       <Form onSubmit={handleSubmit(formValue)}>
