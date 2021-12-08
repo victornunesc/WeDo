@@ -3,6 +3,16 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
 export const Login = () => {
+  const schema = yup
+    .object({
+      username: yup
+        .string()
+        .min(6, "minimo 6 caracteres")
+        .required("username obrigatório!"),
+      password: yup.string().required("senha obrigatoria"),
+    })
+    .required();
+
   const {
     register,
     handleSubmit,
@@ -15,9 +25,12 @@ export const Login = () => {
   return (
     <form onSubmit={handleSubmit(formValue)}>
       <label>username</label>
-      <input {...register("username")} />
+      <input type="text" {...register("username")} />
+      {errors.username?.message}
       <label>password</label>
-      <input {...register("password")} />
+      <input type="password" {...register("password")} />
+      {errors.password?.message}
+      <button type="submit">Login</button>
     </form>
   );
 };
