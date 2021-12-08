@@ -28,6 +28,25 @@ const GlobalStyle = createGlobalStyle`
         --color-black-light: #686868;
         --color-black: #303030;
         --color-black-dark: #030202;
+
+        /* TYPOGRAPHY */
+        --font-size-h1: 54px;
+        --font-line-height-h1: 64px;
+
+        --font-size-h2: 36px;
+        --font-line-height-h2: 48px;
+
+        --font-size-h3: 24px;
+        --font-line-height-h3: 32px;
+
+        --font-size-p: 16px;
+        --font-line-height-p: 16px;
+
+        --font-size-body: 14px;
+        --font-line-height-body: 14px;
+
+        --font-size-small: 12px;
+        --font-line-height-small: 12px;
     }
 
     *{
@@ -39,36 +58,27 @@ const GlobalStyle = createGlobalStyle`
 
     body{
         background-color: var(--color-white-dark);
+        font-size: 16px;
     }
 
     h1 {
-        font-size: 54px;
-        line-height: 64px;
+        font-size: var(--font-size-h1);
+        line-height: var(---font-line-height-h1);
     }
 
     h2 {
-        font-size: 36px;
-        line-height: 48px;
+        font-size: var(--font-size-h2);
+        line-height: var(---font-line-height-h2);
     }
 
     h3 {
-        font-size: 24px;
-        line-height: 32px;
+        font-size: var(--font-size-h3);
+        line-height: var(---font-line-height-h3);
     }
 
     p {
-        font-size: 16px;
-        line-height: 16px;
-    }
-
-    p.body {
-        font-size: 14px;
-        line-height: 14px;
-    }
-
-    p.small {
-        font-size: 12px;
-        line-height: 12px;
+        font-size: var(--font-size-p);
+        line-height: var(---font-line-height-p);
     }
 `;
 
