@@ -2,6 +2,7 @@ import { useState, createContext, useContext } from "react";
 import jwt_decode from "jwt-decode";
 import api from "../services/api";
 import { toast } from "react-toastify";
+import { useHistory } from "react-router";
 
 const AuthContext = createContext({});
 
@@ -23,6 +24,8 @@ const AuthProvider = ({ children }) => {
     return {};
   });
 
+  const history = useHistory();
+
   const signIn = (data) => {
     api
       .post("sessions/", data)
@@ -35,6 +38,7 @@ const AuthProvider = ({ children }) => {
         localStorage.setItem("@WeDo:user", JSON.stringify(user));
 
         setData({ access, user });
+        history.push("/dashboard");
       })
       .catch((err) => toast.error("Email ou senha inválida"));
   };
