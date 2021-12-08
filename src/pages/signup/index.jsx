@@ -9,7 +9,7 @@ import {
   AlreadyRegistered,
   DivFlower,
 } from './style';
-import LogoSignUp from '../../assets/LogoSignUp.png';
+import logoSignup from '../../assets/logoSignup.png';
 import Flowers from '../../assets/Flowers.png';
 import api from '../../services/api';
 import { toast } from 'react-toastify';
@@ -55,7 +55,7 @@ export const Signup = () => {
       .post('/users/', newData)
       .then((response) => {
         toast.success('Conta Criada com Sucesso!');
-        history.push('/login');
+        history.push('/');
       })
       .catch((err) => {
         toast.error('Erro ao Criar Conta!');
@@ -67,7 +67,7 @@ export const Signup = () => {
     <>
       <Container>
         <LeftSide>
-          <img src={LogoSignUp} alt="LogoSignUp" />
+          <img src={logoSignup} alt="LogoSignUp" />
         </LeftSide>
         <RightSide>
           <Box>
@@ -99,7 +99,8 @@ export const Signup = () => {
                 />
                 <Button type="submit">Cadastrar</Button>
                 <AlreadyRegistered>
-                  Já possui uma conta? <span>Faça login</span>
+                  Já possui uma conta?{' '}
+                  <span onClick={() => history.push('/')}>Faça login</span>
                 </AlreadyRegistered>
               </Form>
             </CenterForm>
