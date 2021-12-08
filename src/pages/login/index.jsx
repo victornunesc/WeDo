@@ -1,3 +1,10 @@
+import { Input } from '../../components/Input';
+
 export const Login = () => {
-  return <h1>Login</h1>;
+  return (
+    <>
+      <h1>Login</h1>
+      <Input placeholder="placeholder" />
+    </>
+  );
 };
