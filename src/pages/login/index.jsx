@@ -3,7 +3,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import "react-toastify/dist/ReactToastify.css";
 import { useHistory } from "react-router";
-import { Container, Button, Input } from "./styles";
+import { Container, Button, Input, Form, Span } from "./styles";
+import { useAuth } from "../../providers/AuthContext";
+import { toast } from "react-toastify";
+import logoLogin from "../../assets/logoLogin.png";
+import flowersLogin from "../../assets/flowersLogin.png";
 
 export const Login = () => {
   const history = useHistory();
@@ -25,24 +29,43 @@ export const Login = () => {
     resolver: yupResolver(schema),
   });
 
-  const formValue = (data) => console.log(data);
+  //const { signIn } = useAuth();
+
+  const formValue = (data) => {
+    /* signIn(data).catch((err) => {
+      toast.error("Email ou senha inválida");
+    }); */
+  };
+  console.log(!!errors.password?.message, !!errors.username?.message);
   return (
     <Container>
-      <form onSubmit={handleSubmit(formValue)}>
+      <Form onSubmit={handleSubmit(formValue)}>
         <div className="inputs">
           <label>Username</label>
-          <Input type="text" {...register("username")} />
-          {errors.username?.message}
+          <Input
+            type="text"
+            {...register("username")}
+            isError={!!errors.username?.message}
+          />
+          <Span isError={!!errors.username?.message}>
+            {errors.username?.message}
+          </Span>
         </div>
         <div className="inputs">
           <label>Password</label>
-          <Input type="password" {...register("password")} />
-          {errors.password?.message}
+          <Input
+            type="password"
+            {...register("password")}
+            isError={!!errors.password?.message}
+          />
+          <Span isError={!!errors.password?.message}>
+            {errors.password?.message}
+          </Span>
         </div>
         <Button type="submit">Login</Button>
 
         <p className="redirect">
-          Não uma possui conta?{" "}
+          Não possui uma conta?{" "}
           <span
             className="span-redirect"
             onClick={() => {
@@ -52,7 +75,9 @@ export const Login = () => {
             Cadastre-se
           </span>
         </p>
-      </form>
+        <img className="flower" src={flowersLogin} alt="flower" />
+      </Form>
+      <img className="image" src={logoLogin} alt="yoga" />
     </Container>
   );
 };
