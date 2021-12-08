@@ -1,23 +1,26 @@
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-import "react-toastify/dist/ReactToastify.css";
-import { useHistory } from "react-router";
-import { Container, Button, Form } from "./styles";
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+import { useHistory } from 'react-router';
+import { toast } from 'react-toastify';
 
-import { Input, InputPassword } from "../../components/Input";
-import { useAuth } from "../../providers/AuthContext";
-import logoLogin from "../../assets/logoLogin.png";
-import flowersLogin from "../../assets/flowersLogin.png";
+import { useAuth } from '../../providers/AuthContext';
+
+import { Input, InputPassword } from '../../components/Input';
+import { Button } from '../../components/Button';
+
+import logoLogin from '../../assets/logoLogin.png';
+import flowersLogin from '../../assets/flowersLogin.png';
+import { Container, Form, Span } from './styles';
 
 export const Login = () => {
   const schema = yup
     .object({
-      username: yup.string().required("username obrigatório!"),
+      username: yup.string().required('username obrigatório!'),
       password: yup
         .string()
-        .min(6, "minimo 6 caracteres")
-        .required("senha obrigatoria"),
+        .min(6, 'minimo 6 caracteres')
+        .required('senha obrigatoria'),
     })
     .required();
 
@@ -55,11 +58,11 @@ export const Login = () => {
         <Button type="submit">Login</Button>
 
         <p className="redirect">
-          Não possui uma conta?{" "}
+          Não possui uma conta?{' '}
           <span
             className="span-redirect"
             onClick={() => {
-              history.push("/signup");
+              history.push('/signup');
             }}
           >
             Cadastre-se

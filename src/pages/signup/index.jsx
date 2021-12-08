@@ -1,3 +1,16 @@
+import { toast } from 'react-toastify';
+import { useHistory } from 'react-router-dom';
+import * as yup from 'yup';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+
+import api from '../../services/api';
+
+import { Input, InputPassword } from '../../components/Input';
+import { Button } from '../../components/Button';
+
+import logoSignup from '../../assets/logoSignup.png';
+import Flowers from '../../assets/Flowers.png';
 import {
   Container,
   LeftSide,
@@ -5,21 +18,9 @@ import {
   Box,
   CenterForm,
   Form,
-  Button,
   AlreadyRegistered,
   DivFlower,
 } from './style';
-import logoSignup from '../../assets/logoSignup.png';
-import Flowers from '../../assets/Flowers.png';
-import api from '../../services/api';
-import { toast } from 'react-toastify';
-import { useHistory } from 'react-router-dom';
-
-import { Input, InputPassword } from '../../components/Input';
-
-import * as yup from 'yup';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
 
 export const Signup = () => {
   const history = useHistory();
