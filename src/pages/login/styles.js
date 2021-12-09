@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
@@ -6,12 +6,6 @@ export const Container = styled.div`
   flex-direction: column;
   border: solid black 1px;
   min-height: 100vh;
-
-  .inputs {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 40px;
-  }
 
   .redirect {
     font-size: 12px;
@@ -54,15 +48,6 @@ export const Container = styled.div`
   }
 `;
 
-export const Span = styled.span`
-  font-size: 12px;
-  ${(props) =>
-    props.isError &&
-    css`
-      color: #b04a4a;
-    `}
-`;
-
 export const Form = styled.form`
   background-color: white;
   min-height: 100vh;
@@ -79,20 +64,6 @@ export const Form = styled.form`
     min-height: 80vh;
     border-radius: 10px;
   }
-`;
-
-export const Input = styled.input`
-  width: 300px;
-  height: 40px;
-  border-radius: 4px;
-  background-color: #ecf1f2;
-  border: none;
-
-  ${(props) =>
-    props.isError &&
-    css`
-      border: #b04a4a solid 1px;
-    `}
 `;
 
 export const Button = styled.button`
