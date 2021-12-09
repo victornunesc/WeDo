@@ -1,6 +1,6 @@
 import {Container, LeftSide, RightSide, Box, CenterForm, Form, Input, Label, Button, ErrorMessage, AlreadyRegistered, DivFlower} from "./style"
-import LogoSignUp from "../../assets/LogoSignUp.png"
-import Flowers from "../../assets/Flowers.png"
+import LogoSignUp from "../../assets/Images/LogoSignUp.png"
+import Flowers from "../../assets/Images/Flowers.png"
 import api from "../../services/api"
 import {toast} from "react-toastify"
 import {useHistory} from "react-router-dom"

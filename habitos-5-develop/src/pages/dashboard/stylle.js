@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export const Header = styled.div`
 
-height: 10vh;
+/* height: 10vh;
 width: 100%;
 position: absolute;
 left: 0px;
@@ -15,7 +15,34 @@ background: var(--color-white-light);
 box-shadow: 0px 4px 40px -10px var(--color-black-dark);
 border-radius: 1px;
 display: flex;
-align-items: center;
+align-items: center; */
+
+display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  max-width: 1200px;
+  padding: 32px;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  transition: 0.3s;
+  margin-bottom: 32px;
+  h1.logo {
+  }
+  img.profile {
+    height: 44px;
+    transition: 0.3s;
+  }
+  @media screen and (min-width: 800px) {
+    height: 124px;
+    margin: 40px 40px 32px;
+    img.profile {
+      height: 100px;
+    }
+  }
+  @media screen and (min-width: 1240px) {
+    margin: 40px auto 32px;
+  }
 
 
 `
@@ -73,8 +100,32 @@ width: 44px;
 position: absolute;
 left: 308px;
 top: 9px;
+`
+export const ImageHabits = styled.img`
+
+position: absolute;
+width: 304px;
+height: 393px;
+left: 131px;
+top: 352px;
+@media screen and (max-width: 800px) {
+    display: none;
+    }
 
 `
+export const ImageIllustration = styled.img`
+
+position: absolute;
+width: 604px;
+height: 593px;
+left: 120px;
+top: 50px;
+@media screen and (max-width: 800px) {
+    display: none;
+    }
+
+`
+
 export const ButtonSet = styled.img`
 
 height: 32px;
@@ -108,6 +159,21 @@ height: 431px;
 left: 18px;
 top: 80px;
 background: var(--color-white-light);
+@media screen and (min-width: 800px) {
+    position: absolute;
+    width: 500px;
+    height: 650px;
+    left: 121px;
+    top: 196px;
+    background: var(--color-white-light) ;
+    border-radius: 10px;
+    img.profile {
+      height: 100px;
+    }
+  }
+  @media screen and (min-width: 1240px) {
+    margin: 40px auto 32px;
+  }
 
 `
 export const Container2 = styled.div`
@@ -123,6 +189,21 @@ height: 431px;
 left: 18px;
 top: 535px;
 background: var(--color-white-light);
+@media screen and (min-width: 800px) {
+    position: absolute;
+    width: 1020px;
+    height: 650px;
+    left: 700px;
+    top: 196px;
+    background: var(--color-white-light) ;
+    border-radius: 10px;
+    img.profile {
+      height: 100px;
+    }
+  }
+  @media screen and (min-width: 1240px) {
+    margin: 40px auto 32px;
+  }
 
 `
 
@@ -141,6 +222,10 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+@media screen and (min-width: 800px) {
+   display:none;
+    }
+
 `
 
 export const ContainerHabits2 = styled.div`
@@ -157,6 +242,9 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+@media screen and (min-width: 800px) {
+   display:none;
+    }
 `
 
 export const ButtonSports = styled.div`
@@ -172,6 +260,9 @@ border-radius: 0px 0px 0px 10px;
 display: flex;
 justify-content: center;
 align-items: center;
+@media screen and (min-width: 800px) {
+   display:none;
+    }
 `
 export const ButtonSports2 = styled.div`
 
@@ -186,6 +277,9 @@ border-radius: 0px 0px 10px 0px;
 display: flex;
 justify-content: center;
 align-items: center;
+@media screen and (min-width: 800px) {
+   display:none;
+    }
 
 `
 
@@ -202,6 +296,9 @@ border-radius: 0px 0px 0px 10px;
 display: flex;
 justify-content: center;
 align-items: center;
+@media screen and (min-width: 800px) {
+   display:none;
+    }
 `
 
 export const ButtonDomesticHabits2 = styled.div`
@@ -217,6 +314,9 @@ border-radius: 0px 0px 10px 0px;
 display: flex;
 justify-content: center;
 align-items: center;
+@media screen and (min-width: 800px) {
+   display:none;
+    }
 `
 
 
@@ -241,6 +341,9 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+@media screen and (min-width: 800px) {
+   display:none;
+    }
 `
 export const ContainerGroups = styled.div`
 
@@ -257,6 +360,9 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 padding: 20px;
+@media screen and (min-width: 800px) {
+   display:none;
+    }
 `
 
 export const ContainerGroups2 = styled.div`
@@ -273,6 +379,9 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+@media screen and (min-width: 800px) {
+   display:none;
+    }
 `
 export const ButtonGroups = styled.div`
 
@@ -288,6 +397,9 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+@media screen and (min-width: 800px) {
+   display:none;
+    }
 
 `
 export const ButtonGroups2 = styled.div`
@@ -306,5 +418,8 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+@media screen and (min-width: 800px) {
+   display:none;
+    }
 
 `

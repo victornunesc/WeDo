@@ -1,9 +1,11 @@
 import { 
-  Header,
+  
   Tittle,
   Tittle2,
   Logo, 
-  Photo, 
+  Photo,
+  ImageHabits,
+  ImageIllustration, 
   Container, 
   Container2 ,
   ContainerHabits, 
@@ -22,10 +24,14 @@ import {
   } from "./stylle";
 
 
-import LogoWedo from "../../assets/LogoWedo.png"
-import ProfilePhoto from "../../assets/ProfilePhoto.png"
-import Buttons from "../../assets/Buttons.png"
-import Seta from "../../assets/Seta.png"
+import LogoWedo from "../../assets/Images/LogoWedo.png"
+import ProfilePhoto from "../../assets/Images/ProfilePhoto.png"
+import Buttons from "../../assets/Images/Buttons.png"
+import Seta from "../../assets/Images/Seta.png"
+import Habits from "../../assets/Images/Habits.png"
+import Ilustration from "../../assets/Images/Ilustration.png"
+import Header from "../../components/header"
+
 
 
 export const Dashboard = () => {
@@ -38,6 +44,8 @@ export const Dashboard = () => {
     </Header>
     
     <Container>
+
+          <ImageHabits src={Habits} alt="habits"/>
           <Tittle>Meus hábitos</Tittle>
           <ButtonAddHabits src={Buttons} alt="Button add habits"/>
 
@@ -64,6 +72,7 @@ export const Dashboard = () => {
     <Container2>
 
         <Tittle2>Meus grupos</Tittle2>
+        <ImageIllustration src={Ilustration} alt="Ilustration" />
 
         <ContainerGroups>
 
