@@ -35,7 +35,7 @@ export const InputRadioContainer = ({ title, name, errors, children }) => {
 
   return (
     <ContainerRadio isErrored={isErrored}>
-      <h3 className="title">{title}</h3>
+      <p className="title">{title}</p>
       <section className="options">{children}</section>
       {isErrored && <p className="error">{errors[name]?.message}</p>}
     </ContainerRadio>

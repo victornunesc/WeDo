@@ -71,7 +71,9 @@ export const Container = styled.section`
 `;
 
 export const ContainerRadio = styled(Container)`
-  h3.title {
+  p.title {
+    font-size: var(--font-size-h3);
+    line-height: var(--font-line-height-h3);
     color: var(--color-black);
   }
 
