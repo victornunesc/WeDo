@@ -70,6 +70,67 @@ export const Container = styled.section`
     `}
 `;
 
+export const ContainerRadio = styled(Container)`
+  h3.title {
+    color: var(--color-black);
+  }
+
+  section.options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 12px;
+  }
+
+  section.options > section.options__option {
+    height: auto;
+    width: auto;
+    margin: 0;
+  }
+
+  input {
+    display: none;
+  }
+
+  label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 24px;
+    border: 1px solid transparent;
+    color: var(--color-black);
+    font-size: var(--font-size-small);
+    line-height: var(--font-line-height-small);
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 4px;
+    font-weight: 700;
+
+    :hover {
+      background-color: var(--color-primary-light);
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  input:checked ~ label {
+    background-color: var(--color-primary-dark);
+    color: var(--color-white-light);
+  }
+
+  p.error {
+    margin-top: 6px;
+  }
+
+  ${({ sizeBigger }) =>
+    sizeBigger &&
+    css`
+      label {
+        width: 76px;
+      }
+    `}
+`;
+
 export const ContainerPassword = styled(Container)`
   svg {
     color: var(--color-grey);
