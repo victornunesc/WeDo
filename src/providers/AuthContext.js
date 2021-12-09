@@ -14,11 +14,11 @@ const useAuth = () => {
 
 const AuthProvider = ({ children }) => {
   const [data, setData] = useState(() => {
-    const token = localStorage.getItem("@WeDo:token");
+    const access = localStorage.getItem("@WeDo:access");
     const user = localStorage.getItem("@KWeDo:user");
 
-    if (token && user) {
-      return { token, user: JSON.parse(user) };
+    if (access && user) {
+      return { access, user: JSON.parse(user) };
     }
 
     return {};
@@ -34,7 +34,7 @@ const AuthProvider = ({ children }) => {
 
         const user = jwt_decode(access);
 
-        localStorage.setItem("@WeDo:token", access);
+        localStorage.setItem("@WeDo:access", access);
         localStorage.setItem("@WeDo:user", JSON.stringify(user));
 
         setData({ access, user });
