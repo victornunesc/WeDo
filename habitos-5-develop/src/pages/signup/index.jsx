@@ -45,7 +45,7 @@ export const Signup = () => {
         <>
             <Container>
                 <LeftSide>
-                    <img src={LogoSignUp} alt="LogoSignUp" />
+                     
                 </LeftSide>
                 <RightSide>
                     <Box>
