@@ -1,6 +1,6 @@
 import { Container, ContainerIcon } from './style';
 
-import { FiPlus, FiCheck } from 'react-icons/fi';
+import { FiPlus, FiCheck, FiEdit } from 'react-icons/fi';
 
 export const Button = ({ children, ...rest }) => {
   return <Container {...rest}>{children}</Container>;
@@ -9,14 +9,16 @@ export const Button = ({ children, ...rest }) => {
 export const IconButton = ({
   add,
   check,
-  sizeSmall,
+  edit,
+  card,
   primaryColor,
   ...rest
 }) => {
   return (
-    <ContainerIcon sizeSmall={sizeSmall} primaryColor={primaryColor} {...rest}>
+    <ContainerIcon card={card} primaryColor={primaryColor} {...rest}>
       {add && <FiPlus />}
       {check && <FiCheck />}
+      {edit && <FiEdit />}
     </ContainerIcon>
   );
 };
