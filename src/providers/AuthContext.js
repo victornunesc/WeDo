@@ -4,7 +4,7 @@ import api from "../services/api";
 import { toast } from "react-toastify";
 import { useHistory } from "react-router";
 
-const AuthContext = createContext({});
+export const AuthContext = createContext({});
 
 const useAuth = () => {
   const context = useContext(AuthContext);
@@ -15,7 +15,7 @@ const useAuth = () => {
 const AuthProvider = ({ children }) => {
   const [data, setData] = useState(() => {
     const access = localStorage.getItem("@WeDo:access");
-    const user = localStorage.getItem("@KWeDo:user");
+    const user = localStorage.getItem("@WeDo:user");
 
     if (access && user) {
       return { access, user: JSON.parse(user) };

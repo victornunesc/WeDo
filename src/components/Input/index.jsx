@@ -45,7 +45,7 @@ export const InputRadioContainer = ({ title, name, errors, children }) => {
 export const InputRadio = ({ register, name, label, sizeBigger }) => {
   return (
     <ContainerRadio className="options__option" sizeBigger={sizeBigger}>
-      <input type="radio" id={label} {...register(name)} />
+      <input type="radio" id={label} value={label} {...register(name)} />
       <label htmlFor={label}>{label}</label>
     </ContainerRadio>
   );
