@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.header`
   display: flex;
@@ -6,6 +6,7 @@ export const Container = styled.header`
   justify-content: space-between;
   height: 60px;
   max-width: 1200px;
+  width: 100vw;
   padding: 32px;
   box-sizing: border-box;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);

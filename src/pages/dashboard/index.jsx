@@ -1,3 +1,11 @@
+import { useHistory } from "react-router-dom";
+
 export const Dashboard = () => {
-  return <h1>Dashboard</h1>;
+  const history = useHistory();
+  return (
+    <div>
+      <h1>Dashboard</h1>
+      <button onClick={() => history.push("/groups")}>groups</button>
+    </div>
+  );
 };
