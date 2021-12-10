@@ -1,3 +1,9 @@
+import {Modal} from "../../components/ModalHabits/index"
+
 export const Dashboard = () => {
-  return <h1>Dashboard</h1>;
+  return (
+    <>
+      <Modal/>
+    </>
+  )
 };
