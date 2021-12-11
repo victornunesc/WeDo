@@ -19,7 +19,6 @@ export const IconButton = ({
       {add && <FiPlus />}
       {check && <FiCheck />}
       {edit && <FiEdit />}
-      +
     </ContainerIcon>
   );
 };

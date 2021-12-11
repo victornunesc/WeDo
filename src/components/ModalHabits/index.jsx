@@ -1,7 +1,7 @@
 import {ShowOnlyContainer, Container, ContainerModal, HeaderModal, CloseButton, MainModal, Form, FixForm} from "./style"
 import {Input, InputRadio, InputRadioContainer} from "../Input/index"
 import {Button} from "../Button/index"
-import {useContext, useEffect} from "react"
+import {useContext} from "react"
 import {AuthContext} from "../../providers/AuthContext"
 import {toast} from "react-toastify"
 
@@ -10,9 +10,9 @@ import * as yup from "yup"
 import {useForm} from "react-hook-form"
 import {yupResolver} from "@hookform/resolvers/yup"
 
-export const Modal = ({hideModalHabits}) => {
+export const ModalHabits = ({hideModalHabit}) => {
 
-    const {access, user} = useContext(AuthContext)
+    const {access, user, habits, setHabits} = useContext(AuthContext)
 
     const schema = yup.object().shape({
         title: yup.string().required("Campo Obrigatório"),
@@ -35,12 +35,11 @@ export const Modal = ({hideModalHabits}) => {
             how_much_achieved: 0,
             user: user.user_id,
         }
-
         api.post("habits/", newData, {
             headers: { Authorization: `Bearer ${access}`},
         })
-
         .then((response) => {
+            setHabits([...habits, response.data])
             toast.success("Hábito criado!")
         })
         .catch((err) => {
@@ -49,22 +48,13 @@ export const Modal = ({hideModalHabits}) => {
         })
     }
 
-    useEffect(() => {
-        api.get("habits/personal/", {
-            headers: { Authorization: `Bearer ${access}`}
-        })
-        .then((response) => {
-            console.log(response)
-        })
-    }, [])
-
     return (
         <>
             <Container>
                 <ContainerModal>
                     <HeaderModal>
                         <h2>Adicionar Hábito</h2>
-                        <CloseButton onClick={() => hideModalHabits()}>X</CloseButton>
+                        <CloseButton onClick={() => hideModalHabit()}>X</CloseButton>
                     </HeaderModal>
                     <MainModal>
                         <Form onSubmit={handleSubmit(sendHabit)}>
@@ -90,7 +80,7 @@ export const Modal = ({hideModalHabits}) => {
                     </MainModal>
                 </ContainerModal>
             </Container>
-            <ShowOnlyContainer onClick={() => hideModalHabits()}/>
+            <ShowOnlyContainer onClick={() => hideModalHabit()}/>
         </>
     )
 }
