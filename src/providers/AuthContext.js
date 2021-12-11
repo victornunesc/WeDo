@@ -50,9 +50,11 @@ const AuthProvider = ({ children }) => {
     setData({});
   };
 
+  const [habits, setHabits] = useState([])
+
   return (
     <AuthContext.Provider
-      value={{ access: data.access, user: data.user, signIn, signOut }}
+      value={{ access: data.access, user: data.user, signIn, signOut, habits, setHabits}}
     >
       {children}
     </AuthContext.Provider>
