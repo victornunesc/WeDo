@@ -19,7 +19,9 @@ export const ContainerModal = styled.div `
     background-color: var(--color-white-dark);
     color: var(--color-black);
     width: 40%;
-    top: 15%;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%);
     padding: 10px;
     position: fixed;
     border-radius: 10px;

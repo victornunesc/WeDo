@@ -1,7 +1,8 @@
-import {ShowOnlyContainer, Container, ContainerModal, HeaderModal, CloseButton, MainModal, Form, FixForm} from "./style"
+import {Container, ContainerModal, HeaderModal, CloseButton, MainModal, Form, FixForm} from "../ModalHabits/style"
+
 import {Input, InputRadio, InputRadioContainer} from "../Input/index"
 import {Button} from "../Button/index"
-import {useContext} from "react"
+import {useContext, useEffect} from "react"
 import {AuthContext} from "../../providers/AuthContext"
 import {toast} from "react-toastify"
 import {Modal} from "../Modal/index"
@@ -11,9 +12,9 @@ import * as yup from "yup"
 import {useForm} from "react-hook-form"
 import {yupResolver} from "@hookform/resolvers/yup"
 
-export const ModalHabits = () => {
+export const EditHabits = ({loadData}) => {
 
-    const {access, user, habits, setHabits, hideModalHabit} = useContext(AuthContext)
+    const {access, user, habits, setHabits, hideEditModal, actualHabit} = useContext(AuthContext)
 
     const schema = yup.object().shape({
         title: yup.string().required("Campo Obrigatório"),
@@ -22,41 +23,60 @@ export const ModalHabits = () => {
         difficulty: yup.string().required("Campo Obrigatório").nullable(),
     })
 
-    const {register, handleSubmit, formState: { errors }} = useForm({
+    const {register, handleSubmit, formState: { errors }, reset} = useForm({
         resolver: yupResolver(schema)
     }) 
 
     const sendHabit = (data) => {
-        const newData = {
-            title: data.title,
-            category: data.category,
-            frequency: data.frequency,
-            difficulty: data.difficulty,
-            achieved: false,
-            how_much_achieved: 0,
-            user: user.user_id,
-        }
-        api.post("habits/", newData, {
+        // COLOCAR O CODIGO PARA ATUALIZAR O CARD ATUAL
+    }
+
+    const deleteHabit = (id) => {
+        api.delete(`/habits/${id}/`, {
             headers: { Authorization: `Bearer ${access}`},
         })
         .then((response) => {
-            setHabits([...habits, response.data])
-            toast.success("Hábito criado!")
+            toast.success("Hábito Excluído!")
+            loadData()
+            hideEditModal()
         })
         .catch((err) => {
+            toast.error("Não foi possível Excluir")
             console.log(err)
-            toast.error("Não foi possível criar um Hábito")
         })
     }
 
+    useEffect(() => {
+        api.get(`habits/${actualHabit}/`, {
+            headers: {Authorization: `Bearer ${access}`}
+        })
+        .then((response) => {
+            const {
+                title,
+                category,
+                frequency,
+                difficulty
+        } = response.data
+        reset({
+            title,
+            category,
+            frequency,
+            difficulty
+        })
+        })
+        .catch((err) => {
+        console.log(err)
+        })
+    }, [])
+
     return (
         <>
-            <Modal onClick={() => hideModalHabit()}/>
+            <Modal onClick={() => hideEditModal()}/>
             <Container>
                 <ContainerModal>
                     <HeaderModal>
-                        <h2>Adicionar Hábito</h2>
-                        <CloseButton onClick={() => hideModalHabit()}>X</CloseButton>
+                        <h2>Editar Hábito</h2>
+                        <CloseButton onClick={() => hideEditModal()}>X</CloseButton>
                     </HeaderModal>
                     <MainModal>
                         <Form onSubmit={handleSubmit(sendHabit)}>
@@ -77,7 +97,8 @@ export const ModalHabits = () => {
                                     <InputRadio register={register} name="difficulty" label="Muito Difícil" sizeBigger/>
                                 </InputRadioContainer>
                             </FixForm>
-                            <Button type="submit">Enviar</Button>
+                            <Button type="submit">Atualizar</Button>
+                            <Button onClick={() => deleteHabit(actualHabit)}>Deletar</Button>
                         </Form>
                     </MainModal>
                 </ContainerModal>
