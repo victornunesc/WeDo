@@ -1,30 +1,12 @@
-import { useState, useEffect } from "react";
-import api from "../../services/api";
-import { useAuth } from "../../providers/AuthContext";
 import { Card, Section } from "./style";
 import { FiArrowUpRight } from "react-icons/fi";
 
-export const RenderGroups = ({ groups, setGroups, groupInput, input }) => {
-  const { access } = useAuth();
-  const [page, setPage] = useState(1);
-
-  useEffect(() => {
-    api
-      .get(`groups/?page=${page}`, {
-        headers: { Authorization: `Bearer ${access}` },
-      })
-      .then((response) => {
-        const newGroups = response.data.results;
-        setGroups([...groups, ...newGroups]);
-      })
-      .catch((err) => console.log(err));
-  }, [page]);
-
+export const RenderGroups = ({ groups, groupInput, input, page, setPage }) => {
   return (
     <Section>
       {groupInput.length > 0 && input !== ""
         ? groupInput.map((group, index) => (
-            <Card key={index}>
+            <Card className="Card" key={index}>
               <div className="upPart">
                 <h3 className="group-name">{group.name}</h3>
                 <p className="group-description">{group.description}</p>

@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.header`
+
+  background: var(--color-white-light);
   display: flex;
   align-items: center;
   justify-content: space-between;

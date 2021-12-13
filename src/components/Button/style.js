@@ -24,6 +24,10 @@ export const Container = styled.button`
 `;
 
 export const ContainerIcon = styled(Container)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
   width: 40px;
   height: 40px;
 
@@ -32,17 +36,22 @@ export const ContainerIcon = styled(Container)`
     color: inherit;
   }
 
-  ${({ sizeSmall }) => {
-    sizeSmall &&
-      css`
-        width: 32px;
-        height: 32px;
-      `;
-  }}
+  ${({ card }) =>
+    card &&
+    css`
+      width: 32px;
+      height: 32px;
+      border-radius: 0 0 10px 0;
+    `}
 
   ${({ primaryColor }) =>
     primaryColor &&
     css`
-      background-color: var(--color-primary);
+      background-color: var(--color-primary-dark);
+
+      :hover {
+        color: var(--color-primary-dark);
+        border-color: var(--color-primary-dark);
+      }
     `}
 `;

@@ -15,9 +15,8 @@ export const Container = styled.div`
   max-width: 1200px;
   width: 91vw;
   min-width: 320px;
-  background: #fefefe;
+  background: var(--color-white-light);
   border-radius: 10px;
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -48,7 +47,6 @@ export const Footer = styled.footer`
   flex-shrink: 0;
   height: 60px;
   display: flex;
-
   align-items: center;
   font-family: "Roboto", sans-serif;
 
@@ -56,7 +54,7 @@ export const Footer = styled.footer`
     width: 146px;
     height: 40px;
     border: solid 0.5px var(--color-secondary);
-    background: #fefefe;
+    background: var(--color-white-light);
     color: var(--color-secondary);
     font-size: var(--font-size-h3);
     line-height: var(--font-line-height-h3);
@@ -66,14 +64,14 @@ export const Footer = styled.footer`
 
   .backButton:hover {
     background: var(--color-secondary);
-    color: #fefefe;
+    color: var(--color-white-light);
   }
 
   .redButtom {
     width: 146px;
     height: 40px;
     background: var(--color-secondary);
-    color: #fefefe;
+    color: var(--color-white-light);
     font-size: var(--font-size-h3);
     line-height: var(--font-line-height-h3);
     border-radius: 8px;

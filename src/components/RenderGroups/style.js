@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Card = styled.div`
   width: 300px;
   height: 200px;
-  background: #c7d7da;
+  background: var(--color-white-dark);
   border: none;
   border-radius: 10px;
   margin-bottom: 10px;
@@ -11,11 +11,19 @@ export const Card = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: 0.3s;
+  padding: 4px;
 
   @media (min-width: 660px) {
     margin: 0 20px 20px 20px;
     background: rgba(199, 215, 218, 0.75);
     backdrop-filter: blur(6px);
+  }
+
+  :hover {
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+    background-color: var(--color-white-dark);
+    backdrop-filter: none;
   }
 
   .upPart {
@@ -35,7 +43,6 @@ export const Card = styled.div`
     display: flex;
     justify-content: space-around;
     color: var(--color-white);
-    margin-bottom: 5px;
     font-family: "Roboto", sans-serif;
     font-size: var(--font-size-p);
     line-height: var(--font-line-height-p);

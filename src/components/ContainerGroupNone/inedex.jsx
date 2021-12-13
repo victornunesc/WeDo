@@ -1,5 +1,10 @@
 import { Container } from "./style";
 
 export const ContainerGroupNone = () => {
-  return <Container> Nenhum grupo foi encontrado</Container>;
+  return (
+    <Container>
+      {" "}
+      <h2>Nenhum grupo foi encontrado...</h2>
+    </Container>
+  );
 };

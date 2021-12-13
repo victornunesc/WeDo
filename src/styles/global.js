@@ -47,17 +47,21 @@ const GlobalStyle = createGlobalStyle`
 
         --font-size-small: 12px;
         --font-line-height-small: 12px;
+
+        --font-family-body: 'Roboto', sans-serif;
+        --font-family-title: 'Roboto', sans-serif;
     }
 
-    *{
+    * {
         margin: 0;
         padding: 0;
         border: 0;
         box-sizing: border-box;
     }
 
-    body{
+    body {
         background-color: var(--color-white-dark);
+        font-family: var(--font-family-body);
         font-size: 16px;
     }
 
