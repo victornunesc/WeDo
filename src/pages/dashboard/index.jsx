@@ -13,6 +13,7 @@ import {
 
 import Habits from "../../assets/Habits.png";
 import Header from "../../components/Header";
+
 import api from "../../services/api";
 import { Button, IconButton } from "../../components/Button";
 import { useContext } from "react";
@@ -22,9 +23,8 @@ import { CardHabits } from "../../components/CardHabits/index";
 import { ModalHabits } from "../../components/ModalHabits/index";
 
 export const Dashboard = () => {
-  const { access, habits, setHabits } = useContext(AuthContext);
 
-  const [isHabit, isSetHabit] = useState(false);
+  const {access, habits, setHabits, isHabit, showModalHabit} = useContext(AuthContext) 
 
   const loadData = () => {
     api
@@ -43,15 +43,8 @@ export const Dashboard = () => {
     loadData();
   }, []);
 
-  const showModalHabit = () => {
-    isSetHabit(true);
-  };
 
-  const hideModalHabit = () => {
-    isSetHabit(false);
-  };
-
-  return (
+  return(
     <>
       <Header />
       <Main>
@@ -63,7 +56,7 @@ export const Dashboard = () => {
           <div className="habits">
             {habits.length >= 1 ? (
               habits.map((habit, index) => (
-                <CardHabits key={index} habit={habit} />
+                <CardHabits key={index} habit={habit} loadData={loadData}/>
               ))
             ) : (
               <>
@@ -96,13 +89,16 @@ export const Dashboard = () => {
                 </NoItems>
               </>
             }
-          </Groups>
+            </Groups>
           <div className="div-button">
             <Button>Encontrar grupos</Button>
           </div>
-        </ContainerGroups>
-      </Main>
-      {isHabit ? <ModalHabits hideModalHabit={hideModalHabit} /> : <></>}
+          </ContainerGroups>
+        </Main>
+      {
+        isHabit &&
+        <ModalHabits/>
+      }
     </>
   );
 };
