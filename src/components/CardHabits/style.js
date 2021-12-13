@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
 export const Container = styled.section`
   display: flex;
@@ -10,7 +10,7 @@ export const Container = styled.section`
   min-height: 124px;
   border-radius: 10px;
   transition: 0.3s;
-  margin: 12px;
+  margin: 12px 0px;
 
   p.card__title {
     display: flex;
