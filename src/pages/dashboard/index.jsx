@@ -17,13 +17,15 @@ import api from "../../services/api";
 import { Button, IconButton } from "../../components/Button";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthContext";
+import { HabitsContext} from "../../providers/Habits"
 import { useEffect, useState } from "react";
 import { CardHabits } from "../../components/CardHabits/index";
 import { ModalHabits } from "../../components/ModalHabits/index";
 
 export const Dashboard = () => {
 
-  const {access, habits, setHabits, isHabit, showModalHabit} = useContext(AuthContext) 
+  const {access} = useContext(AuthContext) 
+  const {habits, setHabits, isHabit, showModalHabit} = useContext(HabitsContext)
 
   const loadData = () => {
     api

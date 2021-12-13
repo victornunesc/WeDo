@@ -1,8 +1,9 @@
-import {ShowOnlyContainer, Container, ContainerModal, HeaderModal, CloseButton, MainModal, Form, FixForm} from "./style"
+import {Container, ContainerModal, HeaderModal, CloseButton, MainModal, Form, FixForm} from "./style"
 import {Input, InputRadio, InputRadioContainer} from "../Input/index"
 import {Button} from "../Button/index"
 import {useContext} from "react"
 import {AuthContext} from "../../providers/AuthContext"
+import {HabitsContext} from "../../providers/Habits"
 import {toast} from "react-toastify"
 import {Modal} from "../Modal/index"
 
@@ -13,7 +14,8 @@ import {yupResolver} from "@hookform/resolvers/yup"
 
 export const ModalHabits = () => {
 
-    const {access, user, habits, setHabits, hideModalHabit} = useContext(AuthContext)
+    const {access, user} = useContext(AuthContext)
+    const {habits, setHabits, hideModalHabit} = useContext(HabitsContext)
 
     const schema = yup.object().shape({
         title: yup.string().required("Campo Obrigatório"),

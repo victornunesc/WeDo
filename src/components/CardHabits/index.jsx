@@ -1,6 +1,6 @@
 import { Button, IconButton } from '../Button';
-import {useState, useContext} from "react"
-import {AuthContext} from "../../providers/AuthContext"
+import {useContext} from "react"
+import {HabitsContext} from "../../providers/Habits"
 import {EditHabits} from "../EditHabits/index"
 
 import { Container } from './style';
@@ -15,7 +15,7 @@ export const CardHabits = ({ habit , loadData}) => {
     how_much_achieved,
   } = habit;
 
-  const {showEditModal, isEdit} = useContext(AuthContext)
+  const {showEditModal, isEdit} = useContext(HabitsContext)
 
   return (
     <>

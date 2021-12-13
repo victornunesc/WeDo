@@ -1,15 +1,5 @@
 import styled from "styled-components"
 
-export const ShowOnlyContainer = styled.div `
-    width: 100%;
-    height: 100vh;
-    background-color: black;
-    position: fixed;
-    top: 0;
-    opacity: 0.8;
-    z-index: 0;
-`
-
 export const Container = styled.div `
     display: flex;
     justify-content: center;
@@ -26,16 +16,18 @@ export const ContainerModal = styled.div `
     position: fixed;
     border-radius: 10px;
     opacity: 1;
-    z-index: 1;
+    z-index: 30;
     display: flex;
     flex-direction: column;
 
     @media (max-width: 1000px){
         width: 60%;
     }
-
     @media (max-width: 660px){
         width: 70%;
+    }
+    @media (max-width: 400px){
+        width: 100%;
     }
 `
 
