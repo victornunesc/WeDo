@@ -30,9 +30,6 @@ export const ContainerIcon = styled(Container)`
   min-width: 0;
   width: 40px;
   height: 40px;
-  position: absolute;
-  left: 280px;
-  top: 10px;
 
   svg {
     font-size: inherit;
