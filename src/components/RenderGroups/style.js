@@ -77,6 +77,10 @@ export const Card = styled.div`
     line-height: var(--font-line-height-p);
     font-style: italic;
   }
+  .icon-group {
+    width: 25px;
+    height: 25px;
+  }
 `;
 
 export const Section = styled.section`
@@ -88,4 +92,5 @@ export const Section = styled.section`
   overflow: hidden;
   overflow-y: scroll;
   margin-top: 30px;
+  flex: 1 0 auto;
 `;

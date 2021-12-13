@@ -11,13 +11,17 @@ export const Div = styled.div`
 
 export const Container = styled.div`
   height: 659px;
-  max-height: auto;
+  max-height: 95vh;
   max-width: 1200px;
   width: 90vw;
   min-width: 320px;
   background: #fefefe;
   border-radius: 10px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: space-between;
 
   .imageGroup {
     display: none;
@@ -52,12 +56,32 @@ export const Cabecalho = styled.header`
     margin: 10px;
   }
 `;
+export const Footer = styled.footer`
+  flex-shrink: 0;
+  height: 60px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
 
-export const Input = styled.input`
-  width: 240px;
-  height: 40px;
-  background: #ecf1f2;
-  color: #686868;
-  border: none;
-  border-radius: 4px;
+  .backButton {
+    width: 146px;
+    height: 40px;
+    border: solid 0.5px var(--color-secondary);
+    background: #fefefe;
+    color: var(--color-secondary);
+    font-size: var(--font-size-h3);
+    line-height: var(--font-line-height-h3);
+    border-radius: 8px;
+  }
+
+  .redButtom {
+    width: 146px;
+    height: 40px;
+    background: var(--color-secondary);
+    color: #fefefe;
+    font-size: var(--font-size-h3);
+    line-height: var(--font-line-height-h3);
+    border-radius: 8px;
+  }
 `;
