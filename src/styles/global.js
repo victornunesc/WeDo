@@ -60,29 +60,35 @@ const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        background-color: var(--color-white-dark);
+        background-color: var(--color-white);
         font-family: var(--font-family-body);
         font-size: 16px;
+        color: var(--color-black);
     }
 
     h1 {
         font-size: var(--font-size-h1);
-        line-height: var(---font-line-height-h1);
+        line-height: var(--font-line-height-h1);
     }
 
     h2 {
         font-size: var(--font-size-h2);
-        line-height: var(---font-line-height-h2);
+        line-height: var(--font-line-height-h2);
     }
 
     h3 {
         font-size: var(--font-size-h3);
-        line-height: var(---font-line-height-h3);
+        line-height: var(--font-line-height-h3);
     }
 
     p {
         font-size: var(--font-size-p);
-        line-height: var(---font-line-height-p);
+        line-height: var(--font-line-height-p);
+    }
+
+    .font__body {
+        font-size: var(--font-size-body);
+        line-height: var(--font-line-height-body);
     }
 `;
 

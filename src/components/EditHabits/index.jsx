@@ -1,9 +1,11 @@
 import {Container, ContainerModal, HeaderModal, CloseButton, MainModal, Form, FixForm} from "../ModalHabits/style"
 
+import {GroupButtons} from "./style"
 import {Input, InputRadio, InputRadioContainer} from "../Input/index"
 import {Button} from "../Button/index"
 import {useContext, useEffect} from "react"
 import {AuthContext} from "../../providers/AuthContext"
+import {HabitsContext} from "../../providers/Habits"
 import {toast} from "react-toastify"
 import {Modal} from "../Modal/index"
 
@@ -14,7 +16,8 @@ import {yupResolver} from "@hookform/resolvers/yup"
 
 export const EditHabits = ({loadData}) => {
 
-    const {access, user, habits, setHabits, hideEditModal, actualHabit} = useContext(AuthContext)
+    const {access} = useContext(AuthContext)
+    const {hideEditModal, actualHabit} = useContext(HabitsContext)
 
     const schema = yup.object().shape({
         title: yup.string().required("Campo Obrigatório"),
@@ -27,8 +30,18 @@ export const EditHabits = ({loadData}) => {
         resolver: yupResolver(schema)
     }) 
 
-    const sendHabit = (data) => {
-        // COLOCAR O CODIGO PARA ATUALIZAR O CARD ATUAL
+    const updateHabit = (data) => {
+
+        api.patch(`habits/${actualHabit}/`, data, {
+            headers: { Authorization: `Bearer ${access}`},
+        })
+        .then((response) => {
+            toast.success("Hábito Editado com Sucesso!")
+            loadData()
+        })
+        .catch((err) => {
+            toast.error("Não foi possível editar")
+        })
     }
 
     const deleteHabit = (id) => {
@@ -37,8 +50,8 @@ export const EditHabits = ({loadData}) => {
         })
         .then((response) => {
             toast.success("Hábito Excluído!")
-            loadData()
             hideEditModal()
+            loadData()
         })
         .catch((err) => {
             toast.error("Não foi possível Excluir")
@@ -56,7 +69,7 @@ export const EditHabits = ({loadData}) => {
                 category,
                 frequency,
                 difficulty
-        } = response.data
+            } = response.data
         reset({
             title,
             category,
@@ -65,7 +78,7 @@ export const EditHabits = ({loadData}) => {
         })
         })
         .catch((err) => {
-        console.log(err)
+            console.log(err)
         })
     }, [])
 
@@ -79,7 +92,7 @@ export const EditHabits = ({loadData}) => {
                         <CloseButton onClick={() => hideEditModal()}>X</CloseButton>
                     </HeaderModal>
                     <MainModal>
-                        <Form onSubmit={handleSubmit(sendHabit)}>
+                        <Form onSubmit={handleSubmit(updateHabit)}>
                             <FixForm>
                                 <Input register={register} errors={errors} name="title" placeholder="Título"/>
                                 <Input register={register} errors={errors} name="category" placeholder="Category"/>
@@ -97,8 +110,10 @@ export const EditHabits = ({loadData}) => {
                                     <InputRadio register={register} name="difficulty" label="Muito Difícil" sizeBigger/>
                                 </InputRadioContainer>
                             </FixForm>
-                            <Button type="submit">Atualizar</Button>
-                            <Button onClick={() => deleteHabit(actualHabit)}>Deletar</Button>
+                            <GroupButtons>
+                                <Button onClick={() => deleteHabit(actualHabit)}>Deletar</Button>
+                                <Button type="submit">Atualizar</Button>
+                            </GroupButtons>
                         </Form>
                     </MainModal>
                 </ContainerModal>

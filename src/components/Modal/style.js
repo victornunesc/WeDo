@@ -9,17 +9,12 @@ export const ContainerModal = styled.div `
     right: 0;
     padding: 10px;
     position: fixed;
-    border-radius: 10px;
     opacity: 0.7;
-    z-index: 1;
+    z-index: 30;
     display: flex;
     flex-direction: column;
 
-    @media (max-width: 1000px){
-        width: 60%;
-    }
-
-    @media (max-width: 660px){
-        width: 70%;
+    @media (max-width: 500px){
+        width: 100%;
     }
 `
