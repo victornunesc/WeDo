@@ -1,6 +1,5 @@
 import {
   Title,
-  Input,
   Main,
   HeadContainer,
   ContainerHabits,
@@ -80,7 +79,6 @@ export const Dashboard = () => {
         <ContainerGroups>
           <HeadContainer>
             <Title>Meus Grupos</Title>
-            {/* <Input placeholder="Pesquisar Grupos" /> */}
           </HeadContainer>
           <Groups>
             {
@@ -90,7 +88,7 @@ export const Dashboard = () => {
               <>
                 <NoItems>
                   <BackgroundMessage background>
-                    Você não está em nenhum grupo, encontre grupos que queria
+                    Você não está em nenhum grupo, encontre grupos que queira
                     entrar!
                   </BackgroundMessage>
                 </NoItems>
