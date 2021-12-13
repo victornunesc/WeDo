@@ -1,15 +1,15 @@
 import { useState } from "react";
 import Header from "../../components/Header";
 import { Div, Container, Cabecalho, Footer } from "./style";
-import imageGroup from "../../assets/ImageGroup.png";
 import { RenderGroups } from "../../components/RenderGroups";
 import { FindGroups } from "../../components/FindGroups";
+import { ContainerGroupNone } from "../../components/ContainerGroupNone/inedex";
 
 export const Groups = () => {
   const [groups, setGroups] = useState([]);
   const [input, setInput] = useState("");
   const [groupInput, setGroupInput] = useState([]);
-
+  console.log(groups);
   return (
     <Div>
       <Header />
@@ -28,13 +28,17 @@ export const Groups = () => {
             setGroupInput={setGroupInput}
           />
         </Cabecalho>
-        {/* <img src={imageGroup} alt="group" className="imageGroup" /> */}
-        <RenderGroups
-          groups={groups}
-          setGroups={setGroups}
-          groupInput={groupInput}
-          input={input}
-        />
+        {!groups ? (
+          <RenderGroups
+            groups={groups}
+            setGroups={setGroups}
+            groupInput={groupInput}
+            input={input}
+          />
+        ) : (
+          <ContainerGroupNone />
+        )}
+
         <Footer>
           <button className="backButton">Voltar</button>
           <button className="redButtom">Criar Grupo</button>

@@ -73,7 +73,10 @@ export const RenderGroups = ({ groups, setGroups, groupInput, input }) => {
               </div>
             </Card>
           ))}
-      <button onClick={() => setPage(page + 1)}>mais grupos</button>
+
+      <div className="section__render_full" onClick={() => setPage(page + 1)}>
+        Ver mais
+      </div>
     </Section>
   );
 };

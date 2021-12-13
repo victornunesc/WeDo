@@ -12,6 +12,12 @@ export const Card = styled.div`
   justify-content: center;
   align-items: center;
 
+  @media (min-width: 660px) {
+    margin: 0 20px 20px 20px;
+    background: rgba(199, 215, 218, 0.75);
+    backdrop-filter: blur(6px);
+  }
+
   .upPart {
     width: 100%;
     height: 260px;
@@ -93,4 +99,13 @@ export const Section = styled.section`
   overflow-y: scroll;
   margin-top: 30px;
   flex: 1 0 auto;
+
+  .section__render_full {
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+  }
+  .section__render_full:hover {
+    color: var(--color-utility-danger);
+  }
 `;

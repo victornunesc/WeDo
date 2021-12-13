@@ -8,4 +8,8 @@ export const Input = styled.input`
   border: none;
   border-radius: 4px;
   padding-left: 10px;
+
+  @media (min-width: 660px) {
+    margin-right: 25px;
+  }
 `;

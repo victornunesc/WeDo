@@ -13,31 +13,15 @@ export const Container = styled.div`
   height: 659px;
   max-height: 95vh;
   max-width: 1200px;
-  width: 90vw;
+  width: 91vw;
   min-width: 320px;
   background: #fefefe;
   border-radius: 10px;
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: space-between;
-
-  .imageGroup {
-    display: none;
-  }
-
-  @media (min-width: 600px) {
-    .imageGroup {
-      display: block;
-      width: 400px;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      position: absolute;
-      filter: blur(2px);
-    }
-  }
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export const Cabecalho = styled.header`
@@ -55,12 +39,16 @@ export const Cabecalho = styled.header`
     width: 100%;
     margin: 10px;
   }
+
+  @media (min-width: 660px) {
+    flex-direction: row;
+  }
 `;
 export const Footer = styled.footer`
   flex-shrink: 0;
   height: 60px;
   display: flex;
-  justify-content: space-around;
+
   align-items: center;
   font-family: "Roboto", sans-serif;
 
@@ -73,6 +61,12 @@ export const Footer = styled.footer`
     font-size: var(--font-size-h3);
     line-height: var(--font-line-height-h3);
     border-radius: 8px;
+    margin-right: 15px;
+  }
+
+  .backButton:hover {
+    background: var(--color-secondary);
+    color: #fefefe;
   }
 
   .redButtom {
@@ -83,5 +77,16 @@ export const Footer = styled.footer`
     font-size: var(--font-size-h3);
     line-height: var(--font-line-height-h3);
     border-radius: 8px;
+  }
+
+  @media (min-width: 660px) {
+    justify-content: flex-end;
+    margin-right: 25px;
+
+    width: 100%;
+
+    .redButtom {
+      margin-left: 20px;
+    }
   }
 `;
