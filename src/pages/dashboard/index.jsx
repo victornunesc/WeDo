@@ -20,15 +20,13 @@ import api from "../../services/api"
 import { IconButton } from "../../components/Button";
 import {useContext} from "react"
 import {AuthContext} from "../../providers/AuthContext"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import {CardHabits} from "../../components/CardHabits/index"
 import {ModalHabits} from "../../components/ModalHabits/index"
 
 export const Dashboard = () => {
 
-  const {access, habits, setHabits} = useContext(AuthContext) 
-
-  const [isHabit, isSetHabit] = useState(false)
+  const {access, habits, setHabits, isHabit, showModalHabit} = useContext(AuthContext) 
 
   const loadData = () => {
     api.get("habits/personal/", {
@@ -46,14 +44,6 @@ export const Dashboard = () => {
     loadData()
   }, [])
 
-  const showModalHabit = () => {
-    isSetHabit(true)
-  }
-
-  const hideModalHabit = () => {
-    isSetHabit(false)
-  }
-
   return(
     <>
       <Header/>
@@ -67,7 +57,7 @@ export const Dashboard = () => {
             {
               habits.length >=1 ?
               habits.map((habit, index) => (
-                <CardHabits key={index} habit={habit}/>
+                <CardHabits key={index} habit={habit} loadData={loadData}/>
               ))
               :
               <>
@@ -101,7 +91,7 @@ export const Dashboard = () => {
       </FixPage>
       {
         isHabit ?
-        <ModalHabits hideModalHabit={hideModalHabit}/>
+        <ModalHabits/>
         :
         <>
         </>
