@@ -1,7 +1,14 @@
 import { Card, Section } from "./style";
 import { FiArrowUpRight } from "react-icons/fi";
+import { useGroup } from "../../providers/Groups";
 
 export const RenderGroups = ({ groups, groupInput, input, page, setPage }) => {
+  const { groupSpecifi } = useGroup();
+
+  const groupConect = (id) => {
+    groupSpecifi(id);
+  };
+
   return (
     <Section>
       {groupInput.length > 0 && input !== ""
@@ -24,7 +31,12 @@ export const RenderGroups = ({ groups, groupInput, input, page, setPage }) => {
                   </div>
                 )}
 
-                <div className="icon-button-group">
+                <div
+                  className="icon-button-group"
+                  onClick={() => {
+                    groupConect(group.id);
+                  }}
+                >
                   <FiArrowUpRight className="icon-group" />
                 </div>
               </div>
@@ -49,7 +61,12 @@ export const RenderGroups = ({ groups, groupInput, input, page, setPage }) => {
                   </div>
                 )}
 
-                <div className="icon-button-group">
+                <div
+                  className="icon-button-group"
+                  onClick={() => {
+                    groupConect(group.id);
+                  }}
+                >
                   <FiArrowUpRight className="icon-group" />
                 </div>
               </div>
