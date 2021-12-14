@@ -153,3 +153,13 @@ export const ContainerPassword = styled(Container)`
     }
   }
 `;
+
+export const ContainerSearch = styled(Container)`
+  height: 40px;
+  max-width: 250px;
+  margin: 0;
+
+  input {
+    margin: 0;
+  }
+`;
