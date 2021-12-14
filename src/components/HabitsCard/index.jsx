@@ -1,12 +1,16 @@
+import { useState } from 'react';
+
 import { Button, IconButton } from '../Button';
-import {useContext} from "react"
-import {HabitsContext} from "../../providers/Habits"
-import {EditHabits} from "../EditHabits/index"
+import { Modal } from '../Modal';
+import { HabitsEdit } from '../HabitsEdit';
 
 import { Container } from './style';
 
-export const CardHabits = ({ habit , loadData}) => {
+export const HabitsCard = ({ habit }) => {
+  const [showEdit, setShowEdit] = useState(false);
+
   const {
+    id,
     title,
     category,
     difficulty,
@@ -15,10 +19,13 @@ export const CardHabits = ({ habit , loadData}) => {
     how_much_achieved,
   } = habit;
 
-  const {showEditModal, isEdit} = useContext(HabitsContext)
+  const toggleEdit = () => {
+    setShowEdit(!showEdit);
+  };
 
   return (
     <>
+      {showEdit && <Modal onClick={toggleEdit} />}
       <Container timesAchieved={how_much_achieved} achieved={achieved}>
         <p className="card__title">{title}</p>
 
@@ -50,12 +57,12 @@ export const CardHabits = ({ habit , loadData}) => {
           <section>
             <p>{achieved ? 'Completo' : 'Incompleto'}</p>
           </section>
-          <IconButton edit card primaryColor onClick={() => showEditModal(habit)}/>
+          <IconButton edit card primaryColor onClick={toggleEdit} />
         </footer>
       </Container>
-      {
-        isEdit && <EditHabits loadData={loadData}/>
-      }
+      {showEdit && (
+        <HabitsEdit id={id} showEdit={showEdit} toggleEdit={toggleEdit} />
+      )}
     </>
   );
 };

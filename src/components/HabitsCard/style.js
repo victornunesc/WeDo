@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 export const Container = styled.section`
   display: flex;
@@ -10,7 +10,7 @@ export const Container = styled.section`
   min-height: 124px;
   border-radius: 10px;
   transition: 0.3s;
-  margin: 12px 0px;
+  margin: 4px 0 12px;
 
   p.card__title {
     display: flex;
@@ -26,10 +26,7 @@ export const Container = styled.section`
   }
 
   section.hover {
-    height: 0;
-    opacity: 0;
-    pointer-events: none;
-    transition: 0.3s;
+    display: none;
 
     section.content__container {
       height: 124px;
@@ -149,14 +146,12 @@ export const Container = styled.section`
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
 
     section.hover {
-      height: 100%;
-      opacity: 1;
-      pointer-events: all;
+      display: block;
     }
 
     footer {
       section {
-        width: 124px;
+        width: 126px;
       }
 
       section + section {

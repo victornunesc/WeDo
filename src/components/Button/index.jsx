@@ -2,8 +2,12 @@ import { Container, ContainerIcon } from './style';
 
 import { FiPlus, FiCheck, FiEdit } from 'react-icons/fi';
 
-export const Button = ({ children, ...rest }) => {
-  return <Container {...rest}>{children}</Container>;
+export const Button = ({ children, secondary, ...rest }) => {
+  return (
+    <Container secondary={secondary} {...rest}>
+      {children}
+    </Container>
+  );
 };
 
 export const IconButton = ({
