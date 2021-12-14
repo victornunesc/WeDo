@@ -4,7 +4,7 @@ import { Div, Container, Cabecalho, Footer } from "./style";
 import { RenderGroups } from "../../components/RenderGroups";
 import { FindGroups } from "../../components/FindGroups";
 import { ContainerGroupNone } from "../../components/ContainerGroupNone/inedex";
-import { useAuth } from "../../providers/AuthContext";
+import { useAuth } from "../../providers/Auth";
 import api from "../../services/api";
 import { useHistory } from "react-router-dom";
 

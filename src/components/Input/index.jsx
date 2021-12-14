@@ -2,10 +2,21 @@ import { useEffect, useState } from 'react';
 
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 
-import { Container, ContainerPassword, ContainerRadio } from './style';
+import {
+  Container,
+  ContainerPassword,
+  ContainerRadio,
+  ContainerSearch,
+} from './style';
 
-export const Input = ({ placeholder, register, name, errors }) => {
-  const [haveText, setHaveText] = useState(false);
+export const Input = ({
+  placeholder,
+  register,
+  name,
+  errors,
+  isEmpty = true,
+}) => {
+  const [haveText, setHaveText] = useState(!isEmpty);
   const [isErrored, setIsErrored] = useState(false);
 
   useEffect(() => {
@@ -13,7 +24,7 @@ export const Input = ({ placeholder, register, name, errors }) => {
   }, [errors[name]?.message]);
 
   return (
-    <Container haveText={haveText} isErrored={isErrored}>
+    <Container haveText={haveText} isErrored={isErrored} isEmpty={isEmpty}>
       <input
         type="text"
         {...register(name, {
@@ -78,5 +89,13 @@ export const InputPassword = ({ placeholder, register, name, errors }) => {
       <p className="placeholder">{placeholder}</p>
       {isErrored && <p className="error">{errors[name]?.message}</p>}
     </ContainerPassword>
+  );
+};
+
+export const InputSearch = ({ ...rest }) => {
+  return (
+    <ContainerSearch>
+      <input type="text" {...rest} />
+    </ContainerSearch>
   );
 };
