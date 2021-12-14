@@ -17,8 +17,6 @@ export const CardHabits = ({ habit , loadData}) => {
 
   const {showEditModal, isEdit, actualHabit, habits, newHabit} = useContext(HabitsContext)
 
-  console.log(isEdit)
-
   return (
     <>
       <Container timesAchieved={how_much_achieved} achieved={achieved}>

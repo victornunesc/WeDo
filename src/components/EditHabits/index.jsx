@@ -17,7 +17,9 @@ import {yupResolver} from "@hookform/resolvers/yup"
 export const EditHabits = ({loadData}) => {
 
     const {access} = useContext(AuthContext)
-    const {hideEditModal, showEditModal, actualHabit, habits, newHabit} = useContext(HabitsContext)
+    const {hideEditModal, actualHabit} = useContext(HabitsContext)
+
+    console.log(actualHabit)
 
     const schema = yup.object().shape({
         title: yup.string().required("Campo Obrigatório"),
@@ -44,7 +46,7 @@ export const EditHabits = ({loadData}) => {
     }
 
     const deleteHabit = (id) => {
-        api.delete(`/habits/${id}/`, {
+        api.delete(`habits/${id}/`, {
             headers: { Authorization: `Bearer ${access}`},
         })
         .then((response) => {

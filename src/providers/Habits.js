@@ -20,7 +20,7 @@ export const HabitsProvider = ({children}) => {
 
     const showEditModal = (habit) => {
         isSetEdit(true)
-        setActualHabit(habit.id)
+        setActualHabit(habit)
     }
 
     const hideEditModal = () => {
