@@ -1,8 +1,9 @@
 import { useState, createContext, useContext } from 'react';
 import jwt_decode from 'jwt-decode';
-import api from '../../services/api';
 import { toast } from 'react-toastify';
 import { useHistory } from 'react-router';
+
+import api from '../../services/api';
 
 export const AuthContext = createContext({});
 

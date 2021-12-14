@@ -1,10 +1,10 @@
-import { Card, Section } from "./style";
-import { FiArrowUpRight } from "react-icons/fi";
+import { FiArrowUpRight } from 'react-icons/fi';
+import { Card, Section } from './style';
 
 export const RenderGroups = ({ groups, groupInput, input, page, setPage }) => {
   return (
     <Section>
-      {groupInput.length > 0 && input !== ""
+      {groupInput.length > 0 && input !== ''
         ? groupInput.map((group, index) => (
             <Card className="Card" key={index}>
               <div className="upPart">
