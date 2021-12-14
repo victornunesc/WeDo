@@ -8,6 +8,7 @@ import { useAuth } from "../../providers/Auth";
 import api from "../../services/api";
 import { useHistory } from "react-router-dom";
 import { CreateGroup } from "../../components/CreateGroups";
+import { Button } from "../../components/Button";
 
 export const Groups = () => {
   const [groups, setGroups] = useState([]);
@@ -63,15 +64,12 @@ export const Groups = () => {
         )}
 
         <Footer>
-          <button
-            className="backButton"
-            onClick={() => history.push("/dashboard")}
-          >
+          <Button secondary onClick={() => history.push("/dashboard")}>
             Voltar
-          </button>
-          <button className="redButtom" onClick={() => setModal(true)}>
+          </Button>
+          <Button className="redButtom" onClick={() => setModal(true)}>
             Criar Grupo
-          </button>
+          </Button>
         </Footer>
       </Container>
       {modal ? <CreateGroup modal={modal} setModal={setModal} /> : null}

@@ -53,7 +53,7 @@ export const CreateGroup = ({ setModal }) => {
             register={register}
             errors={errors}
             name="name"
-            placeholder="name"
+            placeholder="Nome"
           />
           <Input
             register={register}
