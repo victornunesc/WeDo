@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import { useHistory } from "react-router-dom";
 
 import api from "../../services/api";
 import { useAuth } from "../Auth";
@@ -11,6 +12,7 @@ const GroupProvider = ({ children }) => {
   const [myGroups, setMyGroups] = useState([]);
   const [hasMyGroups, setHasMyGroups] = useState([]);
   const [specifiGroup, setSpecifiGroup] = useState({});
+  const history = useHistory();
 
   const { access } = useAuth();
 
@@ -32,7 +34,8 @@ const GroupProvider = ({ children }) => {
         headers: { Authorization: `Bearer ${access}` },
       })
       .then((response) => {
-        console.log(response.data);
+        setSpecifiGroup(response.data);
+        history.push(`/group/${id}`);
       })
       .catch((err) => console.log(err));
   };

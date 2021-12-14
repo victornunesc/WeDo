@@ -1,26 +1,28 @@
-import { useHistory } from 'react-router';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
+import { useHistory } from "react-router";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
-import { useAuth } from '../../providers/Auth';
+import { AlreadyRegistered } from "../signup/style";
 
-import { Input, InputPassword } from '../../components/Input';
-import { Button } from '../../components/Button';
+import { useAuth } from "../../providers/Auth";
 
-import logoLogin from '../../assets/logoLogin.png';
-import flowersLogin from '../../assets/flowersLogin.png';
-import { AlreadyRegistered } from '../signup/style';
-import { Container, Form } from './styles';
+import { Input, InputPassword } from "../../components/Input";
+import { Button } from "../../components/Button";
+
+import logoLogin from "../../assets/logoLogin.png";
+import flowersLogin from "../../assets/flowersLogin.png";
+
+import { Container, Form } from "./styles";
 
 export const Login = () => {
   const schema = yup
     .object({
-      username: yup.string().required('Campo Obrigatório'),
+      username: yup.string().required("Campo Obrigatório"),
       password: yup
         .string()
-        .min(6, 'Mínimo 6 caracteres')
-        .required('Campo Obrigatório'),
+        .min(6, "Mínimo 6 caracteres")
+        .required("Campo Obrigatório"),
     })
     .required();
 
@@ -58,11 +60,11 @@ export const Login = () => {
         <Button type="submit">Login</Button>
         <AlreadyRegistered>
           <p className="font__body">
-            Não possui uma conta?{' '}
+            Não possui uma conta?{" "}
             <span
               className="span-redirect"
               onClick={() => {
-                history.push('/signup');
+                history.push("/signup");
               }}
             >
               Cadastre-se

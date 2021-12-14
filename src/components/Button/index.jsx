@@ -1,6 +1,6 @@
-import { Container, ContainerIcon } from './style';
+import { Container, ContainerIcon } from "./style";
 
-import { FiPlus, FiCheck, FiEdit } from 'react-icons/fi';
+import { FiPlus, FiCheck, FiEdit, FiArrowUpRight } from "react-icons/fi";
 
 export const Button = ({ children, secondary, ...rest }) => {
   return (
@@ -15,6 +15,7 @@ export const IconButton = ({
   check,
   edit,
   card,
+  arrowUp,
   primaryColor,
   ...rest
 }) => {
@@ -23,6 +24,7 @@ export const IconButton = ({
       {add && <FiPlus />}
       {check && <FiCheck />}
       {edit && <FiEdit />}
+      {arrowUp && <FiArrowUpRight />}
     </ContainerIcon>
   );
 };
