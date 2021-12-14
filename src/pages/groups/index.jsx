@@ -6,8 +6,10 @@ import api from '../../services/api';
 
 import Header from '../../components/Header';
 import { RenderGroups } from '../../components/RenderGroups';
+import { CreateGroup } from '../../components/CreateGroups';
 import { FindGroups } from '../../components/FindGroups';
 import { ContainerGroupNone } from '../../components/ContainerGroupNone';
+import { Button } from '../../components/Button';
 
 import { Div, Container, Cabecalho, Footer } from './style';
 
@@ -17,6 +19,7 @@ export const Groups = () => {
   const [groupInput, setGroupInput] = useState([]);
   const { access } = useAuth();
   const [page, setPage] = useState(1);
+  const [modal, setModal] = useState(false);
 
   const history = useHistory();
 
@@ -64,15 +67,15 @@ export const Groups = () => {
         )}
 
         <Footer>
-          <button
-            className="backButton"
-            onClick={() => history.push('/dashboard')}
-          >
+          <Button secondary onClick={() => history.push('/dashboard')}>
             Voltar
-          </button>
-          <button className="redButtom">Criar Grupo</button>
+          </Button>
+          <Button className="redButtom" onClick={() => setModal(true)}>
+            Criar Grupo
+          </Button>
         </Footer>
       </Container>
+      {modal ? <CreateGroup modal={modal} setModal={setModal} /> : null}
     </Div>
   );
 };

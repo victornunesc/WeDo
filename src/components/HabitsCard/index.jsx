@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-import { Button, IconButton } from '../Button';
-import { Modal } from '../Modal';
-import { HabitsEdit } from '../HabitsEdit';
+import { Button, IconButton } from "../Button";
+import { Modal } from "../Modal";
+import { HabitsEdit } from "../HabitsEdit";
 
-import { Container } from './style';
+import { Container } from "./style";
 
 export const HabitsCard = ({ habit }) => {
   const [showEdit, setShowEdit] = useState(false);
@@ -54,7 +54,7 @@ export const HabitsCard = ({ habit }) => {
             <p>{category}</p>
           </section>
           <section>
-            <p>{achieved ? 'Completo' : 'Incompleto'}</p>
+            <p>{achieved ? "Completo" : "Incompleto"}</p>
           </section>
           <IconButton edit card primaryColor onClick={toggleEdit} />
         </footer>

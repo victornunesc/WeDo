@@ -1,14 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
-import { useHabits } from '../../providers/Habits';
+import { useHabits } from "../../providers/Habits";
 
-import { IconButton } from '../Button';
-import { EmptyCardInfo } from '../EmptyCardInfo';
-import { HabitsCard } from '../HabitsCard';
-import { HabitsAdd } from '../HabitsAdd';
-import { Modal } from '../Modal';
+import { IconButton } from "../Button";
+import { EmptyCardInfo } from "../EmptyCardInfo";
+import { HabitsCard } from "../HabitsCard";
+import { HabitsAdd } from "../HabitsAdd";
+import { Modal } from "../Modal";
 
-import { Container } from './style';
+import { Container } from "./style";
 
 export const HabitsContainer = () => {
   const [showAdd, setShowAdd] = useState(false);
