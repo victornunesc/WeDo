@@ -1,11 +1,18 @@
-import { IconButton } from '../Button';
-
-import { Card, Section } from './style';
+import { Card, Section } from "./style";
+import { useGroup } from "../../providers/Groups";
+import { IconButton } from "../Button";
 
 export const RenderGroups = ({ groups, groupInput, input, page, setPage }) => {
+  const { groupSpecifi, specifiGroup } = useGroup();
+
+  const groupConect = (id) => {
+    groupSpecifi(id);
+  };
+  console.log(specifiGroup);
+
   return (
     <Section>
-      {groupInput.length > 0 && input !== ''
+      {groupInput.length > 0 && input !== ""
         ? groupInput.map((group, index) => (
             <Card className="Card" key={index}>
               <div className="upPart">
@@ -26,6 +33,9 @@ export const RenderGroups = ({ groups, groupInput, input, page, setPage }) => {
                 )}
 
                 <IconButton
+                  onClick={() => {
+                    groupConect(group.id);
+                  }}
                   className="icon-button-group"
                   arrowUp
                   primaryColor
@@ -53,6 +63,9 @@ export const RenderGroups = ({ groups, groupInput, input, page, setPage }) => {
                 )}
 
                 <IconButton
+                  onClick={() => {
+                    groupConect(group.id);
+                  }}
                   className="icon-button-group"
                   arrowUp
                   primaryColor
