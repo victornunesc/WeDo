@@ -1,9 +1,9 @@
 import { Button } from '../Button';
 
 import ImageInfo from '../../assets/ImageInfo.png';
-import ImageGoal from '../../assets/ImageGoal.png';
-import ImageActivity from '../../assets/ImageActivity.png';
-import ImageUsers from '../../assets/ImageUsers.png';
+
+import { EmptyCardInfo } from '../EmptyCardInfo';
+
 import { Footer, Center, Container, Container2 } from './style';
 
 export const Info = () => {
@@ -41,8 +41,7 @@ export const Goal = () => {
     <Container2>
       <h3>Metas</h3>
       <Center>
-        <h3>Nenhuma meta ainda, clique para adicionar uma!</h3>
-        <img src={ImageGoal} alt="ImageGoal" />
+        <EmptyCardInfo goals />
       </Center>
       <div className="addEnd">
         <Button>Adicionar Meta</Button>
@@ -56,8 +55,7 @@ export const Activity = () => {
     <Container2>
       <h3>Atividades</h3>
       <Center>
-        <h3>Nenhuma atividade ainda, clique para adicionar uma!</h3>
-        <img src={ImageActivity} alt="ImageActivity" />
+        <EmptyCardInfo activity />
       </Center>
       <div className="addEnd">
         <Button>Adicionar Atividade</Button>
@@ -71,8 +69,7 @@ export const Users = () => {
     <Container2>
       <h3>Usuários</h3>
       <Center>
-        <h3>Nenhum usuário no grupo, seja o primeiro!</h3>
-        <img src={ImageUsers} alt="ImageUsers" />
+        <EmptyCardInfo user />
       </Center>
     </Container2>
   );
