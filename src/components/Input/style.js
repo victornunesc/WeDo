@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 export const Container = styled.section`
   height: 80px;
   width: 100%;
-  max-width: 300px;
+  max-width: 400px;
   position: relative;
   margin-top: 8px;
 
@@ -71,6 +71,10 @@ export const Container = styled.section`
 `;
 
 export const ContainerRadio = styled(Container)`
+  max-height: 110px;
+  height: auto;
+  width: 100%;
+
   p.title {
     font-size: var(--font-size-h3);
     line-height: var(--font-line-height-h3);
@@ -79,15 +83,16 @@ export const ContainerRadio = styled(Container)`
 
   section.options {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
-    margin-top: 12px;
+    justify-content: space-evenly;
+    margin-top: 8px;
   }
 
   section.options > section.options__option {
-    height: auto;
+    height: min-content;
     width: auto;
-    margin: 0;
+    margin: 4px 0;
   }
 
   input {

@@ -60,10 +60,15 @@ const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        background-color: var(--color-white);
+        background-color: var(--color-white-light);
         font-family: var(--font-family-body);
         font-size: 16px;
         color: var(--color-black);
+        transition: .3s;
+        
+        @media screen and (min-width: 650px) {
+            background-color: var(--color-white);
+        }
     }
 
     h1 {
@@ -89,6 +94,21 @@ const GlobalStyle = createGlobalStyle`
     .font__body {
         font-size: var(--font-size-body);
         line-height: var(--font-line-height-body);
+    }
+
+
+    /* SCROLLBAR  */
+    ::-webkit-scrollbar {
+        width: 4px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background-color: var(--color-primary);
+        border-radius: 4px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: var(--color-primary-dark);
     }
 `;
 

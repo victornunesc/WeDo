@@ -1,6 +1,6 @@
-import { AuthProvider } from './AuthContext';
-import { HabitsProvider } from './Habits';
-import { GroupProvider } from './Groups';
+import { AuthProvider } from "./Auth";
+import { HabitsProvider } from "./Habits";
+import { GroupProvider } from "./Groups";
 
 const Providers = ({ children }) => {
   return (
