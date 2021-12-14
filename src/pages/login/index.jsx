@@ -3,6 +3,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useHistory } from "react-router";
 
+import {AlreadyRegistered} from "../signup/style"
 import { useAuth } from "../../providers/AuthContext";
 
 import { Input, InputPassword } from "../../components/Input";
@@ -15,11 +16,11 @@ import { Container, Form } from "./styles";
 export const Login = () => {
   const schema = yup
     .object({
-      username: yup.string().required("username obrigatório!"),
+      username: yup.string().required("Campo Obrigatório"),
       password: yup
         .string()
-        .min(6, "minimo 6 caracteres")
-        .required("senha obrigatoria"),
+        .min(6, "Mínimo 6 caracteres")
+        .required("Campo Obrigatório"),
     })
     .required();
 
@@ -55,18 +56,19 @@ export const Login = () => {
           errors={errors}
         />
         <Button type="submit">Login</Button>
-
-        <p className="redirect">
-          Não possui uma conta?{" "}
-          <span
-            className="span-redirect"
-            onClick={() => {
-              history.push("/signup");
-            }}
-          >
-            Cadastre-se
-          </span>
-        </p>
+        <AlreadyRegistered>
+          <p className="font__body">
+            Não possui uma conta?{" "}
+            <span
+              className="span-redirect"
+              onClick={() => {
+                history.push("/signup");
+              }}
+            >
+              Cadastre-se
+            </span>
+          </p>
+        </AlreadyRegistered>
         <img className="flower" src={flowersLogin} alt="flower" />
       </Form>
       <img className="image" src={logoLogin} alt="yoga" />

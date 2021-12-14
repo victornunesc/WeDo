@@ -7,6 +7,7 @@ import { ContainerGroupNone } from "../../components/ContainerGroupNone/inedex";
 import { useAuth } from "../../providers/AuthContext";
 import api from "../../services/api";
 import { useHistory } from "react-router-dom";
+import { CreateGroup } from "../../components/CreateGroups";
 
 export const Groups = () => {
   const [groups, setGroups] = useState([]);
@@ -14,6 +15,7 @@ export const Groups = () => {
   const [groupInput, setGroupInput] = useState([]);
   const { access } = useAuth();
   const [page, setPage] = useState(1);
+  const [modal, setModal] = useState(false);
 
   const history = useHistory();
 
@@ -67,9 +69,12 @@ export const Groups = () => {
           >
             Voltar
           </button>
-          <button className="redButtom">Criar Grupo</button>
+          <button className="redButtom" onClick={() => setModal(true)}>
+            Criar Grupo
+          </button>
         </Footer>
       </Container>
+      {modal ? <CreateGroup modal={modal} setModal={setModal} /> : null}
     </Div>
   );
 };

@@ -31,7 +31,7 @@ export const RightSide = styled.div`
 `;
 
 export const Box = styled.div`
-  width: 80%;
+  max-width: 600px;
   height: 80vh;
   background-color: white;
   display: flex;
@@ -41,15 +41,18 @@ export const Box = styled.div`
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
 
   @media (max-width: 1000px) {
+    width: 100%;
     height: 70vh;
   }
-  @media (max-width: 500px) {
-    width: 95%;
+  @media (max-width: 600px) {
+    width: 100%;
+    height: 100vh;
+    border-radius: 0px;
   }
 `;
 
 export const CenterForm = styled.div`
-  width: 70%;
+  width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -60,51 +63,20 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
 
-export const Input = styled.input`
-  width: 100%;
-  border-radius: 5px;
-  padding: 15px;
-  margin: 10px 0px;
-  background-color: #ecf1f2;
-  font-size: 1.2rem;
-
-  @media (max-width: 1000px) {
-    font-size: 1.2rem;
+  Button{
+    margin-top: 24px;
   }
 `;
 
-export const Label = styled.label`
-  width: 100%;
-  text-align: left;
-  margin-top: 10px;
-`;
-
-export const ErrorMessage = styled.span`
-  color: red;
-  width: 100%;
-  text-align: left;
-`;
-
-export const Button = styled.button`
-  cursor: pointer;
-  width: 200px;
-  background-color: #b04a4a;
-  color: white;
-  border-radius: 5px;
-  padding: 10px 0px;
-  font-size: 1.4rem;
-  margin: 10px 0px;
-`;
-
-export const AlreadyRegistered = styled.button`
-  cursor: pointer;
+export const AlreadyRegistered = styled.p`
   background-color: transparent;
   font-size: 1.2rem;
+  margin-top: 24px;
 
   span {
     color: #b04a4a;
+    cursor: pointer;
   }
 
   @media (max-width: 1000px) {

@@ -49,32 +49,9 @@ const AuthProvider = ({ children }) => {
     setData({});
   };
 
-  const [habits, setHabits] = useState([])
-  const [isHabit, isSetHabit] = useState(false)
-
-  const [isEdit, isSetEdit] = useState(false)
-  const [actualHabit, setActualHabit] = useState(0)
-
-  const showModalHabit = () => {
-    isSetHabit(true)
-  }
-
-  const hideModalHabit = () => {
-    isSetHabit(false)
-  }
-
-  const showEditModal = (habit) => {
-    isSetEdit(true)
-    setActualHabit(habit.id)
-  }
-
-  const hideEditModal = () => {
-    isSetEdit(false)
-  }
-
   return (
     <AuthContext.Provider
-      value={{ access: data.access, user: data.user, signIn, signOut, habits, setHabits, isHabit, isSetHabit, showModalHabit, hideModalHabit, showEditModal, hideEditModal, isEdit, actualHabit, setActualHabit}}
+      value={{ access: data.access, user: data.user, signIn, signOut}}
     >
       {children}
     </AuthContext.Provider>

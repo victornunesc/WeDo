@@ -30,7 +30,7 @@ export const Signup = () => {
     email: yup.string().required('Campo obrigatório').email('Email inválido'),
     password: yup
       .string()
-      .min(6, 'No mínimo 6 caracteres')
+      .min(6, 'Mínimo 6 caracteres')
       .required('Campo obrigatório'),
     confirmPassword: yup
       .string()
@@ -100,8 +100,10 @@ export const Signup = () => {
                 />
                 <Button type="submit">Cadastrar</Button>
                 <AlreadyRegistered>
-                  Já possui uma conta?{' '}
-                  <span onClick={() => history.push('/')}>Faça login</span>
+                  <p className="font__body">
+                    Já possui uma conta?{' '}
+                    <span onClick={() => history.push('/')}>Faça login</span>
+                  </p>
                 </AlreadyRegistered>
               </Form>
             </CenterForm>

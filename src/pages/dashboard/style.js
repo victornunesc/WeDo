@@ -5,16 +5,8 @@ export const Title = styled.h2`
   color: var(--color-black-dark);
 `;
 
-export const Input = styled.input`
-  color: black;
-  background-color: #ecf1f2;
-  border-radius: 4px;
-  padding: 10px;
-`;
-
 export const Main = styled.div`
   max-width: 1200px;
-  background-color: var(--color-white-dark);
   display: flex;
   flex-direction: column;
   align-items: center;

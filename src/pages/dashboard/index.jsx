@@ -1,6 +1,5 @@
 import {
   Title,
-  Input,
   Main,
   HeadContainer,
   ContainerHabits,
@@ -18,13 +17,15 @@ import api from "../../services/api";
 import { Button, IconButton } from "../../components/Button";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthContext";
+import { HabitsContext } from "../../providers/Habits";
 import { useEffect, useState } from "react";
 import { CardHabits } from "../../components/CardHabits/index";
 import { ModalHabits } from "../../components/ModalHabits/index";
 
 export const Dashboard = () => {
-  const { access, habits, setHabits, isHabit, showModalHabit } =
-    useContext(AuthContext);
+  const { access } = useContext(AuthContext);
+  const { habits, setHabits, isHabit, showModalHabit } =
+    useContext(HabitsContext);
 
   const loadData = () => {
     api
@@ -72,7 +73,6 @@ export const Dashboard = () => {
         <ContainerGroups>
           <HeadContainer>
             <Title>Meus Grupos</Title>
-            {/* <Input placeholder="Pesquisar Grupos" /> */}
           </HeadContainer>
           <Groups>
             {
@@ -82,7 +82,7 @@ export const Dashboard = () => {
               <>
                 <NoItems>
                   <BackgroundMessage background>
-                    Você não está em nenhum grupo, encontre grupos que queria
+                    Você não está em nenhum grupo, encontre grupos que queira
                     entrar!
                   </BackgroundMessage>
                 </NoItems>
