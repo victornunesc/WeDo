@@ -1,8 +1,9 @@
-import { useState, createContext, useContext } from "react";
-import jwt_decode from "jwt-decode";
-import api from "../services/api";
-import { toast } from "react-toastify";
-import { useHistory } from "react-router";
+import { useState, createContext, useContext } from 'react';
+import jwt_decode from 'jwt-decode';
+import { toast } from 'react-toastify';
+import { useHistory } from 'react-router';
+
+import api from '../../services/api';
 
 export const AuthContext = createContext({});
 
@@ -14,8 +15,8 @@ const useAuth = () => {
 
 const AuthProvider = ({ children }) => {
   const [data, setData] = useState(() => {
-    const access = localStorage.getItem("@WeDo:access");
-    const user = localStorage.getItem("@WeDo:user");
+    const access = localStorage.getItem('@WeDo:access');
+    const user = localStorage.getItem('@WeDo:user');
 
     if (access && user) {
       return { access, user: JSON.parse(user) };
@@ -28,31 +29,31 @@ const AuthProvider = ({ children }) => {
 
   const signIn = (data) => {
     api
-      .post("sessions/", data)
+      .post('sessions/', data)
       .then((response) => {
         const { access } = response.data;
 
         const user = jwt_decode(access);
 
-        localStorage.setItem("@WeDo:access", access);
-        localStorage.setItem("@WeDo:user", JSON.stringify(user));
+        localStorage.setItem('@WeDo:access', access);
+        localStorage.setItem('@WeDo:user', JSON.stringify(user));
 
         setData({ access, user });
-        history.push("/dashboard");
+        history.push('/dashboard');
       })
-      .catch((err) => toast.error("Email ou senha inválida"));
+      .catch((err) => toast.error('Email ou senha inválida'));
   };
 
   const signOut = () => {
-    localStorage.removeItem("@WeDo:token");
-    localStorage.removeItem("@WeDo:user");
+    localStorage.removeItem('@WeDo:token');
+    localStorage.removeItem('@WeDo:user');
 
     setData({});
   };
 
   return (
     <AuthContext.Provider
-      value={{ access: data.access, user: data.user, signIn, signOut}}
+      value={{ access: data.access, user: data.user, signIn, signOut }}
     >
       {children}
     </AuthContext.Provider>

@@ -1,3 +1,15 @@
+import { useContext } from 'react';
+import * as yup from 'yup';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { toast } from 'react-toastify';
+
+import { AuthContext } from '../../providers/Auth';
+import api from '../../services/api';
+
+import { Input } from '../Input/index';
+import { Button } from '../Button/index';
+
 import {
   ShowOnlyContainer,
   Container,
@@ -6,25 +18,14 @@ import {
   MainModal,
   Form,
   FixForm,
-} from "./style";
-import { Input } from "../Input/index";
-import { Button } from "../Button/index";
-import { useContext } from "react";
-import { AuthContext } from "../../providers/AuthContext";
-import { toast } from "react-toastify";
-
-import api from "../../services/api";
-import * as yup from "yup";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
+} from './style';
 
 export const ModalProfile = ({ hideModalProfile }) => {
   const { access, user } = useContext(AuthContext);
-  console.log(user);
 
   const schema = yup.object().shape({
-    username: yup.string().required("Campo Obrigatório"),
-    email: yup.string().email("Email inválido").required("Campo Obrigatório"),
+    username: yup.string().required('Campo Obrigatório'),
+    email: yup.string().email('Email inválido').required('Campo Obrigatório'),
   });
 
   const {
@@ -41,11 +42,11 @@ export const ModalProfile = ({ hideModalProfile }) => {
         headers: { Authorization: `Bearer ${access}` },
       })
       .then((response) => {
-        toast.success("Perfil Atualizado!");
+        toast.success('Perfil Atualizado!');
       })
       .catch((err) => {
         console.log(err);
-        toast.error("Não foi possível atualizar perfil");
+        toast.error('Não foi possível atualizar perfil');
       });
   };
 

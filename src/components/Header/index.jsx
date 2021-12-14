@@ -1,6 +1,5 @@
-import { Container } from "./style";
-
-import profilePicture from "../../assets/Images/Profile/profile-picture.png";
+import profilePicture from '../../assets/Images/Profile/profile-picture.png';
+import { Container } from './style';
 
 const Header = () => {
   return (
