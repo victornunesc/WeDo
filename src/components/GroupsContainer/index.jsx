@@ -1,14 +1,16 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
-import { useGroup } from '../../providers/Groups';
+import { useGroup } from "../../providers/Groups";
 
-import { InputSearch } from '../Input';
-import { Button } from '../Button';
+import { InputSearch } from "../Input";
+import { Button } from "../Button";
 
-import { Container } from './style';
+import { Container } from "./style";
+import { useHistory } from "react-router-dom";
 
 export const GroupsContainer = () => {
   const { myGroups, hasMyGroups, loadMyGroups } = useGroup();
+  const history = useHistory();
 
   useEffect(() => {
     loadMyGroups();
@@ -33,7 +35,9 @@ export const GroupsContainer = () => {
           )}
         </main>
         <footer>
-          <Button>Encontrar grupos</Button>
+          <Button onClick={() => history.push("/groups")}>
+            Encontrar grupos
+          </Button>
         </footer>
       </section>
     </Container>
