@@ -31,7 +31,6 @@ export const CreateGroup = ({ setModal }) => {
   });
 
   const { access } = useAuth();
-  console.log(access);
 
   const formValue = (data) => {
     api
