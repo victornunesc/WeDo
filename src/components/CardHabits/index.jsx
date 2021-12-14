@@ -15,13 +15,14 @@ export const CardHabits = ({ habit , loadData}) => {
     how_much_achieved,
   } = habit;
 
-  const {showEditModal, isEdit} = useContext(HabitsContext)
+  const {showEditModal, isEdit, actualHabit, habits, newHabit} = useContext(HabitsContext)
+
+  console.log(isEdit)
 
   return (
     <>
       <Container timesAchieved={how_much_achieved} achieved={achieved}>
         <p className="card__title">{title}</p>
-
         <section className="hover">
           <section className="content__container">
             <section className="card__content">
@@ -50,7 +51,7 @@ export const CardHabits = ({ habit , loadData}) => {
           <section>
             <p>{achieved ? 'Completo' : 'Incompleto'}</p>
           </section>
-          <IconButton edit card primaryColor onClick={() => showEditModal(habit)}/>
+          <IconButton edit card primaryColor onClick={() => showEditModal(habit.id)}/>
         </footer>
       </Container>
       {

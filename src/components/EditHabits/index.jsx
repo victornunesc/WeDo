@@ -17,7 +17,7 @@ import {yupResolver} from "@hookform/resolvers/yup"
 export const EditHabits = ({loadData}) => {
 
     const {access} = useContext(AuthContext)
-    const {hideEditModal, actualHabit} = useContext(HabitsContext)
+    const {hideEditModal, showEditModal, actualHabit, habits, newHabit} = useContext(HabitsContext)
 
     const schema = yup.object().shape({
         title: yup.string().required("Campo Obrigatório"),
@@ -31,7 +31,6 @@ export const EditHabits = ({loadData}) => {
     }) 
 
     const updateHabit = (data) => {
-
         api.patch(`habits/${actualHabit}/`, data, {
             headers: { Authorization: `Bearer ${access}`},
         })

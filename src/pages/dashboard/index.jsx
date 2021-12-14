@@ -25,7 +25,7 @@ import { ModalHabits } from "../../components/ModalHabits/index";
 export const Dashboard = () => {
 
   const {access} = useContext(AuthContext) 
-  const {habits, setHabits, isHabit, showModalHabit} = useContext(HabitsContext)
+  const {habits, setHabits, isHabit, showModalHabit, selectedHabit} = useContext(HabitsContext)
 
   const loadData = () => {
     api
@@ -43,7 +43,6 @@ export const Dashboard = () => {
   useEffect(() => {
     loadData();
   }, []);
-
 
   return(
     <>
