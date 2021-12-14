@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Input } from "./style";
 import api from "../../services/api";
-import { useAuth } from "../../providers/AuthContext";
+import { useAuth } from "../../providers/Auth";
 
 export const FindGroups = ({
   placeholder,

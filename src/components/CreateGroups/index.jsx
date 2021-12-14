@@ -7,7 +7,7 @@ import { Input } from "../Input";
 import { Button } from "../Button";
 import api from "../../services/api";
 import { toast } from "react-toastify";
-import { useAuth } from "../../providers/AuthContext";
+import { useAuth } from "../../providers/Auth";
 
 export const CreateGroup = ({ setModal }) => {
   const lastTest = () => {
@@ -31,6 +31,7 @@ export const CreateGroup = ({ setModal }) => {
   });
 
   const { access } = useAuth();
+  console.log(access);
 
   const formValue = (data) => {
     api
@@ -40,31 +41,34 @@ export const CreateGroup = ({ setModal }) => {
       .then((response) => {
         toast.success("Grupo criado com sucesso");
       })
-      .catch((err) => toast.error("Erro ao criar grupo"));
+      .catch((err) => console.log(err));
   };
   return (
     <>
       <Modal onClick={lastTest} />
       <Container onSubmit={handleSubmit(formValue)}>
         <h2>Adicionar Grupo</h2>
-        <Input
-          register={register}
-          errors={errors}
-          name="name"
-          placeholder="name"
-        />
-        <Input
-          register={register}
-          errors={errors}
-          name="description"
-          placeholder="Descrição"
-        />
-        <Input
-          register={register}
-          errors={errors}
-          name="category"
-          placeholder="Categoria"
-        />
+        <section>
+          <Input
+            register={register}
+            errors={errors}
+            name="name"
+            placeholder="name"
+          />
+          <Input
+            register={register}
+            errors={errors}
+            name="description"
+            placeholder="Descrição"
+          />
+          <Input
+            register={register}
+            errors={errors}
+            name="category"
+            placeholder="Categoria"
+          />
+        </section>
+
         <div className="button">
           <Button>Adicionar</Button>
         </div>

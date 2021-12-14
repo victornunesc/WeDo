@@ -1,5 +1,6 @@
 import { Card, Section } from "./style";
 import { FiArrowUpRight } from "react-icons/fi";
+import { IconButton } from "../Button";
 
 export const RenderGroups = ({ groups, groupInput, input, page, setPage }) => {
   return (
@@ -49,9 +50,11 @@ export const RenderGroups = ({ groups, groupInput, input, page, setPage }) => {
                   </div>
                 )}
 
-                <div className="icon-button-group">
-                  <FiArrowUpRight className="icon-group" />
-                </div>
+                <IconButton
+                  className="icon-button-group"
+                  arrowUp
+                  primaryColor
+                />
               </div>
             </Card>
           ))}

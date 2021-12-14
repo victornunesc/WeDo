@@ -1,16 +1,18 @@
+import { useHistory } from "react-router";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useHistory } from "react-router";
 
-import {AlreadyRegistered} from "../signup/style"
-import { useAuth } from "../../providers/AuthContext";
+import { AlreadyRegistered } from "../signup/style";
+
+import { useAuth } from "../../providers/Auth";
 
 import { Input, InputPassword } from "../../components/Input";
 import { Button } from "../../components/Button";
 
 import logoLogin from "../../assets/logoLogin.png";
 import flowersLogin from "../../assets/flowersLogin.png";
+
 import { Container, Form } from "./styles";
 
 export const Login = () => {

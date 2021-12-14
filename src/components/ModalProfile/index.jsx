@@ -10,7 +10,7 @@ import {
 import { Input } from "../Input/index";
 import { Button } from "../Button/index";
 import { useContext } from "react";
-import { AuthContext } from "../../providers/AuthContext";
+import { AuthContext } from "../../providers/Auth";
 import { toast } from "react-toastify";
 
 import api from "../../services/api";
@@ -20,7 +20,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 export const ModalProfile = ({ hideModalProfile }) => {
   const { access, user } = useContext(AuthContext);
-  console.log(user);
 
   const schema = yup.object().shape({
     username: yup.string().required("Campo Obrigatório"),
