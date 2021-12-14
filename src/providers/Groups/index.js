@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from 'react';
 
 import api from '../../services/api';
-import { useAuth } from '../AuthContext';
+import { useAuth } from '../Auth';
 
 export const GroupContext = createContext();
 
