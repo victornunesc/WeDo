@@ -14,6 +14,7 @@ export const GroupTitle = styled.div `
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     background-color: var(--color-white);
     padding: 10px;
     border-radius: 10px;
@@ -47,74 +48,6 @@ export const GroupInfos = styled.div `
     margin-top: 20px;
     padding: 10px;
     background-color: var(--color-white);
-    
-    .fundo{
-        background-color: var(--color-white-light);
-        padding: 10px;
-        width: 419px;
-        margin-top: 10px;
-
-        span{
-            color: var(--color-black);
-        }
-
-        @media (max-width: 460px){
-            width: 280px;
-        }
-    }
-
-    .container{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    .container1{
-        max-width: 500px;
-    }
-    .container2{
-        max-width: 800px;
-
-        @media (max-width: 1150px){
-            img{
-                width: 500px;
-            }
-        }
-        @media (max-width: 950px){
-            img{
-                width: 350px;
-            }
-        }
-
-        @media (max-width: 800px){
-            img{
-                display: none;
-            }
-        }
-    }
-
-    .addEnd{
-        display: flex;
-        justify-content: flex-end;
-
-        Button{
-            padding: 10px;
-            line-height: 10px;
-        }
-    }
-`
-
-export const Center = styled.div `
-    img{
-        position: relative;
-        top: 50%;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    h3{
-        width: 250px;
-        margin: auto;
-        text-align: center;
-    }
 `
 
 export const Footer = styled.div `

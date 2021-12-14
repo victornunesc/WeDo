@@ -1,11 +1,9 @@
 import Header from "../../components/Header"
 import {Button} from "../../components/Button"
-import {Main, GroupTitle, Options, GroupInfos, Center, Footer} from "./style"
-import ImageInfo from "../../assets/ImageInfo.png"
-import ImageGoal from "../../assets/ImageGoal.png"
-import ImageActivity from "../../assets/ImageActivity.png"
-import ImageUsers from "../../assets/ImageUsers.png"
+import {Main, GroupTitle, Options, GroupInfos, Footer} from "./style"
 import {useState} from "react"
+import {Info, Goal, Activity, Users} from "../../components/GroupInteract"
+
 
 export const Group = ({group}) => {
 
@@ -57,72 +55,27 @@ export const Group = ({group}) => {
             <Header/>
             <Main>
                 <GroupTitle>
-                    <h2>Aqui vai colocar (name)</h2>
-                    <Button>Aqui vai colocar (category)</Button>
+                    <h2>Aqui vai (name)</h2>
+                    <Button className="font__body">Aqui vai (category)</Button>
                 </GroupTitle>
                 <Options>
-                    <Button onClick={() => functionInfo()}>Info</Button>
-                    <Button onClick={() => functionGoal()}>Metas</Button>
-                    <Button onClick={() => functionActivity()}>Atividades</Button>
-                    <Button onClick={() => functionUsers()}>Usuários</Button>
+                    <Button onClick={() => functionInfo()}><h3>Info</h3></Button>
+                    <Button onClick={() => functionGoal()}><h3>Metas</h3></Button>
+                    <Button onClick={() => functionActivity()}><h3>Atividades</h3></Button>
+                    <Button onClick={() => functionUsers()}><h3>Usuários</h3></Button>
                 </Options> 
                 <GroupInfos>
                     {
-                        info &&
-                        <>
-                            <div className="container">
-                                <div className="container1">
-                                    <h3>Descrição</h3>
-                                    <p className="fundo">Aqui vai colocar (description)</p>
-                                    <p className="fundo">Usuários no Grupo: <span>Aqui vai colocar (users_on_group.length)</span></p>
-                                    <p className="fundo">Metas: <span>Aqui vai colocar (goals.length)</span></p>
-                                    <p className="fundo">Atividades: <span>Aqui vai colocar (activities.length)</span></p>
-                                </div>
-                                <div className="container2">
-                                    <img src={ImageInfo} alt="ImageInfo" />
-                                </div>
-                            </div>
-                            <Footer>
-                                <Button>Editar</Button>
-                                <h3>@criador</h3>
-                            </Footer>
-                        </>
+                        info && <Info/>
                     }
                     {
-                        goal &&
-                        <>
-                            <h3>Metas</h3>
-                            <Center>
-                                <h3>Nenhuma meta ainda, clique para adicionar uma!</h3>
-                                <img src={ImageGoal} alt="ImageGoal" />
-                            </Center>
-                            <div className="addEnd">
-                                <Button>Adicionar Meta</Button>
-                            </div>
-                        </>
+                        goal && <Goal/>
                     }
                     {
-                        activity &&
-                        <>
-                            <h3>Atividades</h3>
-                            <Center>
-                                <h3>Nenhuma atividade ainda, clique para adicionar uma!</h3>
-                                <img src={ImageActivity} alt="ImageActivity" />
-                            </Center>
-                            <div className="addEnd">
-                                <Button>Adicionar Atividade</Button>
-                            </div>
-                        </>
+                        activity && <Activity/>
                     }
                     {
-                        users &&
-                        <>
-                            <h3>Usuários</h3>
-                            <Center>
-                                <h3>Nenhum usuário no grupo, seja o primeiro!</h3>
-                                <img src={ImageUsers} alt="ImageUsers" />
-                            </Center>
-                        </>
+                        users && <Users/>
                     }
                 </GroupInfos>
                 <Footer>
