@@ -1,7 +1,9 @@
-import { useEffect } from "react";
-import { Input } from "./style";
-import api from "../../services/api";
-import { useAuth } from "../../providers/Auth";
+import { useEffect } from 'react';
+
+import api from '../../services/api';
+import { useAuth } from '../../providers/Auth';
+
+import { Input } from './style';
 
 export const FindGroups = ({
   placeholder,
@@ -20,7 +22,7 @@ export const FindGroups = ({
       })
       .then((response) => {
         const newGroups = response.data.results;
-        if (input !== "") {
+        if (input !== '') {
           setGroupInput([...newGroups]);
         }
       })

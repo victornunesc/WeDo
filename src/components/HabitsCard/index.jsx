@@ -28,7 +28,6 @@ export const HabitsCard = ({ habit }) => {
       {showEdit && <Modal onClick={toggleEdit} />}
       <Container timesAchieved={how_much_achieved} achieved={achieved}>
         <p className="card__title">{title}</p>
-
         <section className="hover">
           <section className="content__container">
             <section className="card__content">

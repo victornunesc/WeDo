@@ -1,18 +1,21 @@
-import { useState, useEffect } from "react";
-import Header from "../../components/Header";
-import { Div, Container, Cabecalho, Footer } from "./style";
-import { RenderGroups } from "../../components/RenderGroups";
-import { FindGroups } from "../../components/FindGroups";
-import { ContainerGroupNone } from "../../components/ContainerGroupNone/inedex";
-import { useAuth } from "../../providers/Auth";
-import api from "../../services/api";
-import { useHistory } from "react-router-dom";
-import { CreateGroup } from "../../components/CreateGroups";
-import { Button } from "../../components/Button";
+import { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
+
+import { useAuth } from '../../providers/Auth';
+import api from '../../services/api';
+
+import Header from '../../components/Header';
+import { RenderGroups } from '../../components/RenderGroups';
+import { CreateGroup } from '../../components/CreateGroups';
+import { FindGroups } from '../../components/FindGroups';
+import { ContainerGroupNone } from '../../components/ContainerGroupNone';
+import { Button } from '../../components/Button';
+
+import { Div, Container, Cabecalho, Footer } from './style';
 
 export const Groups = () => {
   const [groups, setGroups] = useState([]);
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState('');
   const [groupInput, setGroupInput] = useState([]);
   const { access } = useAuth();
   const [page, setPage] = useState(1);
@@ -64,7 +67,7 @@ export const Groups = () => {
         )}
 
         <Footer>
-          <Button secondary onClick={() => history.push("/dashboard")}>
+          <Button secondary onClick={() => history.push('/dashboard')}>
             Voltar
           </Button>
           <Button className="redButtom" onClick={() => setModal(true)}>
