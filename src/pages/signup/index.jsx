@@ -30,12 +30,12 @@ export const Signup = () => {
     email: yup.string().required('Campo obrigatório').email('Email inválido'),
     password: yup
       .string()
-      .min(6, 'Mínimo 6 caracteres')
-      .required('Campo obrigatório'),
+      .required('Campo obrigatório')
+      .min(6, 'São necessários no mínimo 6 caracteres'),
     confirmPassword: yup
       .string()
       .required('Campo obrigatório')
-      .oneOf([yup.ref('password')], 'AS senhas devem ser iguais'),
+      .oneOf([yup.ref('password')], 'As senhas devem ser iguais'),
   });
 
   const {

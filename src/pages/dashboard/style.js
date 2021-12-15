@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import Ilustration from "../../assets/Ilustration.png";
+import styled from 'styled-components';
+import Ilustration from '../../assets/Ilustration.png';
 
 export const Title = styled.h2`
   color: var(--color-black-dark);
@@ -12,8 +12,10 @@ export const Main = styled.div`
   align-items: center;
   margin: 0 auto;
   justify-content: space-evenly;
+  padding-top: 100px;
 
   @media screen and (min-width: 800px) {
+    padding-top: 0;
     flex-direction: row;
     margin: 40px 40px 32px;
     display: flex;
@@ -123,9 +125,9 @@ export const BackgroundMessage = styled.p`
   top: 154px;
 
   @media screen and (min-width: 800px) {
-    background-color: ${(props) => (props.background ? "#FFFFFF" : "none")};
+    background-color: ${(props) => (props.background ? '#FFFFFF' : 'none')};
     box-shadow: ${(props) =>
-      props.background ? "0px 4px 10px rgba(0, 0, 0, 0.5)" : "none"};
+      props.background ? '0px 4px 10px rgba(0, 0, 0, 0.5)' : 'none'};
     border-radius: 10px;
   }
 `;

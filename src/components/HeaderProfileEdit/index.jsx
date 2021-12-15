@@ -1,17 +1,16 @@
-import { useContext } from 'react';
-import * as yup from 'yup';
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { toast } from 'react-toastify';
 
-import { AuthContext } from '../../providers/Auth';
-import api from '../../services/api';
+import { useUser } from '../../providers/User';
 
+import { Modal } from '../Modal';
 import { Input } from '../Input/index';
 import { Button } from '../Button/index';
 
+import { HeaderProfileValidation } from './Validation';
+
 import {
-  ShowOnlyContainer,
   Container,
   ContainerModal,
   HeaderModal,
@@ -20,35 +19,30 @@ import {
   FixForm,
 } from './style';
 
-export const ModalProfile = ({ hideModalProfile }) => {
-  const { access, user } = useContext(AuthContext);
+export const HeaderProfileEdit = ({ toggleEdit }) => {
+  const { userInfo, getUserInfo, handleUserEdit } = useUser();
 
-  const schema = yup.object().shape({
-    username: yup.string().required('Campo Obrigatório'),
-    email: yup.string().email('Email inválido').required('Campo Obrigatório'),
-  });
+  const schema = HeaderProfileValidation;
+  const { username, email } = userInfo;
 
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
   });
 
-  const sendUserEdit = (data) => {
-    api
-      .patch(`users/${user.user_id}/`, data, {
-        headers: { Authorization: `Bearer ${access}` },
-      })
-      .then((response) => {
-        toast.success('Perfil Atualizado!');
-      })
-      .catch((err) => {
-        console.log(err);
-        toast.error('Não foi possível atualizar perfil');
-      });
+  const userEdit = (data) => {
+    handleUserEdit(data, toggleEdit);
   };
+
+  useEffect(() => {
+    getUserInfo();
+
+    reset({ username, email });
+  }, []);
 
   return (
     <>
@@ -58,19 +52,21 @@ export const ModalProfile = ({ hideModalProfile }) => {
             <h2>Editar perfil</h2>
           </HeaderModal>
           <MainModal>
-            <Form onSubmit={handleSubmit(sendUserEdit)}>
+            <Form onSubmit={handleSubmit(userEdit)}>
               <FixForm>
                 <Input
                   register={register}
                   errors={errors}
                   name="username"
                   placeholder="Nome"
+                  isEmpty={false}
                 />
                 <Input
                   register={register}
                   errors={errors}
                   name="email"
                   placeholder="Email"
+                  isEmpty={false}
                 />
               </FixForm>
               <Button type="submit">Atualizar</Button>
@@ -78,7 +74,7 @@ export const ModalProfile = ({ hideModalProfile }) => {
           </MainModal>
         </ContainerModal>
       </Container>
-      <ShowOnlyContainer onClick={() => hideModalProfile()} />
+      <Modal onClick={toggleEdit} />
     </>
   );
 };

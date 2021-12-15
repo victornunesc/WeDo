@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.header`
   background: var(--color-white-light);
@@ -21,14 +21,16 @@ export const Container = styled.header`
     font-weight: bold;
   }
 
-  section {
+  section.menu__info {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 
-    p {
+    p.header__username {
       margin-right: 12px;
       font-style: italic;
+
       span {
         color: var(--color-secondary);
       }
@@ -39,8 +41,23 @@ export const Container = styled.header`
       flex-basis: 100%;
       max-width: 44px;
       height: auto;
+      cursor: pointer;
     }
   }
+
+  ${({ openHover }) =>
+    openHover &&
+    css`
+      section.menu__info {
+        p.header__username {
+          display: none;
+        }
+
+        img.profile {
+          z-index: 2;
+        }
+      }
+    `}
 
   @media screen and (min-width: 800px) {
     padding: 12px;
@@ -55,8 +72,8 @@ export const Container = styled.header`
       margin: 28px;
     }
 
-    section {
-      p {
+    section.menu__info {
+      p.header__username {
         margin-right: 20px;
         font-size: var(--font-size-h3);
         line-height: var(--font-line-height-h3);
@@ -69,7 +86,7 @@ export const Container = styled.header`
   }
 
   :hover {
-    section {
+    section.menu__info {
       img.profile {
         filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.75));
       }
