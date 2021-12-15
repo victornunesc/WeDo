@@ -1,14 +1,18 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Div = styled.div`
-  height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-top: 100px;
 
   button {
+  }
+
+  @media screen and (min-width: 800px) {
+    padding: 0;
   }
 `;
 
@@ -52,7 +56,7 @@ export const Footer = styled.footer`
   height: 60px;
   display: flex;
   align-items: center;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   justify-content: space-evenly;
 
   button {

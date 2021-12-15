@@ -65,7 +65,6 @@ const GlobalStyle = createGlobalStyle`
         font-size: 16px;
         color: var(--color-black);
         transition: .3s;
-        padding-top: 100px;
         
         @media screen and (min-width: 650px) {
             background-color: var(--color-white);

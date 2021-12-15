@@ -40,6 +40,8 @@ const AuthProvider = ({ children }) => {
 
         setData({ access, user });
         history.push('/dashboard');
+
+        toast.success('Login realizado com sucesso!');
       })
       .catch((err) => toast.error('Email ou senha inválida'));
   };

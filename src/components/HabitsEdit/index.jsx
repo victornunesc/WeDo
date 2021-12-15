@@ -37,89 +37,83 @@ export const HabitsEdit = ({ id, showEdit, toggleEdit }) => {
 
   useEffect(() => {
     habitEditInfo(id, reset);
-  }, [habitEditInfo, id, reset, showEdit]);
+  }, [showEdit]);
 
   return (
-    <>
-      <Container>
-        <h2>Editar Hábito</h2>
-        <form onSubmit={handleSubmit(handleUpdate)}>
-          <section className="inputs">
-            <Input
+    <Container>
+      <h2>Editar Hábito</h2>
+      <form onSubmit={handleSubmit(handleUpdate)}>
+        <section className="inputs">
+          <Input
+            register={register}
+            errors={errors}
+            name="title"
+            placeholder="Título"
+            isEmpty={false}
+          />
+          <Input
+            register={register}
+            errors={errors}
+            name="category"
+            placeholder="Category"
+            isEmpty={false}
+          />
+          <InputRadioContainer
+            register={register}
+            errors={errors}
+            name="frequency"
+            title="Frequência"
+          >
+            <InputRadio register={register} name="frequency" label="Diária" />
+            <InputRadio register={register} name="frequency" label="Semanal" />
+            <InputRadio register={register} name="frequency" label="Mensal" />
+            <InputRadio register={register} name="frequency" label="Anual" />
+          </InputRadioContainer>
+          <InputRadioContainer
+            register={register}
+            errors={errors}
+            name="difficulty"
+            title="Dificuldade"
+          >
+            <InputRadio
               register={register}
-              errors={errors}
-              name="title"
-              placeholder="Título"
-              isEmpty={false}
-            />
-            <Input
-              register={register}
-              errors={errors}
-              name="category"
-              placeholder="Category"
-              isEmpty={false}
-            />
-            <InputRadioContainer
-              register={register}
-              errors={errors}
-              name="frequency"
-              title="Frequência"
-            >
-              <InputRadio register={register} name="frequency" label="Diária" />
-              <InputRadio
-                register={register}
-                name="frequency"
-                label="Semanal"
-              />
-              <InputRadio register={register} name="frequency" label="Mensal" />
-              <InputRadio register={register} name="frequency" label="Anual" />
-            </InputRadioContainer>
-            <InputRadioContainer
-              register={register}
-              errors={errors}
               name="difficulty"
-              title="Dificuldade"
-            >
-              <InputRadio
-                register={register}
-                name="difficulty"
-                label="Muito Fácil"
-                sizeBigger
-              />
-              <InputRadio
-                register={register}
-                name="difficulty"
-                label="Fácil"
-                sizeBigger
-              />
-              <InputRadio
-                register={register}
-                name="difficulty"
-                label="Médio"
-                sizeBigger
-              />
-              <InputRadio
-                register={register}
-                name="difficulty"
-                label="Difícil"
-                sizeBigger
-              />
-              <InputRadio
-                register={register}
-                name="difficulty"
-                label="Muito Difícil"
-                sizeBigger
-              />
-            </InputRadioContainer>
-          </section>
-          <section className="buttons">
-            <Button secondary onClick={handleDelete}>
-              Deletar
-            </Button>
-            <Button type="submit">Atualizar</Button>
-          </section>
-        </form>
-      </Container>
-    </>
+              label="Muito Fácil"
+              sizeBigger
+            />
+            <InputRadio
+              register={register}
+              name="difficulty"
+              label="Fácil"
+              sizeBigger
+            />
+            <InputRadio
+              register={register}
+              name="difficulty"
+              label="Médio"
+              sizeBigger
+            />
+            <InputRadio
+              register={register}
+              name="difficulty"
+              label="Difícil"
+              sizeBigger
+            />
+            <InputRadio
+              register={register}
+              name="difficulty"
+              label="Muito Difícil"
+              sizeBigger
+            />
+          </InputRadioContainer>
+        </section>
+        <section className="buttons">
+          <Button secondary onClick={handleDelete}>
+            Deletar
+          </Button>
+          <Button type="submit">Atualizar</Button>
+        </section>
+      </form>
+    </Container>
   );
 };
