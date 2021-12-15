@@ -5,6 +5,8 @@ import { Modal } from '../Modal';
 
 import { Container } from './style';
 
+import {ActivityBox} from "../ActivityBox"
+
 export const GroupMenu = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const [selectedOption, setSelectedOption] = useState('Info');
@@ -26,6 +28,7 @@ export const GroupMenu = () => {
   };
 
   return (
+    <>
     <Container openMenu={openMenu} selectedOption={selectedOption}>
       <section className="selected">
         <p>{selectedOption}</p>
@@ -55,5 +58,7 @@ export const GroupMenu = () => {
         </p>
       </section>
     </Container>
+    <ActivityBox/>
+    </>
   );
 };
