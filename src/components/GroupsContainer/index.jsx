@@ -27,7 +27,9 @@ export const GroupsContainer = () => {
         </header>
         <main>
           {hasMyGroups ? (
-            myGroups.map((group) => <div>INSERIR CARD DE GRUPO</div>)
+            myGroups.map((group, index) => (
+              <div key={index}>INSERIR CARD DE GRUPO</div>
+            ))
           ) : (
             <p className="empty__container">
               Você não está em nenhum grupo, encontre grupos que queira entrar!
