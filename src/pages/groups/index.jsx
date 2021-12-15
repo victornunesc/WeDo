@@ -30,6 +30,7 @@ export const Groups = () => {
       })
       .then((response) => {
         const newGroups = response.data.results;
+
         setGroups([...groups, ...newGroups]);
       })
       .catch((err) => console.log(err));

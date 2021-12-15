@@ -19,12 +19,6 @@ export const Container = styled.section`
     margin-bottom: 24px;
   }
 
-  img {
-    position: static;
-    transform: translate(0);
-    margin: 0 auto;
-  }
-
   ${({ habits }) =>
     habits &&
     css`

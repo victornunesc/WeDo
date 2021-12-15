@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const ShowOnlyContainer = styled.div`
   width: 100%;
@@ -18,30 +18,31 @@ export const Container = styled.div`
 export const ContainerModal = styled.div`
   background-color: var(--color-white-dark);
   color: var(--color-black);
-  width: 40%;
-  top: 15%;
-  padding: 10px;
+  width: calc(100% - 16px);
+  top: 25%;
+  padding: 8px;
   position: fixed;
   border-radius: 10px;
   opacity: 1;
-  z-index: 1;
+  z-index: 2;
   display: flex;
   flex-direction: column;
-  max-width: 378px;
+  max-width: 380px;
+  transition: 0.3s;
 
-  @media (max-width: 1000px) {
-    width: 60%;
-  }
-
-  @media (max-width: 660px) {
-    width: 70%;
+  @media screen and (min-width: 400px) {
+    padding: 16px;
   }
 `;
 
 export const HeaderModal = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
+
+  @media screen and (min-width: 400px) {
+    justify-content: flex-start;
+  }
 `;
 
 export const CloseButton = styled.button`
@@ -54,7 +55,7 @@ export const CloseButton = styled.button`
 `;
 
 export const MainModal = styled.div`
-  margin: 15px 0px;
+  margin: 16px 0 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -62,18 +63,23 @@ export const MainModal = styled.div`
 `;
 
 export const Form = styled.form`
-  width: 95%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 
-  Button {
-    margin-top: 15px;
+  button {
+    margin-top: 16px;
+    width: 100%;
   }
 
-  @media (max-width: 660px) {
+  @media (min-width: 400px) {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
+
+    button {
+      width: auto;
+    }
   }
 `;
 
@@ -83,11 +89,4 @@ export const FixForm = styled.div`
   align-content: center;
   flex-wrap: wrap;
   width: 100%;
-`;
-
-export const Input = styled.input`
-  width: 100%;
-  margin: 10px 0px;
-  border-radius: 5px;
-  padding: 15px;
 `;
