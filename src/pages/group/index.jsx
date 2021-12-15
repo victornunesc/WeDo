@@ -1,11 +1,14 @@
-import { useState } from "react";
-import { GroupInfo } from "../../components/GroupInfo";
-import Header from "../../components/Header";
-import { Button } from "../../components/Button";
-import { Info, Goal, Activity, Users } from "../../components/GroupInteract";
+import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { GroupInfo } from '../../components/GroupInfo';
 
-import { Main, GroupTitle, Options, GroupInfos, Footer } from "./style";
-import { useHistory } from "react-router-dom";
+import Header from '../../components/Header';
+import { Button } from '../../components/Button';
+import { Info, Goal, Activity, Users } from '../../components/GroupInteract';
+
+import { GroupMenu } from '../../components/GroupMenu';
+
+import { Main, GroupTitle, Options, GroupInfos, Footer } from './style';
 
 export const Group = ({ group }) => {
   const [info, setInfo] = useState(true);
@@ -60,20 +63,7 @@ export const Group = ({ group }) => {
           <h2>Aqui vai (name)</h2>
           <Button className="font__body">Aqui vai (category)</Button>
         </GroupTitle>
-        <Options>
-          <Button onClick={() => functionInfo()}>
-            <h3>Info</h3>
-          </Button>
-          <Button onClick={() => functionGoal()}>
-            <h3>Metas</h3>
-          </Button>
-          <Button onClick={() => functionActivity()}>
-            <h3>Atividades</h3>
-          </Button>
-          <Button onClick={() => functionUsers()}>
-            <h3>Usuários</h3>
-          </Button>
-        </Options>
+        <GroupMenu />
         <GroupInfos>
           {info && <GroupInfo />}
           {goal && <Goal />}
@@ -82,7 +72,7 @@ export const Group = ({ group }) => {
         </GroupInfos>
         <Footer>
           <Button>Inscrever-se</Button>
-          <Button onClick={() => history.push("/groups")}>Voltar</Button>
+          <Button onClick={() => history.push('/groups')}>Voltar</Button>
         </Footer>
       </Main>
     </>

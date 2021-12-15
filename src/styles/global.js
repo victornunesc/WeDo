@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
 
@@ -65,9 +65,14 @@ const GlobalStyle = createGlobalStyle`
         font-size: 16px;
         color: var(--color-black);
         transition: .3s;
+        padding-top: 100px;
         
         @media screen and (min-width: 650px) {
             background-color: var(--color-white);
+        }
+        
+        @media screen and (min-width: 800px) {
+            padding-top: 0;
         }
     }
 
