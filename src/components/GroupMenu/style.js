@@ -6,27 +6,30 @@ export const Container = styled.nav`
 
   section.selected {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     background-color: var(--color-secondary);
     color: var(--color-white-light);
     width: 100%;
     border-radius: 8px 8px 0 0;
     padding: 8px;
-    position: relative;
 
     p {
       font-size: var(--font-size-h3);
       line-height: var(--font-line-height-h3);
       font-weight: bold;
+      flex: 1 0 auto;
+      text-align: center;
+      margin-left: 32px;
     }
 
     svg {
       font-size: 1.5rem;
-      position: absolute;
       cursor: pointer;
       right: 8px;
       transition: 0.3s;
+      justify-self: flex-end;
+      width: 24px;
 
       :hover {
         transform: scale(1.2);
@@ -123,6 +126,7 @@ export const Container = styled.nav`
       background-color: var(--color-white-dark);
       height: 56px;
       border-radius: 8px 8px 0 0;
+      z-index: auto;
 
       p {
         height: 100%;
