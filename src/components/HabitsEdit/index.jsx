@@ -15,7 +15,7 @@ export const HabitsEdit = ({ id, showEdit, toggleEdit }) => {
   const { updateHabit, deleteHabit, habitEditInfo } = useHabits();
 
   const schema = EditValidation;
-
+  
   const {
     register,
     handleSubmit,
@@ -53,7 +53,7 @@ export const HabitsEdit = ({ id, showEdit, toggleEdit }) => {
               isEmpty={false}
             />
             <Input
-              register={register}
+              register={register}  
               errors={errors}
               name="category"
               placeholder="Category"
