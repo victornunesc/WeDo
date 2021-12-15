@@ -7,8 +7,9 @@ export const Container = styled.div`
   font-style: italic;
   font-family: "Roboto", sans-serif;
   text-align: center;
+  background-color: var(--color-white-light);
 
-  @media (min-width: 660px) {
+  @media (min-width: 800px) {
     width: 404px;
     height: 216px;
     border-radius: 10px;

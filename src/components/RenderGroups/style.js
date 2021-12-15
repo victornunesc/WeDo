@@ -14,7 +14,7 @@ export const Card = styled.div`
   transition: 0.3s;
   padding: 4px;
 
-  @media (min-width: 660px) {
+  @media (min-width: 800px) {
     margin: 0 20px 20px 20px;
     background: rgba(199, 215, 218, 0.75);
     backdrop-filter: blur(6px);
