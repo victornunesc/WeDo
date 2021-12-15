@@ -7,6 +7,7 @@ import { EmptyCardInfo } from '../EmptyCardInfo';
 import { Footer, Center, Container, Container2 } from './style';
 
 export const Info = () => {
+
   return (
     <>
       <Container>
