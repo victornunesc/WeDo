@@ -6,7 +6,7 @@ import api from '../../services/api';
 
 import Header from '../../components/Header';
 import { RenderGroups } from '../../components/RenderGroups';
-import { CreateGroup } from '../../components/CreateGroups';
+import { GroupsCreate } from '../../components/GroupsCreate';
 import { FindGroups } from '../../components/FindGroups';
 import { ContainerGroupNone } from '../../components/ContainerGroupNone';
 import { Button } from '../../components/Button';
@@ -77,7 +77,7 @@ export const Groups = () => {
             </Button>
           </Footer>
         </Container>
-        {modal ? <CreateGroup modal={modal} setModal={setModal} /> : null}
+        {modal ? <GroupsCreate modal={modal} setModal={setModal} /> : null}
       </Div>
     </>
   );
