@@ -6,26 +6,27 @@ import { useAuth } from "../../providers/Auth";
 import { Button } from "../Button";
 
 export const GroupInfo = () => {
-  const { access } = useAuth();
+  const { access, user } = useAuth();
   const { id } = useParams();
-  const [user, setUser] = useState({});
+  const [userGroup, setUserGroup] = useState({});
 
+  console.log(user);
   useEffect(() => {
     api
       .get(`/groups/${id}/`, {
         headers: { Authorization: `Bearer ${access}` },
       })
       .then((response) => {
-        setUser(response.data);
+        setUserGroup(response.data);
         console.log(response.data);
       })
       .catch((err) => console.log(err));
   }, [id]);
-  const description = user.description;
-  const lengthUser = user.users_on_group;
-  const goals = user.goals;
-  const activities = user.activities;
-  const creator = user.creator;
+  const description = userGroup.description;
+  const lengthUser = userGroup.users_on_group;
+  const goals = userGroup.goals;
+  const activities = userGroup.activities;
+  const creator = userGroup.creator;
 
   return (
     <Container>
@@ -47,7 +48,9 @@ export const GroupInfo = () => {
           <span className="creator-span">@</span>
           {creator && creator.username}
         </p>
-        <Button secondary> Editar</Button>
+        {creator && creator.id === user.user_id ? (
+          <Button secondary> Editar</Button>
+        ) : null}
       </div>
     </Container>
   );

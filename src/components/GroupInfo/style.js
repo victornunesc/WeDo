@@ -8,6 +8,7 @@ export const Container = styled.div`
 
   button {
     width: 100%;
+    margin-top: 16px;
   }
 
   @media (min-width: 970px) {
@@ -54,7 +55,6 @@ export const Container = styled.div`
     line-height: var(--font-line-height-h3);
     font-weight: 400;
     width: 100%;
-    height: 100px;
     padding: 5px;
     display: flex;
     flex-direction: column;
