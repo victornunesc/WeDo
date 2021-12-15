@@ -5,9 +5,8 @@ import { Modal } from '../Modal';
 
 import { Container } from './style';
 
-export const GroupMenu = () => {
+export const GroupMenu = ({ selectedOption, setSelectedOption }) => {
   const [openMenu, setOpenMenu] = useState(false);
-  const [selectedOption, setSelectedOption] = useState('Info');
 
   const selectInfo = () => {
     setSelectedOption('Info');
