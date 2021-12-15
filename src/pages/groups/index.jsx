@@ -1,21 +1,22 @@
-import { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
-import { useAuth } from "../../providers/Auth";
-import api from "../../services/api";
-import { Container } from "../../components/GroupsContainer/style";
-import Header from "../../components/Header";
-import { RenderGroups } from "../../components/RenderGroups";
-import { CreateGroup } from "../../components/CreateGroups";
-import { FindGroups } from "../../components/FindGroups";
-import { ContainerGroupNone } from "../../components/ContainerGroupNone";
-import { Button } from "../../components/Button";
+import { useAuth } from '../../providers/Auth';
+import api from '../../services/api';
 
-import { Div, Cabecalho, Footer } from "./style";
+import Header from '../../components/Header';
+import { RenderGroups } from '../../components/RenderGroups';
+import { GroupsCreate } from '../../components/GroupsCreate';
+import { FindGroups } from '../../components/FindGroups';
+import { ContainerGroupNone } from '../../components/ContainerGroupNone';
+import { Button } from '../../components/Button';
+
+import { Container } from '../../components/GroupsContainer/style';
+import { Div, Cabecalho, Footer } from './style';
 
 export const Groups = () => {
   const [groups, setGroups] = useState([]);
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState('');
   const [groupInput, setGroupInput] = useState([]);
   const { access } = useAuth();
   const [page, setPage] = useState(1);
@@ -69,7 +70,7 @@ export const Groups = () => {
           )}
 
           <Footer>
-            <Button secondary onClick={() => history.push("/dashboard")}>
+            <Button secondary onClick={() => history.push('/dashboard')}>
               Voltar
             </Button>
             <Button className="redButtom" onClick={() => setModal(true)}>
@@ -77,7 +78,7 @@ export const Groups = () => {
             </Button>
           </Footer>
         </Container>
-        {modal ? <CreateGroup modal={modal} setModal={setModal} /> : null}
+        {modal ? <GroupsCreate modal={modal} setModal={setModal} /> : null}
       </Div>
     </>
   );
