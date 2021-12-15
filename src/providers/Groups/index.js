@@ -1,10 +1,10 @@
-import { createContext, useContext, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { createContext, useContext, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
-import api from "../../services/api";
-import { useAuth } from "../Auth";
+import api from '../../services/api';
+import { useAuth } from '../Auth';
 
-export const GroupContext = createContext();
+const GroupContext = createContext();
 
 const useGroup = () => useContext(GroupContext);
 
@@ -18,7 +18,7 @@ const GroupProvider = ({ children }) => {
 
   const loadMyGroups = () => {
     api
-      .get("/groups/subscriptions/", {
+      .get('/groups/subscriptions/', {
         headers: { Authorization: `Bearer ${access}` },
       })
       .then((response) => {

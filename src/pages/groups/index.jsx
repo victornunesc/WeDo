@@ -36,46 +36,48 @@ export const Groups = () => {
   }, [page]);
 
   return (
-    <Div>
+    <>
       <Header />
-      <Container>
-        <Cabecalho>
-          <div className="flex">
-            <h2>Grupos</h2>
-          </div>
+      <Div>
+        <Container>
+          <Cabecalho>
+            <div className="flex">
+              <h2>Grupos</h2>
+            </div>
 
-          <FindGroups
-            placeholder="Pesquisar Grupos..."
-            type="text"
-            input={input}
-            setInput={setInput}
-            groupInput={groupInput}
-            setGroupInput={setGroupInput}
-          />
-        </Cabecalho>
-        {groups.length === 0 ? (
-          <ContainerGroupNone />
-        ) : (
-          <RenderGroups
-            groups={groups}
-            setGroups={setGroups}
-            groupInput={groupInput}
-            input={input}
-            page={page}
-            setPage={setPage}
-          />
-        )}
+            <FindGroups
+              placeholder="Pesquisar Grupos..."
+              type="text"
+              input={input}
+              setInput={setInput}
+              groupInput={groupInput}
+              setGroupInput={setGroupInput}
+            />
+          </Cabecalho>
+          {groups.length === 0 ? (
+            <ContainerGroupNone />
+          ) : (
+            <RenderGroups
+              groups={groups}
+              setGroups={setGroups}
+              groupInput={groupInput}
+              input={input}
+              page={page}
+              setPage={setPage}
+            />
+          )}
 
-        <Footer>
-          <Button secondary onClick={() => history.push('/dashboard')}>
-            Voltar
-          </Button>
-          <Button className="redButtom" onClick={() => setModal(true)}>
-            Criar Grupo
-          </Button>
-        </Footer>
-      </Container>
-      {modal ? <CreateGroup modal={modal} setModal={setModal} /> : null}
-    </Div>
+          <Footer>
+            <Button secondary onClick={() => history.push('/dashboard')}>
+              Voltar
+            </Button>
+            <Button className="redButtom" onClick={() => setModal(true)}>
+              Criar Grupo
+            </Button>
+          </Footer>
+        </Container>
+        {modal ? <CreateGroup modal={modal} setModal={setModal} /> : null}
+      </Div>
+    </>
   );
 };
