@@ -1,33 +1,36 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Div = styled.div`
-  width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding-top: 100px;
 
-  button {
+  button + button {
+    margin-left: 8px;
+  }
+
+  .container {
+    min-width: 320px;
+    justify-content: space-between;
+    align-items: center;
+
+    @media screen and (max-width: 800px) {
+      background-image: none;
+      padding: 8px;
+    }
   }
 
   @media screen and (min-width: 800px) {
     padding: 0;
+    .container {
+      max-width: 1200px;
+      margin: 0 40px;
+      width: calc(100% - 80px);
+      padding: 16px;
+    }
   }
-`;
-
-export const Container = styled.div`
-  height: 659px;
-  max-height: 95vh;
-  max-width: 1200px;
-  width: 96vw;
-  min-width: 320px;
-  background: var(--color-white-light);
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
 `;
 
 export const Cabecalho = styled.header`
@@ -38,12 +41,10 @@ export const Cabecalho = styled.header`
   align-items: center;
 
   h2 {
-    margin: 10px;
   }
 
   .flex {
     width: 100%;
-    margin: 10px;
   }
 
   @media (min-width: 660px) {
@@ -51,25 +52,20 @@ export const Cabecalho = styled.header`
   }
 `;
 export const Footer = styled.footer`
-  flex-shrink: 0;
   width: 100%;
   height: 60px;
   display: flex;
   align-items: center;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   justify-content: space-evenly;
 
   button {
-    min-width: 140px;
+    min-width: 148px;
   }
 
   @media (min-width: 660px) {
     justify-content: flex-end;
 
     width: 100%;
-
-    button {
-      margin-right: 25px;
-    }
   }
 `;
