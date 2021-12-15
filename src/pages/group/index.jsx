@@ -1,16 +1,18 @@
-import { useState } from 'react';
+import { useState } from "react";
+import { GroupInfo } from "../../components/GroupInfo";
+import Header from "../../components/Header";
+import { Button } from "../../components/Button";
+import { Info, Goal, Activity, Users } from "../../components/GroupInteract";
 
-import Header from '../../components/Header';
-import { Button } from '../../components/Button';
-import { Info, Goal, Activity, Users } from '../../components/GroupInteract';
-
-import { Main, GroupTitle, Options, GroupInfos, Footer } from './style';
+import { Main, GroupTitle, Options, GroupInfos, Footer } from "./style";
+import { useHistory } from "react-router-dom";
 
 export const Group = ({ group }) => {
   const [info, setInfo] = useState(true);
   const [goal, setGoal] = useState(false);
   const [activity, setActivity] = useState(false);
   const [users, setUsers] = useState(false);
+  const history = useHistory();
 
   const functionInfo = () => {
     setInfo(true);
@@ -73,14 +75,14 @@ export const Group = ({ group }) => {
           </Button>
         </Options>
         <GroupInfos>
-          {info && <Info />}
+          {info && <GroupInfo />}
           {goal && <Goal />}
           {activity && <Activity />}
           {users && <Users />}
         </GroupInfos>
         <Footer>
           <Button>Inscrever-se</Button>
-          <Button>Voltar</Button>
+          <Button onClick={() => history.push("/groups")}>Voltar</Button>
         </Footer>
       </Main>
     </>
