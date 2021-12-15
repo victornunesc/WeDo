@@ -1,8 +1,8 @@
-import { createContext, useContext, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { createContext, useContext, useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
-import api from '../../services/api';
-import { useAuth } from '../Auth';
+import api from "../../services/api";
+import { useAuth } from "../Auth";
 
 const GroupContext = createContext();
 
@@ -18,7 +18,7 @@ const GroupProvider = ({ children }) => {
 
   const loadMyGroups = () => {
     api
-      .get('/groups/subscriptions/', {
+      .get("/groups/subscriptions/", {
         headers: { Authorization: `Bearer ${access}` },
       })
       .then((response) => {
@@ -28,7 +28,7 @@ const GroupProvider = ({ children }) => {
       .catch((err) => console.log(err));
   };
 
-  const groupSpecifi = (id) => {
+  const loadGroup = (id) => {
     api
       .get(`/groups/${id}/`, {
         headers: { Authorization: `Bearer ${access}` },
@@ -46,7 +46,7 @@ const GroupProvider = ({ children }) => {
         myGroups,
         hasMyGroups,
         loadMyGroups,
-        groupSpecifi,
+        loadGroup,
         specifiGroup,
       }}
     >

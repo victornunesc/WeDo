@@ -3,10 +3,10 @@ import { useGroup } from "../../providers/Groups";
 import { IconButton } from "../Button";
 
 export const RenderGroups = ({ groups, groupInput, input, page, setPage }) => {
-  const { groupSpecifi } = useGroup();
+  const { loadGroup } = useGroup();
 
   const groupConect = (id) => {
-    groupSpecifi(id);
+    loadGroup(id);
   };
 
   return (
