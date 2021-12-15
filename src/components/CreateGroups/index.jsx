@@ -40,6 +40,7 @@ export const CreateGroup = ({ setModal }) => {
       })
       .then((response) => {
         toast.success("Grupo criado com sucesso");
+        setModal(false);
       })
       .catch((err) => console.log(err));
   };

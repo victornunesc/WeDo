@@ -2,7 +2,14 @@ import { Card, Section } from "./style";
 import { useGroup } from "../../providers/Groups";
 import { IconButton } from "../Button";
 
-export const RenderGroups = ({ groups, groupInput, input, page, setPage }) => {
+export const RenderGroups = ({
+  groups,
+  groupInput,
+  input,
+  page,
+  setPage,
+  bol = true,
+}) => {
   const { loadGroup } = useGroup();
 
   const groupConect = (id) => {
@@ -72,10 +79,11 @@ export const RenderGroups = ({ groups, groupInput, input, page, setPage }) => {
               </div>
             </Card>
           ))}
-
-      <div className="section__render_full" onClick={() => setPage(page + 1)}>
-        Ver mais
-      </div>
+      {bol ? (
+        <div className="section__render_full" onClick={() => setPage(page + 1)}>
+          Ver mais
+        </div>
+      ) : null}
     </Section>
   );
 };
