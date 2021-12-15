@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-import Header from '../../components/Header';
-import { Button } from '../../components/Button';
-import { Info, Goal, Activity, Users } from '../../components/GroupInteract';
+import Header from "../../components/Header";
+import { Button } from "../../components/Button";
+import { Info, Goal, Activity, Users } from "../../components/GroupInteract";
 
-import { Main, GroupTitle, Options, GroupInfos, Footer } from './style';
+import { Main, GroupTitle, Options, GroupInfos, Footer } from "./style";
+
+import { UsersCard } from "../../components/UsersCard";
 
 export const Group = ({ group }) => {
   const [info, setInfo] = useState(true);
