@@ -35,7 +35,7 @@ export const HabitsCard = ({ habit }) => {
     }
 
     
-    return updateHabit(id, data)
+    return updateHabit(id, data, "achieved" )
   }
 
   return (
