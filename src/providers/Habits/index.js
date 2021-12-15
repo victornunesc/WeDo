@@ -32,15 +32,15 @@ const HabitsProvider = ({ children }) => {
       .patch(`habits/${id}/`, data, {
         headers: { Authorization: `Bearer ${access}` },
       })
-      .then((response) => { 
-        condition === 'achieved' ? 
-        toast.success('Hábito realizado!') : 
-        toast.success('Hábito editado com sucesso!');
+      .then((response) => {
+        condition === 'achieved'
+          ? toast.success('Hábito realizado!')
+          : toast.success('Hábito editado com sucesso!');
       })
-      .catch((err) => { 
-        condition === 'achieved' ? 
-        toast.error('Não foi possível realizar.') : 
-        toast.error('Não foi possível editar.');
+      .catch((err) => {
+        condition === 'achieved'
+          ? toast.error('Não foi possível realizar.')
+          : toast.error('Não foi possível editar.');
       });
   };
 

@@ -6,9 +6,9 @@ import api from '../../services/api';
 
 import Header from '../../components/Header';
 import { RenderGroups } from '../../components/RenderGroups';
-import { GroupsCreate } from '../../components/GroupsCreate';
 import { FindGroups } from '../../components/FindGroups';
 import { ContainerGroupNone } from '../../components/ContainerGroupNone';
+import { GroupsCreate } from '../../components/GroupsCreate';
 import { Button } from '../../components/Button';
 
 import { Container } from '../../components/GroupsContainer/style';
