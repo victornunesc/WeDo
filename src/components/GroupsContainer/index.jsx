@@ -8,9 +8,20 @@ import { Button } from "../Button";
 import { Container } from "./style";
 import { useHistory } from "react-router-dom";
 
+import { RenderGroups } from "../RenderGroups";
+import { useState } from "react/cjs/react.development";
+
 export const GroupsContainer = () => {
   const { myGroups, hasMyGroups, loadMyGroups } = useGroup();
   const history = useHistory();
+  const [groupInput, setGroupInput] = useState("");
+
+  const include = (e) => {
+    const a = myGroups.filter((group) =>
+      group.name.toUpperCase().includes(e.toUpperCase())
+    );
+    setGroupInput(a);
+  };
 
   useEffect(() => {
     loadMyGroups();
@@ -22,14 +33,21 @@ export const GroupsContainer = () => {
         <header>
           <h2>Meus grupos</h2>
           {hasMyGroups && (
-            <InputSearch placeholder="Pesquisar meus grupos..." />
+            <InputSearch
+              placeholder="Pesquisar meus grupos..."
+              onChange={(e) => {
+                include(e.target.value);
+              }}
+            />
           )}
         </header>
         <main>
           {hasMyGroups ? (
-            myGroups.map((group, index) => (
-              <div key={index}>INSERIR CARD DE GRUPO</div>
-            ))
+            <RenderGroups
+              groups={myGroups}
+              groupInput={groupInput}
+              bol={false}
+            />
           ) : (
             <p className="empty__container">
               Você não está em nenhum grupo, encontre grupos que queira entrar!
