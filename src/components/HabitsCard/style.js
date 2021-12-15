@@ -80,7 +80,7 @@ export const Container = styled.section`
 
           div.graph__green {
             background-color: var(--color-utility-success);
-            height: ${({ timesAchieved }) => `${timesAchieved}%`};
+            height: ${({ timesAchieved, maxTimes }) => `${(timesAchieved * 100) / maxTimes}%`};
             z-index: 0;
             transition: 0.3s;
           }
