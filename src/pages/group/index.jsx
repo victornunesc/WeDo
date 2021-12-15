@@ -4,6 +4,8 @@ import Header from '../../components/Header';
 import { Button } from '../../components/Button';
 import { Info, Goal, Activity, Users } from '../../components/GroupInteract';
 
+import { GroupMenu } from '../../components/GroupMenu';
+
 import { Main, GroupTitle, Options, GroupInfos, Footer } from './style';
 
 export const Group = ({ group }) => {
@@ -58,7 +60,7 @@ export const Group = ({ group }) => {
           <h2>Aqui vai (name)</h2>
           <Button className="font__body">Aqui vai (category)</Button>
         </GroupTitle>
-        <Options>
+        {/* <Options>
           <Button onClick={() => functionInfo()}>
             <h3>Info</h3>
           </Button>
@@ -71,7 +73,8 @@ export const Group = ({ group }) => {
           <Button onClick={() => functionUsers()}>
             <h3>Usuários</h3>
           </Button>
-        </Options>
+        </Options> */}
+        <GroupMenu />
         <GroupInfos>
           {info && <Info />}
           {goal && <Goal />}
