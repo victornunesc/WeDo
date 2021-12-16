@@ -22,6 +22,8 @@ export const GroupContent = ({ selectedOption, setSelectedOption }) => {
 
   const { loadGroup, specifiGroup, akuma, subOn, subOff } = useGroup();
 
+  const { name, category } = specifiGroup;
+
   useEffect(() => {
     loadGroup(id);
   }, [id]);
@@ -29,14 +31,14 @@ export const GroupContent = ({ selectedOption, setSelectedOption }) => {
   return (
     <Main>
       <GroupTitle>
-        <h2>{specifiGroup.name}</h2>
-        <div className="font__body">{specifiGroup.category}</div>
+        <h2>{name}</h2>
+        <div className="font__body">{category}</div>
       </GroupTitle>
       <GroupMenu
         selectedOption={selectedOption}
         setSelectedOption={setSelectedOption}
       />
-      <main>
+      <main className="groupContent__container">
         {showInfo && <GroupInfo specifiGroup={specifiGroup} />}
         {showGoals && <GroupGoals specifiGroup={specifiGroup} />}
         {showActivity && <Activity specifiGroup={specifiGroup} />}

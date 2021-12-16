@@ -6,7 +6,7 @@ export const Container = styled.section`
   justify-content: space-between;
   height: 480px;
 
-  main {
+  main.goals__container {
     flex-basis: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -22,12 +22,13 @@ export const Container = styled.section`
     }
   }
 
-  footer {
+  footer.goals__container {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
     margin-top: 24px;
+    min-height: 40px;
 
     p {
       color: var(--color-black-light);
@@ -49,13 +50,13 @@ export const Container = styled.section`
   ${({ hasGoals }) =>
     hasGoals &&
     css`
-      footer {
+      footer.goals__container {
         justify-content: space-between;
       }
     `}
 
   @media screen and (min-width: 500px) {
-    footer {
+    footer.goals__container {
       flex-direction: row;
 
       p {

@@ -13,6 +13,7 @@ const GroupProvider = ({ children }) => {
   const [myGroups, setMyGroups] = useState([]);
   const [hasMyGroups, setHasMyGroups] = useState([]);
   const [specifiGroup, setSpecifiGroup] = useState({});
+  const [isUserInGroup, setIsUserInGroup] = useState(false);
   const [akuma, setAkuma] = useState(false);
   const history = useHistory();
 
@@ -72,6 +73,13 @@ const GroupProvider = ({ children }) => {
       .catch((err) => console.log(err));
   };
 
+  const checkUserInGroup = () => {
+    const { user_id } = user;
+    const { users_on_group } = specifiGroup;
+    const userInGroup = !!users_on_group.find(({ id }) => id === user_id);
+    setIsUserInGroup(userInGroup);
+  };
+
   return (
     <GroupContext.Provider
       value={{
@@ -83,6 +91,8 @@ const GroupProvider = ({ children }) => {
         akuma,
         subOn,
         subOff,
+        checkUserInGroup,
+        isUserInGroup,
       }}
     >
       {children}
