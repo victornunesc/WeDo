@@ -1,13 +1,13 @@
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
-import { useGroup } from '../../providers/Groups';
-import { useAuth } from '../../providers/Auth';
+import { useGroup } from "../../providers/Groups";
+import { useAuth } from "../../providers/Auth";
 
-import { Button } from '../Button';
-import { GroupEdit } from '../GroupEdit';
+import { Button } from "../Button";
+import { GroupEdit } from "../GroupEdit";
 
-import { Container } from './style';
+import { Container } from "./style";
 
 export const GroupInfo = ({ specifiGroup }) => {
   const { user } = useAuth();
@@ -23,7 +23,7 @@ export const GroupInfo = ({ specifiGroup }) => {
 
   const {
     description,
-    lusers_on_group: lengthUser,
+    users_on_group: lengthUser,
     goals,
     activities,
     creator,
@@ -42,7 +42,7 @@ export const GroupInfo = ({ specifiGroup }) => {
         Metas: <span>{goals && goals.length}</span>
       </div>
       <div className="activitis-groups">
-        Atividades: <span>{activities && activities.length}</span>{' '}
+        Atividades: <span>{activities && activities.length}</span>{" "}
       </div>
       <footer className="creator">
         <p className="forOne">
