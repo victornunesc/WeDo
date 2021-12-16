@@ -40,7 +40,7 @@ export const GroupGoalsEdit = ({
 
   return (
     <Container>
-      <h2>Editar atividade</h2>
+      <h2>Editar Meta</h2>
       <form onSubmit={handleSubmit(handleEditGoal)}>
         <section className="inputs">
           <Input

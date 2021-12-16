@@ -31,6 +31,7 @@ export const ActivityAdd = ({ setOpenModal }) => {
 
   const handleAddActivity = (data) => {
     addActivity(data, params.id);
+    setOpenModal(false)
   };
 
   return (
