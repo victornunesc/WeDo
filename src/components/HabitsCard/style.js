@@ -20,7 +20,6 @@ export const Container = styled.section`
     font-size: var(--font-size-h3);
     line-height: var(--font-line-height-h3);
     font-weight: 700;
-    color: var(--color-black);
     margin: 4px;
     height: 64px;
   }
@@ -49,54 +48,12 @@ export const Container = styled.section`
           line-height: var(--font-line-height-small);
           font-weight: 400;
           font-style: italic;
-          color: var(--color-black);
         }
 
         p.content__value {
           font-size: var(--font-size-h3);
           line-height: var(--font-line-height-h3);
           font-weight: 700;
-          color: var(--color-black);
-        }
-      }
-
-      section.card__content--times-achieved {
-        height: 90px;
-
-        p.content__title {
-          height: 24px;
-        }
-
-        div.content__graph {
-          height: 100%;
-          display: flex;
-          flex-direction: column-reverse;
-          margin-top: 6px;
-          border-top: 3px solid;
-          border-bottom: 3px solid;
-          border-color: var(--color-grey-dark);
-          box-sizing: border-box;
-          position: relative;
-
-          div.graph__green {
-            background-color: var(--color-utility-success);
-            height: ${({ timesAchieved, maxTimes }) => `${(timesAchieved * 100) / maxTimes}%`};
-            z-index: 0;
-            transition: 0.3s;
-          }
-
-          p.content__value {
-            position: absolute;
-            top: 15%;
-            left: 50%;
-            transform: translate(-50%);
-            width: 136px;
-            height: 84px;
-            font-size: var(--font-size-h1);
-            line-height: var(--font-line-height-h1);
-            z-index: 2;
-            text-shadow: 0px 8px 10px rgba(0, 0, 0, 0.5);
-          }
         }
       }
     }
@@ -131,13 +88,10 @@ export const Container = styled.section`
 
     section + section {
       border-radius: 0 0 10px 0;
-      transform: translateX(2px);
     }
 
     button {
-      opacity: 0;
-      width: 0;
-      border-width: 0;
+      display: none;
       transition: 0.3s;
     }
   }
@@ -160,7 +114,7 @@ export const Container = styled.section`
       }
 
       button {
-        opacity: 1;
+        display: block;
         width: 32px;
         border-width: 2px;
       }

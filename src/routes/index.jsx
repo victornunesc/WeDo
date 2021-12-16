@@ -1,12 +1,12 @@
-import { Switch } from "react-router";
+import { Switch } from 'react-router';
 
-import { Dashboard } from "../pages/dashboard";
-import { Groups } from "../pages/groups";
-import { Login } from "../pages/login";
-import { Signup } from "../pages/signup";
-import { Group } from "../pages/group";
+import { Dashboard } from '../pages/dashboard';
+import { Groups } from '../pages/groups';
+import { Login } from '../pages/login';
+import { Signup } from '../pages/signup';
+import { Group } from '../pages/group';
 
-import { Route } from "./route";
+import { Route } from './route';
 
 export const Routes = () => {
   return (

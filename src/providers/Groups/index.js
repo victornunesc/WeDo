@@ -1,9 +1,9 @@
-import { createContext, useContext, useState } from "react";
-import { useHistory } from "react-router-dom";
-import { toast } from "react-toastify";
+import { createContext, useContext, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
-import api from "../../services/api";
-import { useAuth } from "../Auth";
+import api from '../../services/api';
+import { useAuth } from '../Auth';
 
 const GroupContext = createContext();
 
@@ -30,9 +30,9 @@ const GroupProvider = ({ children }) => {
       })
       .then((response) => {
         loadGroup(id);
-        toast.success("inscrição realizada com sucesso");
+        toast.success('inscrição realizada com sucesso');
       })
-      .catch((err) => toast.error("erro ao se inscrever"));
+      .catch((err) => toast.error('erro ao se inscrever'));
   };
 
   const subOff = (id) => {
@@ -42,14 +42,14 @@ const GroupProvider = ({ children }) => {
       })
       .then((response) => {
         loadGroup(id);
-        toast.success("desinscrição realizada com sucesso");
+        toast.success('desinscrição realizada com sucesso');
       })
-      .catch((err) => toast.error("erro ao se desinscrever"));
+      .catch((err) => toast.error('erro ao se desinscrever'));
   };
 
   const loadMyGroups = () => {
     api
-      .get("/groups/subscriptions/", {
+      .get('/groups/subscriptions/', {
         headers: { Authorization: `Bearer ${access}` },
       })
       .then((response) => {

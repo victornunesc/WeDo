@@ -9,9 +9,27 @@ export const Main = styled.div`
   display: flex;
   flex-direction: column;
   padding-top: 100px;
+  margin: 8px;
+
+  main {
+    height: 496px;
+    margin-top: 8px;
+    background-color: var(--color-white);
+    padding: 8px;
+    border-radius: 0 0 8px 8px;
+  }
+
+  @media screen and (min-width: 400px) {
+    margin: 16px;
+  }
 
   @media screen and (min-width: 800px) {
+    margin: 40px;
     padding-top: 10px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    margin: 0 auto;
   }
 `;
 

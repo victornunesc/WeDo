@@ -66,11 +66,13 @@ const HabitsProvider = ({ children }) => {
       .then((response) => {
         const { title, category, frequency, difficulty } = response.data;
 
+        console.log(response.data);
+
         reset({
-          title: title,
-          category: category,
-          frequency: frequency,
-          difficulty: difficulty,
+          title,
+          category,
+          frequency,
+          difficulty,
         });
       });
   };

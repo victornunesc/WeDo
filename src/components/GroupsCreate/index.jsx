@@ -1,13 +1,16 @@
-import { Modal } from '../Modal';
-import { Container } from './style';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import { toast } from 'react-toastify';
+
+import api from '../../services/api';
+import { useAuth } from '../../providers/Auth';
+
 import { Input } from '../Input';
 import { Button } from '../Button';
-import api from '../../services/api';
-import { toast } from 'react-toastify';
-import { useAuth } from '../../providers/Auth';
+import { Modal } from '../Modal';
+
+import { Container } from './style';
 
 export const GroupsCreate = ({ setModal }) => {
   const lastTest = () => {

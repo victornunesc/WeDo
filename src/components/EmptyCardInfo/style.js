@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import NoGoals from '../../assets/no-goals.png';
 
 export const Container = styled.section`
   display: flex;
@@ -29,9 +30,12 @@ export const Container = styled.section`
     goals &&
     css`
       p {
-        z-index: 1;
-        height: 0;
         margin: 16px auto 0;
+        height: 360px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-image: url(${NoGoals});
       }
     `}
 
@@ -40,6 +44,7 @@ export const Container = styled.section`
     css`
       p {
         margin-bottom: 8px;
+        height: 360px;
       }
     `}
 

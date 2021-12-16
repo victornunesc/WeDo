@@ -1,14 +1,15 @@
-import styled from "styled-components";
-import imageInfo from "../../assets/ImageInfo.png";
+import styled from 'styled-components';
+import imageInfo from '../../assets/ImageInfo.png';
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: flex-start;
+  height: 100%;
 
   button {
     width: 100%;
-    margin-top: 16px;
   }
 
   @media (min-width: 970px) {
@@ -60,12 +61,16 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: space-between;
 
+    .forOne {
+      font-size: var(--font-size-h3);
+      line-height: var(--font-line-height-h3);
+    }
+
     @media (min-width: 660px) {
       text-align: center;
       flex-direction: row-reverse;
       justify-content: space-between;
-
-      height: 60px;
+      align-items: center;
 
       button {
         width: 146px;
@@ -73,7 +78,7 @@ export const Container = styled.div`
 
       .forOne {
         width: 200px;
-        margin-top: 16px;
+        text-align: right;
       }
     }
   }

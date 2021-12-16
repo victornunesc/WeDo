@@ -1,4 +1,3 @@
-import NoGoals from '../../assets/no-goals.png';
 import NoHabits from '../../assets/no-habits.png';
 import NoActivity from '../../assets/no-activity.png';
 import NoUsers from '../../assets/no-users.png';
@@ -16,8 +15,7 @@ export const EmptyCardInfo = ({ habits, goals, activity, user }) => {
 
       {goals && (
         <>
-          <p>Nenhum hábito ainda, clique para adicionar um!</p>
-          <img src={NoGoals} alt="No goals available to show." />
+          <p>Nenhuma meta ainda, clique para adicionar um!</p>
         </>
       )}
 
