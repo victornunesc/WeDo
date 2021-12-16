@@ -10,12 +10,13 @@ import { ActivityCard } from '../ActivityCard';
 import { useState } from 'react';
 import { useActivities } from '../../providers/Activities';
 import { useEffect } from 'react/cjs/react.development';
+import { GroupGoalsCard } from '../GroupGoalsCard';
 
 export const Goal = () => {
   return (
     <Container2>
       <Center>
-        <EmptyCardInfo goals />
+        <GroupGoalsCard />
       </Center>
       <div className="addEnd">
         <Button>Adicionar Meta</Button>
