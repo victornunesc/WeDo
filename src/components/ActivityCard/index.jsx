@@ -1,17 +1,20 @@
-import { useState } from 'react';
-import { FiCalendar } from 'react-icons/fi';
+import { useState } from "react";
+import { FiCalendar } from "react-icons/fi";
 
-import { IconButton } from '../Button';
-import { ActivityEdit } from '../ActivityEdit';
+import { IconButton } from "../Button";
+import { ActivityEdit } from "../ActivityEdit";
+
 
 import { formattedDate } from '../Input/Utility/formatter';
 
 import { Card } from './style';
 
+
 export const ActivityCard = ({ cardActivity }) => {
   const [openModalEdit, setOpenModalEdit] = useState(false);
 
   const { id, title, realization_time } = cardActivity;
+
 
   const newDate = formattedDate(new Date(realization_time));
 

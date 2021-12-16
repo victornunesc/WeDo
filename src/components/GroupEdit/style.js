@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.form`
   width: 308px;
@@ -32,8 +32,14 @@ export const Container = styled.form`
   }
 
   @media (min-width: 660px) {
-    width: 437px;
-    height: 492px;
+    width: 440px;
+
+    .happy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
 
     button {
       max-width: 160px;
