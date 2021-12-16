@@ -10,6 +10,8 @@ import { Input } from '../Input';
 import { Button } from '../Button';
 import { Modal } from '../Modal';
 
+import { groupsCreateValidation } from './Validation';
+
 import { Container } from './style';
 
 export const GroupsCreate = ({ setModal }) => {
@@ -17,13 +19,7 @@ export const GroupsCreate = ({ setModal }) => {
     setModal(false);
   };
 
-  const schema = yup
-    .object({
-      name: yup.string().required('Campo Obrigatório'),
-      description: yup.string().required('Campo Obrigatório'),
-      category: yup.string().required('Campo Obrigatório'),
-    })
-    .required();
+  const schema = groupsCreateValidation;
 
   const {
     register,

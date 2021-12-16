@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 
@@ -9,15 +8,14 @@ import { Modal } from '../Modal';
 import { Input } from '../Input';
 import { Button } from '../Button';
 
+import { activityEditValidation } from './Validation';
+
 import { Container } from './style';
 
 export const ActivityEdit = ({ setOpenModalEdit, id }) => {
   const { deleteActivity, updateActivity, restoreInfos } = useActivities();
 
-  const schema = yup.object().shape({
-    title: yup.string().required('Campo Obrigatório'),
-    realization_time: yup.string().required('Campo Obrigatório'),
-  });
+  const schema = activityEditValidation;
 
   const {
     register,
@@ -29,12 +27,13 @@ export const ActivityEdit = ({ setOpenModalEdit, id }) => {
   });
 
   const handleEditActivity = (data) => {
-    updateActivity(id, data);
+    updateActivity(id, data, setOpenModalEdit);
+    setOpenModalEdit(false);
   };
 
   useEffect(() => {
     restoreInfos(id, reset);
-  }, [setOpenModalEdit]);
+  }, []);
 
   return (
     <>
@@ -50,10 +49,21 @@ export const ActivityEdit = ({ setOpenModalEdit, id }) => {
               placeholder="Título"
               isEmpty={false}
             />
-            <input type="datetime-local" {...register('realization_time')} />
+            <Input
+              maxLength={10}
+              maskInput
+              date
+              isEmpty={false}
+              register={register}
+              errors={errors}
+              name="realization_time"
+              placeholder="Data"
+            />
           </section>
           <Button type="submit">Atualizar</Button>
-          <Button onClick={() => deleteActivity(id)}>Deletar</Button>
+          <Button type="button" secondary onClick={() => deleteActivity(id)}>
+            Deletar
+          </Button>
         </form>
       </Container>
     </>

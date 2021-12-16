@@ -9,6 +9,8 @@ import api from '../../services/api';
 import { Input, InputPassword } from '../../components/Input';
 import { Button } from '../../components/Button';
 
+import { signupValidation } from './Validation';
+
 import logoSignup from '../../assets/logoSignup.png';
 import Flowers from '../../assets/Flowers.png';
 import {
@@ -25,18 +27,7 @@ import {
 export const Signup = () => {
   const history = useHistory();
 
-  const schema = yup.object().shape({
-    username: yup.string().required('Campo obrigatório'),
-    email: yup.string().required('Campo obrigatório').email('Email inválido'),
-    password: yup
-      .string()
-      .required('Campo obrigatório')
-      .min(6, 'São necessários no mínimo 6 caracteres'),
-    confirmPassword: yup
-      .string()
-      .required('Campo obrigatório')
-      .oneOf([yup.ref('password')], 'As senhas devem ser iguais'),
-  });
+  const schema = signupValidation;
 
   const {
     register,

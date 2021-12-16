@@ -28,8 +28,11 @@ export const Container = styled.div`
       max-width: 400px;
     }
 
-    button {
-      margin-top: 32px;
+    button:nth-child(2) {
+      margin-top: 16px;
+    }
+    button{
+      margin-top: 8px;
     }
   }
 `;

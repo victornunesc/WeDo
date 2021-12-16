@@ -1,15 +1,16 @@
-import { useState } from "react";
-import { useGoals } from "../../providers/Goals";
-import { useGroup } from "../../providers/Groups";
+import { useState } from 'react';
 
-import { AchievedBackgroundCounter } from "../AchievedBackgroundCounter";
-import { Button, IconButton } from "../Button";
-import { DeleteConfirmation } from "../DeleteConfirmation";
-import { GroupGoalsCardModal } from "../GroupGoalsCardModal";
-import { GroupGoalsEdit } from "../GroupGoalsEdit";
-import { Modal } from "../Modal";
+import { useGoals } from '../../providers/Goals';
+import { useGroup } from '../../providers/Groups';
 
-import { Container } from "./style";
+import { AchievedBackgroundCounter } from '../AchievedBackgroundCounter';
+import { Button, IconButton } from '../Button';
+import { DeleteConfirmation } from '../DeleteConfirmation';
+import { GroupGoalsCardModal } from '../GroupGoalsCardModal';
+import { GroupGoalsEdit } from '../GroupGoalsEdit';
+import { Modal } from '../Modal';
+
+import { Container } from './style';
 
 export const GroupGoalsCard = ({ goal, open }) => {
   const [showCard, setShowCard] = useState(false);
@@ -60,7 +61,7 @@ export const GroupGoalsCard = ({ goal, open }) => {
       data.achieved = false;
     }
 
-    return updateGoal(data, id, group, "", "achieved");
+    return updateGoal(data, id, group, '', 'achieved');
   };
 
   return (
@@ -82,7 +83,7 @@ export const GroupGoalsCard = ({ goal, open }) => {
         )}
         <footer className="groupGoalsCard__container">
           <section>
-            <p className="font__body">{achieved ? "Completo" : "Incompleto"}</p>
+            <p className="font__body">{achieved ? 'Completo' : 'Incompleto'}</p>
           </section>
           <IconButton
             onClick={handleCardClick}
