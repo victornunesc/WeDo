@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
 export const Container = styled.section`
   display: flex;
@@ -151,6 +151,26 @@ export const Container = styled.section`
 
           button {
             display: none;
+          }
+        }
+      }
+    `}
+
+    ${({ achieved }) =>
+    achieved &&
+    css`
+      footer.groupGoalsCard__container {
+        section {
+          background-color: var(--color-utility-success);
+        }
+
+        button {
+          background-color: var(--color-utility-success);
+
+          :hover {
+            background-color: transparent;
+            color: var(--color-utility-success);
+            border-color: var(--color-utility-success);
           }
         }
       }
