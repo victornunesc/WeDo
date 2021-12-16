@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const Card = styled.div`
   width: 280px;
-  height: 95px;
   background-color: white;
   padding: 10px;
   display: flex;
@@ -10,7 +9,7 @@ export const Card = styled.div`
   justify-content: space-between;
   border-radius: 10px;
   background-color: var(--color-primary-dark);
-  margin: 5px 5px;
+  margin: 4px;
 
   :hover {
     background-color: var(--color-primary);

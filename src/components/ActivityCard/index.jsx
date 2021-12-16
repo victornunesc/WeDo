@@ -4,8 +4,9 @@ import { FiCalendar } from 'react-icons/fi';
 import { IconButton } from '../Button';
 import { ActivityEdit } from '../ActivityEdit';
 
-import { Card } from './style';
 import { formattedDate } from '../Input/Utility/formatter';
+
+import { Card } from './style';
 
 export const ActivityCard = ({ cardActivity }) => {
   const [openModalEdit, setOpenModalEdit] = useState(false);
@@ -30,6 +31,7 @@ export const ActivityCard = ({ cardActivity }) => {
           <IconButton
             primaryColor
             arrowUp
+            card
             onClick={() => setOpenModalEdit(true)}
           />
         </div>

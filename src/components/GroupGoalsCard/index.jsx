@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 import { useGoals } from '../../providers/Goals';
 import { useGroup } from '../../providers/Groups';
 
@@ -47,8 +48,6 @@ export const GroupGoalsCard = ({ goal, open }) => {
       toggleCard();
     }
   };
-
-  console.log(isUserInGroup);
 
   return (
     <>

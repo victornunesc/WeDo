@@ -8,7 +8,7 @@ import { useActivities } from '../../providers/Activities';
 import { Input } from '../Input';
 import { Button } from '../Button';
 
-import { ActivityAddValidation } from './Validation';
+import { activityAddValidation } from './Validation';
 import { formattedDate } from '../Input/Utility/formatter';
 
 import { Modal } from '../Modal';
@@ -19,7 +19,7 @@ export const ActivityAdd = ({ setOpenModal }) => {
 
   const { addActivity } = useActivities();
 
-  const schema = ActivityAddValidation;
+  const schema = activityAddValidation;
 
   const {
     register,
@@ -36,6 +36,7 @@ export const ActivityAdd = ({ setOpenModal }) => {
 
   const handleAddActivity = (data) => {
     addActivity(data, params.id);
+    setOpenModal(false);
   };
 
   return (

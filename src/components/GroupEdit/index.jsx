@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -13,6 +12,8 @@ import { Input } from '../Input';
 import { Button } from '../Button';
 import { Modal } from '../Modal';
 
+import { groupEditValidation } from './Validation';
+
 import { Container } from './style';
 
 export const GroupEdit = ({ setModal }) => {
@@ -20,13 +21,7 @@ export const GroupEdit = ({ setModal }) => {
     setModal(false);
   };
 
-  const schema = yup
-    .object({
-      name: yup.string().required('Campo Obrigatório'),
-      description: yup.string().required('Campo Obrigatório'),
-      category: yup.string().required('Campo Obrigatório'),
-    })
-    .required();
+  const schema = groupEditValidation;
 
   const {
     register,

@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 
@@ -9,14 +8,14 @@ import { Modal } from '../Modal';
 import { Input } from '../Input';
 import { Button } from '../Button';
 
-import { ActivityEditValidation } from './Validation';
+import { activityEditValidation } from './Validation';
 
 import { Container } from './style';
 
 export const ActivityEdit = ({ setOpenModalEdit, id }) => {
   const { deleteActivity, updateActivity, restoreInfos } = useActivities();
 
-  const schema = ActivityEditValidation;
+  const schema = activityEditValidation;
 
   const {
     register,
@@ -29,6 +28,7 @@ export const ActivityEdit = ({ setOpenModalEdit, id }) => {
 
   const handleEditActivity = (data) => {
     updateActivity(id, data, setOpenModalEdit);
+    setOpenModalEdit(false);
   };
 
   useEffect(() => {
@@ -61,7 +61,9 @@ export const ActivityEdit = ({ setOpenModalEdit, id }) => {
             />
           </section>
           <Button type="submit">Atualizar</Button>
-          <Button onClick={() => deleteActivity(id)}>Deletar</Button>
+          <Button type="button" secondary onClick={() => deleteActivity(id)}>
+            Deletar
+          </Button>
         </form>
       </Container>
     </>

@@ -13,7 +13,7 @@ export const Container = styled.div`
     height: 95px;
     background: var(--color-primary-dark);
     border-radius: 8px;
-    margin: 2px;
+    margin: 4px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;

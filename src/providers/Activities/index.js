@@ -1,12 +1,14 @@
 import { createContext, useContext, useState } from 'react';
 import { toast } from 'react-toastify';
+
+import api from '../../services/api';
+import { useAuth } from '../Auth';
+import { useGroup } from '../Groups';
+
 import {
   formattedDate,
   requisitionDate,
 } from '../../components/Input/Utility/formatter';
-import api from '../../services/api';
-import { useAuth } from '../Auth';
-import { useGroup } from '../Groups';
 
 const ActivitiesContext = createContext();
 

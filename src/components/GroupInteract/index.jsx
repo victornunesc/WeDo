@@ -1,16 +1,17 @@
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+
+import { useGroup } from '../../providers/Groups';
+import { useActivities } from '../../providers/Activities';
+
 import { Button } from '../Button';
-
-import ImageInfo from '../../assets/ImageInfo.png';
-
 import { EmptyCardInfo } from '../EmptyCardInfo';
-
-import { Footer, Center, Container, Container2 } from './style';
+import { GroupGoalsCard } from '../GroupGoalsCard';
 import { ActivityAdd } from '../ActivityAdd';
 import { ActivityCard } from '../ActivityCard';
-import { useState } from 'react';
-import { useActivities } from '../../providers/Activities';
-import { useEffect } from 'react/cjs/react.development';
-import { GroupGoalsCard } from '../GroupGoalsCard';
+
+import { Container } from '../GroupGoals/style';
+import { Center, Container2 } from './style';
 
 export const Goal = () => {
   return (
@@ -27,15 +28,22 @@ export const Goal = () => {
 
 export const Activity = () => {
   const [openModal, setOpenModal] = useState(false);
+  const { loadGroup, akuma } = useGroup();
 
   const { activities, loadActivities } = useActivities();
+
+  const { id } = useParams();
 
   useEffect(() => {
     loadActivities();
   }, []);
 
+  useEffect(() => {
+    loadGroup(id);
+  }, [id]);
+
   return (
-    <Container2>
+    <Container>
       <Center>
         {activities.length >= 1 ? (
           activities.map((cardActivity, index) => (
@@ -46,11 +54,17 @@ export const Activity = () => {
         )}
       </Center>
       <div className="addEnd">
-        <h3>{activities.length} Atividades no Grupo</h3>
-        <Button onClick={() => setOpenModal(true)}>Adicionar Atividade</Button>
+        <h3>
+          <span>{activities.length}</span> Atividades no Grupo
+        </h3>
+        {!akuma && (
+          <Button onClick={() => setOpenModal(true)}>
+            Adicionar Atividade
+          </Button>
+        )}
       </div>
       {openModal && <ActivityAdd setOpenModal={setOpenModal} />}
-    </Container2>
+    </Container>
   );
 };
 

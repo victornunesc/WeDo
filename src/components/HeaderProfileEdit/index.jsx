@@ -8,7 +8,7 @@ import { Modal } from '../Modal';
 import { Input } from '../Input/index';
 import { Button } from '../Button/index';
 
-import { HeaderProfileValidation } from './Validation';
+import { headerProfileValidation } from './Validation';
 
 import {
   Container,
@@ -22,7 +22,8 @@ import {
 export const HeaderProfileEdit = ({ toggleEdit }) => {
   const { userInfo, getUserInfo, handleUserEdit } = useUser();
 
-  const schema = HeaderProfileValidation;
+  const schema = headerProfileValidation;
+
   const { username, email } = userInfo;
 
   const {

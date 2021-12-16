@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 
-export const ActivityAddValidation = yup.object().shape({
+export const activityAddValidation = yup.object().shape({
   title: yup.string().required('Campo obrigatório'),
   realization_time: yup
     .string()
