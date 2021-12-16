@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import imageInfo from '../../assets/ImageInfo.png';
+import styled from "styled-components";
+import imageInfo from "../../assets/ImageInfo.png";
 
 export const Container = styled.div`
   display: flex;
@@ -34,10 +34,13 @@ export const Container = styled.div`
     width: 100%;
     border-radius: 8px;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     text-align: center;
     margin-bottom: 16px;
+    padding: 8px;
+    overflow-y: scroll;
+    flex-direction: column;
   }
 
   .p-description-group {
@@ -46,6 +49,7 @@ export const Container = styled.div`
     font-size: var(--font-size-h3);
     line-height: var(--font-line-height-h3);
     font-weight: 400;
+    word-break: break-word;
   }
 
   .creator {

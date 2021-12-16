@@ -33,7 +33,9 @@ export const GroupContent = ({ selectedOption, setSelectedOption }) => {
     <Main>
       <GroupTitle>
         <h2>{name}</h2>
-        <div className="font__body">{category}</div>
+        <div className="category">
+          <p>{category}</p>
+        </div>
       </GroupTitle>
       <GroupMenu
         selectedOption={selectedOption}

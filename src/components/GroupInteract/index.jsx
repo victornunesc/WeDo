@@ -1,30 +1,19 @@
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 
-import { useGroup } from '../../providers/Groups';
-import { useActivities } from '../../providers/Activities';
+import { Button } from "../Button";
 
-import { Button } from '../Button';
-import { EmptyCardInfo } from '../EmptyCardInfo';
-import { GroupGoalsCard } from '../GroupGoalsCard';
-import { ActivityAdd } from '../ActivityAdd';
-import { ActivityCard } from '../ActivityCard';
+import { Container } from "../GroupGoals/style";
 
-import { Container } from '../GroupGoals/style';
-import { Center, Container2 } from './style';
+import { EmptyCardInfo } from "../EmptyCardInfo";
 
-export const Goal = () => {
-  return (
-    <Container2>
-      <Center>
-        <GroupGoalsCard />
-      </Center>
-      <div className="addEnd">
-        <Button>Adicionar Meta</Button>
-      </div>
-    </Container2>
-  );
-};
+import { Center, Container2 } from "./style";
+import { ActivityAdd } from "../ActivityAdd";
+import { ActivityCard } from "../ActivityCard";
+import { useState } from "react";
+import { useActivities } from "../../providers/Activities";
+import { useEffect } from "react/cjs/react.development";
+import { useGroup } from "../../providers/Groups";
+import { useParams } from "react-router-dom";
+
 
 export const Activity = () => {
   const [openModal, setOpenModal] = useState(false);

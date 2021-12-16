@@ -55,8 +55,18 @@ export const Card = styled.div`
     border-radius: 0 0 0 10px;
     background: var(--color-primary-dark);
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
+    text-align: center;
+
+    .category-group-card-p {
+      word-break: break-word;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%;
+      margin-left: 5px;
+    }
   }
 
   .user-on-group-card {
@@ -82,6 +92,12 @@ export const Card = styled.div`
     font-weight: bold;
     font-size: var(--font-size-h3);
     line-height: var(--font-line-height-h3);
+    word-break: break-word;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    padding-left: 8px;
   }
 
   .group-description {
@@ -89,6 +105,12 @@ export const Card = styled.div`
     font-size: var(--font-size-p);
     line-height: var(--font-line-height-p);
     font-style: italic;
+    word-break: break-word;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    padding-left: 8px;
   }
   .icon-group {
     width: 25px;
@@ -98,7 +120,7 @@ export const Card = styled.div`
 
 export const Section = styled.section`
   width: auto;
-  height: 500px;
+  height: 462px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
