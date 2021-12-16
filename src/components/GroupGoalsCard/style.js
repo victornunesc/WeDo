@@ -94,15 +94,65 @@ export const Container = styled.section`
         display: flex;
       }
     }
-
-    ${({ open }) =>
-      open &&
-      css`
-
-  footer.groupGoalsCard__container {
-    section {
-      border-radius: 0 0 0 8px;
-      margin-right: 4px;
-  `}
   }
+
+  ${({ open }) =>
+    open &&
+    css`
+      z-index: 1;
+      position: fixed;
+      top: 25%;
+      transform: translateX(-50%)
+      box-shadow: var(--box-shadow-static);
+
+      footer.groupGoalsCard__container {
+        section {
+          border-radius: 0 0 8px 8px;
+        }
+      }
+
+      :hover {
+        footer.groupGoalsCard__container {
+          section {
+            border-radius: 0 0 0 8px;
+            margin-right: 4px;
+          }
+
+          button {
+            display: flex;
+          }
+        }
+      }
+    `}
+
+  ${({ isUserInGroup, open }) =>
+    !isUserInGroup &&
+    open &&
+    css`
+      main.groupGoalsCard__container {
+        button {
+          display: none;
+        }
+      }
+
+      footer.groupGoalsCard__container {
+        section {
+          margin-top: 16px;
+          border-radius: 0 0 8px 8px;
+        }
+      }
+
+      :hover {
+        footer.groupGoalsCard__container {
+          section {
+            border-radius: 0 0 8px 8px;
+            margin: 16px 0 0;
+          }
+
+          button {
+            display: none;
+          }
+        }
+      }
+    `}
 `;

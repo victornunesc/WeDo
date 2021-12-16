@@ -1,4 +1,4 @@
-import { createContext, useContext } from 'react';
+import { createContext, useContext, useState } from 'react';
 import { toast } from 'react-toastify';
 
 import api from '../../services/api';
@@ -10,6 +10,8 @@ const GoalsContext = createContext();
 const useGoals = () => useContext(GoalsContext);
 
 const GoalsProvider = ({ children }) => {
+  const [goal, setGoal] = useState({});
+
   const { access } = useAuth();
   const { loadGroup, isUserInGroup } = useGroup();
 
@@ -36,8 +38,64 @@ const GoalsProvider = ({ children }) => {
     }
   };
 
+  const removeGoal = (goalId, groupId) => {
+    if (isUserInGroup) {
+      api
+        .delete(`/goals/${goalId}/`, {
+          headers: { Authorization: `Bearer ${access}` },
+        })
+        .then((response) => {
+          toast.success('Meta removida com sucesso!');
+          loadGroup(groupId);
+        })
+        .catch((err) => console.log(err));
+    } else {
+      toast.error(
+        'Você precisa fazer parte do grupo para poder remover uma meta!'
+      );
+    }
+  };
+
+  const getGoal = (goalId, reset) => {
+    api
+      .get(`/goals/${goalId}/`, {
+        headers: { Authorization: `Bearer ${access}` },
+      })
+      .then((response) => {
+        setGoal(response.data);
+
+        if (reset) {
+          const { title, difficulty } = response.data;
+          reset({ title, difficulty });
+        }
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const updateGoal = (data, goalId, groupId, toggleEdit) => {
+    if (isUserInGroup) {
+      api
+        .patch(`/goals/${goalId}/`, data, {
+          headers: { Authorization: `Bearer ${access}` },
+        })
+        .then((response) => {
+          setGoal(response.data);
+          toggleEdit();
+          loadGroup(groupId);
+          toast.success('Meta atualizada com sucesso!');
+        })
+        .catch((err) => console.log(err));
+    } else {
+      toast.error(
+        'Você precisa fazer parte do grupo para poder editar uma meta!'
+      );
+    }
+  };
+
   return (
-    <GoalsContext.Provider value={{ addGoal }}>
+    <GoalsContext.Provider
+      value={{ goal, addGoal, getGoal, updateGoal, removeGoal }}
+    >
       {children}
     </GoalsContext.Provider>
   );

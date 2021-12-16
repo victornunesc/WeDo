@@ -1,37 +1,50 @@
-import { yupResolver } from '@hookform/resolvers/yup';
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 
 import { useGoals } from '../../providers/Goals';
 
+import { Input, InputRadio, InputRadioContainer } from '../Input';
 import { Button } from '../Button';
-import { Input, InputRadioContainer, InputRadio } from '../Input';
+
+import { GoalsEditValidation } from './Validation';
 
 import { Container } from './style';
-import { GoalsAddValidation } from './Validation';
 
-export const GroupGoalsAdd = ({ toggleAdd, groupId }) => {
-  const schema = GoalsAddValidation;
+export const GroupGoalsEdit = ({
+  goalId,
+  groupId,
+  toggleEdit,
+  toggleShowDelete,
+}) => {
+  const schema = GoalsEditValidation;
 
-  const { addGoal } = useGoals();
+  const { getGoal, updateGoal } = useGoals();
 
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
   });
 
-  const handleAddGoal = (data) => {
-    addGoal(data, groupId, toggleAdd);
+  useEffect(() => {
+    getGoal(goalId, reset);
+  }, []);
+
+  const handleEditGoal = (data) => {
+    updateGoal(data, goalId, groupId, toggleEdit);
   };
 
   return (
     <Container>
-      <h2>Adicionar atividade</h2>
-      <form onSubmit={handleSubmit(handleAddGoal)}>
+      <h2>Editar atividade</h2>
+      <form onSubmit={handleSubmit(handleEditGoal)}>
         <section className="inputs">
           <Input
+            isEmpty={false}
             register={register}
             errors={errors}
             name="title"
@@ -76,7 +89,12 @@ export const GroupGoalsAdd = ({ toggleAdd, groupId }) => {
             />
           </InputRadioContainer>
         </section>
-        <Button type="submit">Adicionar</Button>
+        <footer>
+          <Button type="submit">Atualizar</Button>
+          <Button type="button" secondary onClick={toggleShowDelete}>
+            Deletar
+          </Button>
+        </footer>
       </form>
     </Container>
   );
