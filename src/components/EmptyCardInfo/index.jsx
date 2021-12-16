@@ -1,4 +1,3 @@
-import NoGoals from '../../assets/no-goals.png';
 import NoHabits from '../../assets/no-habits.png';
 import NoActivity from '../../assets/no-activity.png';
 import NoUsers from '../../assets/no-users.png';

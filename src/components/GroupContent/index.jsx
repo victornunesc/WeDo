@@ -1,14 +1,15 @@
 import { useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 
-import { Goal, Activity, Users } from '../../components/GroupInteract';
-import { GroupInfo } from '../../components/GroupInfo';
+import { Activity, Users } from '../../components/GroupInteract';
 import { GroupMenu } from '../../components/GroupMenu';
+import { GroupInfo } from '../../components/GroupInfo';
+import { GroupGoals } from '../GroupGoals';
 import { Button } from '../../components/Button';
 
 import { useGroup } from '../../providers/Groups';
 
-import { Main, GroupTitle, GroupInfos, Footer } from './style';
+import { Main, GroupTitle, Footer } from './style';
 
 export const GroupContent = ({ selectedOption, setSelectedOption }) => {
   const showInfo = selectedOption === 'Info';
@@ -35,12 +36,12 @@ export const GroupContent = ({ selectedOption, setSelectedOption }) => {
         selectedOption={selectedOption}
         setSelectedOption={setSelectedOption}
       />
-      <GroupInfos>
+      <main>
         {showInfo && <GroupInfo specifiGroup={specifiGroup} />}
-        {showGoals && <Goal specifiGroup={specifiGroup} />}
+        {showGoals && <GroupGoals specifiGroup={specifiGroup} />}
         {showActivity && <Activity specifiGroup={specifiGroup} />}
         {showUsers && <Users specifiGroup={specifiGroup} />}
-      </GroupInfos>
+      </main>
       <Footer>
         <Button>Inscrever-se</Button>
         <Button onClick={() => history.push('/groups')}>Voltar</Button>
