@@ -1,9 +1,8 @@
-import { useEffect } from "react";
-import { useParams } from "react-router-dom";
-import * as yup from "yup";
-import { useForm } from "react-hook-form";
-import { toast } from "react-toastify";
-import { yupResolver } from "@hookform/resolvers/yup";
+import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
+import { yupResolver } from '@hookform/resolvers/yup';
 
 import api from "../../services/api";
 import { useAuth } from "../../providers/Auth";
@@ -13,20 +12,17 @@ import { Input } from "../Input";
 import { Button } from "../Button";
 import { Modal } from "../Modal";
 
-import { Container } from "./style";
+import { groupEditValidation } from './Validation';
+
+import { Container } from './style';
 
 export const GroupEdit = ({ setModal }) => {
   const lastTest = () => {
     setModal(false);
   };
 
-  const schema = yup
-    .object({
-      name: yup.string().required("Campo Obrigatório"),
-      description: yup.string().required("Campo Obrigatório"),
-      category: yup.string().required("Campo Obrigatório"),
-    })
-    .required();
+  const schema = groupEditValidation;
+
 
   const {
     register,

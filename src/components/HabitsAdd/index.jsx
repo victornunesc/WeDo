@@ -6,14 +6,14 @@ import { useHabits } from '../../providers/Habits';
 import { Input, InputRadio, InputRadioContainer } from '../Input';
 import { Button } from '../Button';
 
-import { AddValidation } from './Validations';
+import { addValidation } from './Validations';
 
 import { Container } from './style';
 
 export const HabitsAdd = ({ toggleAdd }) => {
   const { addHabit } = useHabits();
 
-  const schema = AddValidation;
+  const schema = addValidation;
 
   const {
     register,

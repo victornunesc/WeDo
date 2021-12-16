@@ -1,3 +1,4 @@
+
 import { Button } from "../Button";
 
 import { Container } from "../GroupGoals/style";
@@ -12,6 +13,7 @@ import { useActivities } from "../../providers/Activities";
 import { useEffect } from "react/cjs/react.development";
 import { useGroup } from "../../providers/Groups";
 import { useParams } from "react-router-dom";
+
 
 export const Activity = () => {
   const [openModal, setOpenModal] = useState(false);

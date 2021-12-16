@@ -7,14 +7,14 @@ import { useHabits } from '../../providers/Habits';
 import { Input, InputRadio, InputRadioContainer } from '../Input';
 import { Button } from '../Button';
 
-import { EditValidation } from './Validations';
+import { editValidation } from './Validations';
 
 import { Container } from './style';
 
 export const HabitsEdit = ({ id, showEdit, toggleEdit }) => {
   const { updateHabit, deleteHabit, habitEditInfo } = useHabits();
 
-  const schema = EditValidation;
+  const schema = editValidation;
 
   const {
     register,

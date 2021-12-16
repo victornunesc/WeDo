@@ -4,20 +4,24 @@ import { FiCalendar } from "react-icons/fi";
 import { IconButton } from "../Button";
 import { ActivityEdit } from "../ActivityEdit";
 
-import { Card } from "./style";
+
+import { formattedDate } from '../Input/Utility/formatter';
+
+import { Card } from './style';
+
 
 export const ActivityCard = ({ cardActivity }) => {
   const [openModalEdit, setOpenModalEdit] = useState(false);
 
-  const id = cardActivity.id;
+  const { id, title, realization_time } = cardActivity;
 
-  const fixDate = cardActivity.realization_time.substr(0, 10);
-  const newDate = fixDate.split("-").reverse().join("/");
+
+  const newDate = formattedDate(new Date(realization_time));
 
   return (
     <Card>
       <div className="title">
-        <h3>{cardActivity.title}</h3>
+        <h3>{title}</h3>
       </div>
       <div className="date">
         <div className="alignItems">

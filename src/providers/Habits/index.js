@@ -1,8 +1,8 @@
 import { createContext, useContext, useState } from 'react';
 import { toast } from 'react-toastify';
 
-import { useAuth } from '../Auth';
 import api from '../../services/api';
+import { useAuth } from '../Auth';
 
 const HabitsContext = createContext();
 
