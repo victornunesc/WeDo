@@ -24,6 +24,12 @@ export const Container = styled.section`
     display: flex;
     flex-direction: column;
 
+    section.options {
+      section.options__option + section.options__option {
+        margin-left: 4px;
+      }
+    }
+
     footer {
       display: flex;
       flex-direction: column;

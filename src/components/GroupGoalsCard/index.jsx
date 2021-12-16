@@ -18,7 +18,7 @@ export const GroupGoalsCard = ({ goal, open }) => {
   const [showDelete, setShowDelete] = useState(false);
 
   const { isUserInGroup } = useGroup();
-  const { goal: goalContext, removeGoal } = useGoals();
+  const { updateGoal, goal: goalContext, removeGoal } = useGoals();
 
   const { id, title, difficulty, achieved, how_much_achieved, group } = open
     ? goalContext
@@ -49,9 +49,24 @@ export const GroupGoalsCard = ({ goal, open }) => {
     }
   };
 
+  const maxTimesToAchieve = 10;
+
+  const completeGoals = () => {
+    const data = { achieved, how_much_achieved };
+    data.how_much_achieved += 1;
+
+    if (data.how_much_achieved >= maxTimesToAchieve) {
+      data.achieved = true;
+    } else {
+      data.achieved = false;
+    }
+
+    return updateGoal(data, id, group, '', 'achieved');
+  };
+
   return (
     <>
-      <Container open={open} isUserInGroup={isUserInGroup}>
+      <Container open={open} isUserInGroup={isUserInGroup} achieved={achieved}>
         <p className="title">{title}</p>
         {open && (
           <main className="groupGoalsCard__container">
@@ -61,9 +76,9 @@ export const GroupGoalsCard = ({ goal, open }) => {
             </section>
             <AchievedBackgroundCounter
               achievedCount={how_much_achieved}
-              maxTimes={100}
+              maxTimes={maxTimesToAchieve}
             />
-            <Button onClick={() => ''}>Realizar tarefa</Button>
+            <Button onClick={() => completeGoals()}>Realizar tarefa</Button>
           </main>
         )}
         <footer className="groupGoalsCard__container">
