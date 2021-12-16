@@ -58,6 +58,7 @@ export const Footer = styled.footer`
   align-items: center;
   font-family: "Roboto", sans-serif;
   justify-content: space-evenly;
+  padding: 8px;
 
   button {
     min-width: 148px;

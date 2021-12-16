@@ -97,15 +97,14 @@ export const Card = styled.div`
 `;
 
 export const Section = styled.section`
-  width: 100%;
-  height: 210px;
+  width: auto;
+  height: 500px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
   overflow: hidden;
   overflow-y: scroll;
   margin-top: 30px;
-  flex: 1 0 auto;
 
   .section__render_full {
     cursor: pointer;
