@@ -1,18 +1,18 @@
-import { useState } from 'react';
-import { FiCalendar } from 'react-icons/fi';
+import { useState } from "react";
+import { FiCalendar } from "react-icons/fi";
 
-import { IconButton } from '../Button';
-import { ActivityEdit } from '../ActivityEdit';
+import { IconButton } from "../Button";
+import { ActivityEdit } from "../ActivityEdit";
 
-import { Card } from './style';
+import { Card } from "./style";
 
 export const ActivityCard = ({ cardActivity }) => {
   const [openModalEdit, setOpenModalEdit] = useState(false);
 
   const id = cardActivity.id;
 
-  const fixDate = cardActivity.realization_time.substr(0, 10)
-  const newDate = fixDate.split("-").reverse().join("/")
+  const fixDate = cardActivity.realization_time.substr(0, 10);
+  const newDate = fixDate.split("-").reverse().join("/");
 
   return (
     <Card>
@@ -36,7 +36,7 @@ export const ActivityCard = ({ cardActivity }) => {
         </div>
       </div>
       {openModalEdit && (
-        <ActivityEdit setOpenModalEdit={setOpenModalEdit} id={id}/>
+        <ActivityEdit setOpenModalEdit={setOpenModalEdit} id={id} />
       )}
     </Card>
   );
