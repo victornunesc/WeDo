@@ -30,7 +30,7 @@ export const HabitsAdd = ({ toggleAdd }) => {
 
   return (
     <Container>
-      <h2>Adicionar Hábito</h2>
+      <h2>Adicionar hábito</h2>
 
       <form onSubmit={handleSubmit(handleAddHabit)}>
         <section className="inputs">
@@ -56,6 +56,44 @@ export const HabitsAdd = ({ toggleAdd }) => {
             <InputRadio register={register} name="frequency" label="Semanal" />
             <InputRadio register={register} name="frequency" label="Mensal" />
             <InputRadio register={register} name="frequency" label="Anual" />
+          </InputRadioContainer>
+          <InputRadioContainer
+            register={register}
+            errors={errors}
+            name="difficulty"
+            title="Dificuldade"
+          >
+            <InputRadio
+              register={register}
+              name="difficulty"
+              label="Muito Fácil"
+              sizeBigger
+            />
+            <InputRadio
+              register={register}
+              name="difficulty"
+              label="Fácil"
+              sizeBigger
+            />
+
+            <InputRadio
+              register={register}
+              name="difficulty"
+              label="Médio"
+              sizeBigger
+            />
+            <InputRadio
+              register={register}
+              name="difficulty"
+              label="Difícil"
+              sizeBigger
+            />
+            <InputRadio
+              register={register}
+              name="difficulty"
+              label="Muito Difícil"
+              sizeBigger
+            />
           </InputRadioContainer>
         </section>
         <Button type="submit">Enviar</Button>
