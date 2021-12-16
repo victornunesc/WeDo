@@ -36,7 +36,7 @@ export const ActivityCard = ({ cardActivity }) => {
         </div>
       </div>
       {openModalEdit && (
-        <ActivityEdit setOpenModalEdit={setOpenModalEdit} id={id} />
+        <ActivityEdit setOpenModalEdit={setOpenModalEdit} id={id}/>
       )}
     </Card>
   );

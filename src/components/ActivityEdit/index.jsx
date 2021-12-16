@@ -12,6 +12,7 @@ import { Button } from '../Button';
 import { Container } from './style';
 
 export const ActivityEdit = ({ setOpenModalEdit, id }) => {
+
   const { deleteActivity, updateActivity, restoreInfos } = useActivities();
 
   const schema = yup.object().shape({
@@ -30,6 +31,7 @@ export const ActivityEdit = ({ setOpenModalEdit, id }) => {
 
   const handleEditActivity = (data) => {
     updateActivity(id, data);
+    setOpenModalEdit(false)
   };
 
   useEffect(() => {
@@ -53,7 +55,7 @@ export const ActivityEdit = ({ setOpenModalEdit, id }) => {
             <input type="datetime-local" {...register('realization_time')} />
           </section>
           <Button type="submit">Atualizar</Button>
-          <Button secondary onClick={() => deleteActivity(id)}>Deletar</Button>
+          <Button type="button" secondary onClick={() => deleteActivity(id)}>Deletar</Button>
         </form>
       </Container>
     </>
