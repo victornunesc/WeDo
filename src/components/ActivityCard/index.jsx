@@ -11,6 +11,9 @@ export const ActivityCard = ({ cardActivity }) => {
 
   const id = cardActivity.id;
 
+  const fixDate = cardActivity.realization_time.substr(0, 10)
+  const newDate = fixDate.split("-").reverse().join("/")
+
   return (
     <Card>
       <div className="title">
@@ -21,12 +24,13 @@ export const ActivityCard = ({ cardActivity }) => {
           <p>
             <FiCalendar />
           </p>
-          <p>{cardActivity.realization_time}</p>
+          <p>{newDate}</p>
         </div>
         <div className="icon">
           <IconButton
             primaryColor
             arrowUp
+            card
             onClick={() => setOpenModalEdit(true)}
           />
         </div>

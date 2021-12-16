@@ -6,6 +6,37 @@ export const Container = styled.section`
   justify-content: space-between;
   height: 480px;
 
+  .addEnd {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    h3 {
+      margin-top: 5px;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--color-black-light);
+    }
+
+    span{
+      color: var(--color-secondary);
+    }
+
+    button{
+      padding: 10px;
+      line-height: 10px;
+    }
+
+    @media (max-width: 530px){
+      display: flex;
+      flex-direction: column;
+
+      h3{
+        text-align: center;
+      }
+    }
+  }
+
   main.goals__container {
     flex-basis: 100%;
     display: flex;

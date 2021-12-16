@@ -48,8 +48,6 @@ export const GroupGoalsCard = ({ goal, open }) => {
     }
   };
 
-  console.log(isUserInGroup);
-
   return (
     <>
       <Container open={open} isUserInGroup={isUserInGroup}>
