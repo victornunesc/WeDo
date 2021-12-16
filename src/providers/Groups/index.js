@@ -1,5 +1,6 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import api from "../../services/api";
 import { useAuth } from "../Auth";
@@ -12,9 +13,39 @@ const GroupProvider = ({ children }) => {
   const [myGroups, setMyGroups] = useState([]);
   const [hasMyGroups, setHasMyGroups] = useState([]);
   const [specifiGroup, setSpecifiGroup] = useState({});
+  const [akuma, setAkuma] = useState(false);
   const history = useHistory();
 
-  const { access } = useAuth();
+  const { access, user } = useAuth();
+
+  const sub = (x) => {
+    const legacy = !!x.find((value) => value.id === user.user_id);
+    setAkuma(!legacy);
+  };
+
+  const subOn = (id) => {
+    api
+      .post(`/groups/${id}/subscribe/`, null, {
+        headers: { Authorization: `Bearer ${access}` },
+      })
+      .then((response) => {
+        loadGroup(id);
+        toast.success("inscrição realizada com sucesso");
+      })
+      .catch((err) => toast.error("erro ao se inscrever"));
+  };
+
+  const subOff = (id) => {
+    api
+      .delete(`/groups/${id}/unsubscribe/`, {
+        headers: { Authorization: `Bearer ${access}` },
+      })
+      .then((response) => {
+        loadGroup(id);
+        toast.success("desinscrição realizada com sucesso");
+      })
+      .catch((err) => toast.error("erro ao se desinscrever"));
+  };
 
   const loadMyGroups = () => {
     api
@@ -34,6 +65,7 @@ const GroupProvider = ({ children }) => {
         headers: { Authorization: `Bearer ${access}` },
       })
       .then((response) => {
+        sub(response.data.users_on_group);
         setSpecifiGroup(response.data);
         history.push(`/group/${id}`);
       })
@@ -48,6 +80,9 @@ const GroupProvider = ({ children }) => {
         loadMyGroups,
         loadGroup,
         specifiGroup,
+        akuma,
+        subOn,
+        subOff,
       }}
     >
       {children}

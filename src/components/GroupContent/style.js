@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Main = styled.div`
   max-width: 1200px;
@@ -18,12 +18,48 @@ export const Main = styled.div`
 export const GroupTitle = styled.div`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   background-color: var(--color-white);
   padding: 10px;
   border-radius: 10px;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+
+  h2 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: var(--font-size-h2);
+    line-height: var(--font-line-height-h2);
+  }
+
+  .font__body {
+    background: var(--color-secondary);
+    width: 134px;
+    height: 30px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-white-light);
+    margin-bottom: -68px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: var(--font-size-body);
+    line-height: var(--font-line-height-body);
+
+    @media (max-width: 550px) {
+      width: 100%;
+      margin: 10px 0 -60px 0;
+    }
+  }
+
+  @media (max-width: 550px) {
+    width: 100%;
+    margin-bottom: 46px;
+    justify-content: center;
+    padding: 10px 0;
+  }
 `;
 
 export const Options = styled.div`
