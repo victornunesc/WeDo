@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Div = styled.div`
   display: flex;
@@ -56,7 +56,7 @@ export const Footer = styled.footer`
   height: 60px;
   display: flex;
   align-items: center;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   justify-content: space-evenly;
 
   button {

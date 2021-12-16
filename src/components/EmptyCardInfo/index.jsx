@@ -15,7 +15,8 @@ export const EmptyCardInfo = ({ habits, goals, activity, user }) => {
 
       {goals && (
         <>
-          <p>Nenhum hábito ainda, clique para adicionar um!</p>
+          <p>Nenhuma meta ainda, clique para adicionar um!</p>
+          <img src={NoGoals} alt="No goals available to show." />
         </>
       )}
 

@@ -1,11 +1,12 @@
 import { useState } from 'react';
 
+import { useHabits } from '../../providers/Habits';
+
 import { Button, IconButton } from '../Button';
 import { Modal } from '../Modal';
 import { HabitsEdit } from '../HabitsEdit';
 
 import { Container } from './style';
-import { useHabits } from '../../providers/Habits';
 
 export const HabitsCard = ({ habit }) => {
   const [showEdit, setShowEdit] = useState(false);

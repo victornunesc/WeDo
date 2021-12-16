@@ -1,6 +1,8 @@
-import { Card, Section } from "./style";
-import { useGroup } from "../../providers/Groups";
-import { IconButton } from "../Button";
+import { useGroup } from '../../providers/Groups';
+
+import { IconButton } from '../Button';
+
+import { Card, Section } from './style';
 
 export const RenderGroups = ({
   groups,
@@ -18,7 +20,7 @@ export const RenderGroups = ({
 
   return (
     <Section>
-      {groupInput.length > 0 && input !== ""
+      {groupInput.length > 0 && input !== ''
         ? groupInput.map((group, index) => (
             <Card className="Card" key={index}>
               <div className="upPart">
