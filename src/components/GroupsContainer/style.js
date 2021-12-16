@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import GroupsBehindPicture from '../../assets/groups-behind-picture.png';
+import styled from "styled-components";
+import GroupsBehindPicture from "../../assets/groups-behind-picture.png";
 
 export const Container = styled.section`
   display: flex;
@@ -36,6 +36,7 @@ export const Container = styled.section`
 
     main {
       height: 500px;
+
       margin: 16px 0;
       display: flex;
       align-items: center;

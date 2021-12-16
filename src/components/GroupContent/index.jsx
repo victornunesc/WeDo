@@ -20,7 +20,7 @@ export const GroupContent = ({ selectedOption, setSelectedOption }) => {
   const { id } = useParams();
   const history = useHistory();
 
-  const { loadGroup, specifiGroup } = useGroup();
+  const { loadGroup, specifiGroup, akuma, subOn, subOff } = useGroup();
 
   useEffect(() => {
     loadGroup(id);
@@ -29,8 +29,8 @@ export const GroupContent = ({ selectedOption, setSelectedOption }) => {
   return (
     <Main>
       <GroupTitle>
-        <h2>Aqui vai (name)</h2>
-        <Button className="font__body">Aqui vai (category)</Button>
+        <h2>{specifiGroup.name}</h2>
+        <div className="font__body">{specifiGroup.category}</div>
       </GroupTitle>
       <GroupMenu
         selectedOption={selectedOption}
@@ -43,7 +43,12 @@ export const GroupContent = ({ selectedOption, setSelectedOption }) => {
         {showUsers && <Users specifiGroup={specifiGroup} />}
       </main>
       <Footer>
-        <Button>Inscrever-se</Button>
+        {akuma ? (
+          <Button onClick={() => subOn(Number(id))}>Inscrever-se</Button>
+        ) : (
+          <Button onClick={() => subOff(Number(id))}>Desinscrever</Button>
+        )}
+
         <Button onClick={() => history.push('/groups')}>Voltar</Button>
       </Footer>
     </Main>
