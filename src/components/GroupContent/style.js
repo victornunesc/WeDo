@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Main = styled.div`
   max-width: 1200px;
@@ -11,7 +11,7 @@ export const Main = styled.div`
   padding-top: 100px;
   margin: 8px;
 
-  main {
+  main.groupContent__container {
     height: 496px;
     margin-top: 8px;
     background-color: var(--color-white);

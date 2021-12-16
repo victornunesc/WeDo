@@ -25,7 +25,6 @@ export const HabitsContainer = () => {
 
   return (
     <>
-      {showAdd && <Modal onClick={toggleAdd} />}
       <Container>
         <header>
           <h2>Meus hábitos</h2>
@@ -43,6 +42,7 @@ export const HabitsContainer = () => {
           )}
         </main>
       </Container>
+      {showAdd && <Modal onClick={toggleAdd} />}
       {showAdd && <HabitsAdd toggleAdd={toggleAdd} />}
     </>
   );

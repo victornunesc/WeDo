@@ -10,16 +10,22 @@ export const Container = styled.section`
   background-color: var(--color-white-dark);
   border-radius: 8px;
   padding: 4px;
+  margin: 8px;
+  transition: 0.3s;
 
   p.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: var(--font-size-h3);
     line-height: var(--font-line-height-h3);
     text-align: center;
     margin: 8px 8px 0;
     font-weight: 700;
+    flex: 1 0 auto;
   }
 
-  main {
+  main.groupGoalsCard__container {
     display: flex;
     margin-top: 16px;
     padding: 0 16px;
@@ -49,7 +55,7 @@ export const Container = styled.section`
     }
   }
 
-  footer {
+  footer.groupGoalsCard__container {
     display: flex;
     width: 100%;
 
@@ -59,6 +65,7 @@ export const Container = styled.section`
       text-align: center;
       width: 100%;
       border-radius: 0 0 8px 8px;
+      height: 32px;
 
       p {
         font-size: var(--font-size-body);
@@ -67,17 +74,35 @@ export const Container = styled.section`
         color: var(--color-white);
       }
     }
+
     button {
+      display: none;
       flex: 1 0 auto;
     }
   }
 
-  ${({ open }) =>
-    open &&
-    css`
-  footer {
+  :hover {
+    box-shadow: var(--box-shadow-y);
+
+    footer.groupGoalsCard__container {
+      section {
+        border-radius: 0 0 0 8px;
+        margin-right: 4px;
+      }
+
+      button {
+        display: flex;
+      }
+    }
+
+    ${({ open }) =>
+      open &&
+      css`
+
+  footer.groupGoalsCard__container {
     section {
       border-radius: 0 0 0 8px;
       margin-right: 4px;
   `}
+  }
 `;
