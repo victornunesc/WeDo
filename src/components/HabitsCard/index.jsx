@@ -7,6 +7,7 @@ import { Modal } from '../Modal';
 import { HabitsEdit } from '../HabitsEdit';
 
 import { Container } from './style';
+import { AchievedBackgroundCounter } from '../AchievedBackgroundCounter';
 
 export const HabitsCard = ({ habit }) => {
   const [showEdit, setShowEdit] = useState(false);
@@ -59,13 +60,10 @@ export const HabitsCard = ({ habit }) => {
               <p className="content__title">Frequência</p>
               <p className="content__value">{frequency}</p>
             </section>
-            <section className="card__content card__content--times-achieved">
-              <p className="content__title">Quantidade de vezes completada</p>
-              <div className="content__graph">
-                <div className="graph__green" />
-                <p className="content__value">{how_much_achieved}</p>
-              </div>
-            </section>
+            <AchievedBackgroundCounter
+              achievedCount={how_much_achieved}
+              maxTimes={maxTimesToAchieve}
+            />
           </section>
           <Button onClick={() => completeTask()}>Realizar tarefa</Button>
         </section>
