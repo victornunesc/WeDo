@@ -1,17 +1,9 @@
-<<<<<<< HEAD
 import { useEffect } from 'react';
-=======
-import { useEffect, useContext } from 'react';
->>>>>>> e334a77f0164f6eceef9969c03e0728db911bdcf
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 
-<<<<<<< HEAD
 import { useActivities } from '../../providers/Activities';
-=======
-import { ActivitiesContext } from '../../providers/Activities';
->>>>>>> e334a77f0164f6eceef9969c03e0728db911bdcf
 
 import { Modal } from '../Modal';
 import { Input } from '../Input';
@@ -20,12 +12,7 @@ import { Button } from '../Button';
 import { Container } from './style';
 
 export const ActivityEdit = ({ setOpenModalEdit, id }) => {
-<<<<<<< HEAD
   const { deleteActivity, updateActivity, restoreInfos } = useActivities();
-=======
-  const { deleteActivity, updateActivity, restoreInfos } =
-    useContext(ActivitiesContext);
->>>>>>> e334a77f0164f6eceef9969c03e0728db911bdcf
 
   const schema = yup.object().shape({
     title: yup.string().required('Campo Obrigatório'),

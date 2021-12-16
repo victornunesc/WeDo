@@ -15,7 +15,7 @@ export const HabitsEdit = ({ id, showEdit, toggleEdit }) => {
   const { updateHabit, deleteHabit, habitEditInfo } = useHabits();
 
   const schema = EditValidation;
-  
+
   const {
     register,
     handleSubmit,

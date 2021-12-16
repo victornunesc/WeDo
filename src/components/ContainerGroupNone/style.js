@@ -1,11 +1,11 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   color: var(--color-black-light);
   font-size: var(--font-size-h2);
   line-height: var(--font-line-height-h2);
   font-style: italic;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   text-align: center;
   background-color: var(--color-white-light);
 

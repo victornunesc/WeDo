@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
@@ -12,8 +12,9 @@ export const Container = styled.div`
     cursor: pointer;
   }
 
-  @media (max-width: 600px){
-    .image, .flower{
+  @media (max-width: 600px) {
+    .image,
+    .flower {
       display: none;
     }
   }
@@ -57,7 +58,7 @@ export const Form = styled.form`
   position: relative;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
 
-  Button{
+  Button {
     margin-top: 24px;
   }
 
