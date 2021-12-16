@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Card = styled.div`
   width: 300px;
@@ -34,7 +34,7 @@ export const Card = styled.div`
     justify-content: space-around;
     align-items: center;
     text-align: center;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
   }
 
   .downPart {
@@ -43,7 +43,7 @@ export const Card = styled.div`
     display: flex;
     justify-content: space-around;
     color: var(--color-white);
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-size: var(--font-size-p);
     line-height: var(--font-line-height-p);
     font-weight: bold;
@@ -100,7 +100,7 @@ export const Section = styled.section`
   width: auto;
   height: 500px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   flex-wrap: wrap;
   overflow: hidden;
   overflow-y: scroll;

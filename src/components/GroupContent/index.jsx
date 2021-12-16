@@ -1,21 +1,22 @@
-import { useEffect } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useEffect } from "react";
+import { useHistory, useParams } from "react-router-dom";
 
-import { Activity, Users } from '../../components/GroupInteract';
-import { GroupMenu } from '../../components/GroupMenu';
-import { GroupInfo } from '../../components/GroupInfo';
-import { GroupGoals } from '../GroupGoals';
-import { Button } from '../../components/Button';
+import { Activity, Users } from "../../components/GroupInteract";
+import { GroupMenu } from "../../components/GroupMenu";
+import { GroupInfo } from "../../components/GroupInfo";
+import { GroupGoals } from "../GroupGoals";
+import { Button } from "../../components/Button";
+import { GroupUserContainer } from "../../components/GroupUserContainer";
 
-import { useGroup } from '../../providers/Groups';
+import { useGroup } from "../../providers/Groups";
 
-import { Main, GroupTitle, Footer } from './style';
+import { Main, GroupTitle, Footer } from "./style";
 
 export const GroupContent = ({ selectedOption, setSelectedOption }) => {
-  const showInfo = selectedOption === 'Info';
-  const showGoals = selectedOption === 'Metas';
-  const showActivity = selectedOption === 'Atividades';
-  const showUsers = selectedOption === 'Usuários';
+  const showInfo = selectedOption === "Info";
+  const showGoals = selectedOption === "Metas";
+  const showActivity = selectedOption === "Atividades";
+  const showUsers = selectedOption === "Usuários";
 
   const { id } = useParams();
   const history = useHistory();
@@ -40,7 +41,7 @@ export const GroupContent = ({ selectedOption, setSelectedOption }) => {
         {showInfo && <GroupInfo specifiGroup={specifiGroup} />}
         {showGoals && <GroupGoals specifiGroup={specifiGroup} />}
         {showActivity && <Activity specifiGroup={specifiGroup} />}
-        {showUsers && <Users specifiGroup={specifiGroup} />}
+        {showUsers && <GroupUserContainer specifiGroup={specifiGroup} />}
       </main>
       <Footer>
         {akuma ? (
@@ -49,7 +50,7 @@ export const GroupContent = ({ selectedOption, setSelectedOption }) => {
           <Button onClick={() => subOff(Number(id))}>Desinscrever</Button>
         )}
 
-        <Button onClick={() => history.push('/groups')}>Voltar</Button>
+        <Button onClick={() => history.push("/groups")}>Voltar</Button>
       </Footer>
     </Main>
   );
