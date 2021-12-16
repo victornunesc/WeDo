@@ -44,7 +44,7 @@ export const GroupInfo = ({ specifiGroup }) => {
       <div className="activitis-groups">
         Atividades: <span>{activities && activities.length}</span>{' '}
       </div>
-      <div className="creator">
+      <footer className="creator">
         <p className="forOne">
           <span className="creator-span">@</span>
           {creator && creator.username}
@@ -54,7 +54,7 @@ export const GroupInfo = ({ specifiGroup }) => {
             Editar
           </Button>
         ) : null}
-      </div>
+      </footer>
       {modal ? <GroupEdit setModal={setModal} /> : null}
     </Container>
   );

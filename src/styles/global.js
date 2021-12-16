@@ -29,6 +29,8 @@ const GlobalStyle = createGlobalStyle`
         --color-black: #303030;
         --color-black-dark: #030202;
 
+        --color-box-shadow: rgba(0,0,0,0.5);
+
         /* TYPOGRAPHY */
         --font-size-h1: 54px;
         --font-line-height-h1: 64px;
@@ -50,6 +52,10 @@ const GlobalStyle = createGlobalStyle`
 
         --font-family-body: 'Roboto', sans-serif;
         --font-family-title: 'Roboto', sans-serif;
+
+        /* BOX SHADOW */
+        --box-shadow-static: 0px 0px 8px var(--color-box-shadow);
+        --box-shadow-y: 0px 4px 8px var(--color-box-shadow);
     }
 
     * {

@@ -33,6 +33,8 @@ export const HabitsCard = ({ habit }) => {
 
     if (data.how_much_achieved >= maxTimesToAchieve) {
       data.achieved = true;
+    } else {
+      data.achieved = false;
     }
 
     return updateHabit(id, data, 'achieved');

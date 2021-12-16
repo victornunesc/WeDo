@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 export const Container = styled.nav`
   display: flex;
   flex-direction: column;
+  position: relative;
 
   section.selected {
     display: flex;
@@ -43,9 +44,13 @@ export const Container = styled.nav`
     background-color: var(--color-primary-light);
     padding: 8px;
     border-radius: 0 0 8px 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: var(--box-shadow-y);
     z-index: 1;
     transition: 0.3s;
+    position: absolute;
+    top: 48px;
+    left: 0;
+    right: 0;
 
     p {
       display: flex;
@@ -63,7 +68,7 @@ export const Container = styled.nav`
       cursor: pointer;
 
       :hover {
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        box-shadow: var(--box-shadow-y);
         color: var(--color-white-light);
         background-color: var(--color-primary-dark);
       }
@@ -120,11 +125,13 @@ export const Container = styled.nav`
     }
 
     section.menu__options {
+      position: static;
       padding: 0;
       display: flex;
       justify-content: space-between;
       background-color: var(--color-white-dark);
       height: 56px;
+      box-shadow: none;
       border-radius: 8px 8px 0 0;
       z-index: auto;
 
@@ -152,26 +159,26 @@ export const Container = styled.nav`
       selectedOption === 'Info'
         ? css`
             p#infoOption {
-              box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+              box-shadow: var(--box-shadow-static);
               border-radius: 8px 0 0 0;
             }
           `
         : selectedOption === 'Metas'
         ? css`
             p#goalsOption {
-              box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+              box-shadow: var(--box-shadow-static);
             }
           `
         : selectedOption === 'Atividades'
         ? css`
             p#activitiesOption {
-              box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+              box-shadow: var(--box-shadow-static);
             }
           `
         : selectedOption === 'Usuários'
         ? css`
             p#usersOption {
-              box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+              box-shadow: var(--box-shadow-static);
             }
           `
         : ''}
