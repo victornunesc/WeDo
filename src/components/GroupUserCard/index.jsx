@@ -1,20 +1,17 @@
-import { Container, BoxEmail, BoxUsername } from "./style";
+import { Container } from "./style";
 import { FiMail, FiAtSign } from "react-icons/fi";
 
-import { useEffect, useState } from "react/cjs/react.development";
+import { useEffect } from "react/cjs/react.development";
 import { useGroup } from "../../providers/Groups";
 import { useParams } from "react-router-dom";
 
 export const GroupUseCard = () => {
-  const [user, setUser] = useState();
   const { specifiGroup, loadGroup } = useGroup();
   const { id } = useParams();
 
   useEffect(() => {
     loadGroup(id);
   }, [id]);
-
-  console.log(specifiGroup);
 
   return (
     <Container>

@@ -53,7 +53,7 @@ export const ActivityEdit = ({ setOpenModalEdit, id }) => {
             <input type="datetime-local" {...register('realization_time')} />
           </section>
           <Button type="submit">Atualizar</Button>
-          <Button onClick={() => deleteActivity(id)}>Deletar</Button>
+          <Button secondary onClick={() => deleteActivity(id)}>Deletar</Button>
         </form>
       </Container>
     </>

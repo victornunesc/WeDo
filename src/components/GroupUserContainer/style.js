@@ -5,5 +5,11 @@ export const Footer = styled.footer`
 
   p {
     width: 100%;
+    color: var(--color-black-light);
+    font-size: var(--font-size-h3);
+    font-style: italic;
+  }
+  span{
+    color: var(--color-secondary);
   }
 `;

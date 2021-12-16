@@ -12,11 +12,11 @@ export const GroupUserContainer = () => {
   const { id } = useParams();
 
   const users = specifiGroup.users_on_group;
-  console.log(users);
 
   useEffect(() => {
     loadGroup(id);
   }, [id]);
+  
   return (
     <Container>
       <main>

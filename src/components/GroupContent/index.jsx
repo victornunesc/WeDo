@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
 
-import { Activity, Users } from "../../components/GroupInteract";
+import { Activity } from "../../components/GroupInteract";
 import { GroupMenu } from "../../components/GroupMenu";
 import { GroupInfo } from "../../components/GroupInfo";
 import { GroupGoals } from "../GroupGoals";
