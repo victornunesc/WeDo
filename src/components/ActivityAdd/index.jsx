@@ -1,4 +1,4 @@
-import * as yup from 'yup';
+import { useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
@@ -8,6 +8,9 @@ import { useActivities } from '../../providers/Activities';
 import { Input } from '../Input';
 import { Button } from '../Button';
 
+import { ActivityAddValidation } from './Validation';
+import { formattedDate } from '../Input/Utility/formatter';
+
 import { Modal } from '../Modal';
 import { Container } from './style';
 
@@ -16,17 +19,19 @@ export const ActivityAdd = ({ setOpenModal }) => {
 
   const { addActivity } = useActivities();
 
-  const schema = yup.object().shape({
-    title: yup.string().required('Campo Obrigatório'),
-    realization_time: yup.string().required('Campo Obrigatório'),
-  });
+  const schema = ActivityAddValidation;
 
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
+  });
+
+  useState(() => {
+    reset({ realization_time: formattedDate(new Date()) });
   });
 
   const handleAddActivity = (data) => {
@@ -46,7 +51,17 @@ export const ActivityAdd = ({ setOpenModal }) => {
               name="title"
               placeholder="Título"
             />
-            <input type="datetime-local" {...register('realization_time')} />
+            <Input
+              maxLength={10}
+              maskInput
+              fillInput
+              date
+              isEmpty={false}
+              register={register}
+              errors={errors}
+              name="realization_time"
+              placeholder="Data"
+            />
           </section>
           <Button type="submit">Adicionar</Button>
         </form>
