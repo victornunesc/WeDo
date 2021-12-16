@@ -1,27 +1,33 @@
-import { useState, useEffect } from "react";
-import { Container } from "./style";
-import { useParams } from "react-router-dom";
-import { useGroup } from "../../providers/Groups";
-import { useAuth } from "../../providers/Auth";
-import { Button } from "../Button";
-import { GroupEdit } from "../GroupEdit";
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
-export const GroupInfo = () => {
-  const { access, user } = useAuth();
+import { useGroup } from '../../providers/Groups';
+import { useAuth } from '../../providers/Auth';
+
+import { Button } from '../Button';
+import { GroupEdit } from '../GroupEdit';
+
+import { Container } from './style';
+
+export const GroupInfo = ({ specifiGroup }) => {
+  const { user } = useAuth();
   const { id } = useParams();
-  const [userGroup, setUserGroup] = useState({});
+
   const [modal, setModal] = useState(false);
-  const { loadGroup, specifiGroup } = useGroup();
+
+  const { loadGroup } = useGroup();
 
   useEffect(() => {
     loadGroup(id);
   }, [id]);
 
-  const description = specifiGroup.description;
-  const lengthUser = specifiGroup.users_on_group;
-  const goals = specifiGroup.goals;
-  const activities = specifiGroup.activities;
-  const creator = specifiGroup.creator;
+  const {
+    description,
+    lusers_on_group: lengthUser,
+    goals,
+    activities,
+    creator,
+  } = specifiGroup;
 
   return (
     <Container>
@@ -36,7 +42,7 @@ export const GroupInfo = () => {
         Metas: <span>{goals && goals.length}</span>
       </div>
       <div className="activitis-groups">
-        Atividades: <span>{activities && activities.length}</span>{" "}
+        Atividades: <span>{activities && activities.length}</span>{' '}
       </div>
       <div className="creator">
         <p className="forOne">
@@ -45,7 +51,6 @@ export const GroupInfo = () => {
         </p>
         {creator && creator.id === user.user_id ? (
           <Button onClick={() => setModal(true)} secondary>
-            {" "}
             Editar
           </Button>
         ) : null}

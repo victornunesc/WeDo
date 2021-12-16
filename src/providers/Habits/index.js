@@ -27,16 +27,20 @@ const HabitsProvider = ({ children }) => {
       });
   };
 
-  const updateHabit = (id, data) => {
+  const updateHabit = (id, data, condition) => {
     api
       .patch(`habits/${id}/`, data, {
         headers: { Authorization: `Bearer ${access}` },
       })
       .then((response) => {
-        toast.success('Hábito editado com sucesso!');
+        condition === 'achieved'
+          ? toast.success('Hábito realizado!')
+          : toast.success('Hábito editado com sucesso!');
       })
       .catch((err) => {
-        toast.error('Não foi possível editar.');
+        condition === 'achieved'
+          ? toast.error('Não foi possível realizar.')
+          : toast.error('Não foi possível editar.');
       });
   };
 

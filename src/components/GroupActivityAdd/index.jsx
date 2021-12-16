@@ -1,20 +1,20 @@
+import { Container } from './style';
+import { Modal } from '../Modal';
+
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
-import { useParams } from 'react-router-dom';
-
-import { useActivities } from '../../providers/Activities';
-
 import { Input } from '../Input';
 import { Button } from '../Button';
+import { useParams } from 'react-router-dom';
 
-import { Modal } from '../Modal';
-import { Container } from './style';
+import { useContext } from 'react';
+import { ActivitiesContext } from '../../providers/Activities';
 
-export const ActivityAdd = ({ setOpenModal }) => {
+export const GroupActivityAdd = () => {
   const params = useParams();
 
-  const { addActivity } = useActivities();
+  const { addActivity } = useContext(ActivitiesContext);
 
   const schema = yup.object().shape({
     title: yup.string().required('Campo Obrigatório'),
@@ -35,7 +35,7 @@ export const ActivityAdd = ({ setOpenModal }) => {
 
   return (
     <>
-      <Modal onClick={() => setOpenModal(false)} />
+      <Modal />
       <Container>
         <h2>Adicionar Atividade</h2>
         <form onSubmit={handleSubmit(handleAddActivity)}>
@@ -46,6 +46,7 @@ export const ActivityAdd = ({ setOpenModal }) => {
               name="title"
               placeholder="Título"
             />
+            {/* <Input register={register} errors={errors} name="realization_time" placeholder="Data"/> */}
             <input type="datetime-local" {...register('realization_time')} />
           </section>
           <Button type="submit">Adicionar</Button>

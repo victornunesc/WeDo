@@ -1,8 +1,17 @@
-import { Card, Section } from "./style";
-import { useGroup } from "../../providers/Groups";
-import { IconButton } from "../Button";
+import { useGroup } from '../../providers/Groups';
 
-export const RenderGroups = ({ groups, groupInput, input, page, setPage }) => {
+import { IconButton } from '../Button';
+
+import { Card, Section } from './style';
+
+export const RenderGroups = ({
+  groups,
+  groupInput,
+  input,
+  page,
+  setPage,
+  bol = true,
+}) => {
   const { loadGroup } = useGroup();
 
   const groupConect = (id) => {
@@ -11,7 +20,7 @@ export const RenderGroups = ({ groups, groupInput, input, page, setPage }) => {
 
   return (
     <Section>
-      {groupInput.length > 0 && input !== ""
+      {groupInput.length > 0 && input !== ''
         ? groupInput.map((group, index) => (
             <Card className="Card" key={index}>
               <div className="upPart">
@@ -72,10 +81,11 @@ export const RenderGroups = ({ groups, groupInput, input, page, setPage }) => {
               </div>
             </Card>
           ))}
-
-      <div className="section__render_full" onClick={() => setPage(page + 1)}>
-        Ver mais
-      </div>
+      {bol ? (
+        <div className="section__render_full" onClick={() => setPage(page + 1)}>
+          Ver mais
+        </div>
+      ) : null}
     </Section>
   );
 };
