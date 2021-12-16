@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
 export const Container = styled.nav`
   display: flex;
@@ -12,6 +12,7 @@ export const Container = styled.nav`
     background-color: var(--color-secondary);
     color: var(--color-white-light);
     width: 100%;
+
     border-radius: 8px 8px 0 0;
     padding: 8px;
 
@@ -75,35 +76,35 @@ export const Container = styled.nav`
     }
 
     ${({ selectedOption }) =>
-      selectedOption === 'Info'
+      selectedOption === "Info"
         ? css`
             p#infoOption {
               color: var(--color-white-light);
               background-color: var(--color-secondary);
             }
           `
-        : selectedOption === 'Metas'
+        : selectedOption === "Metas"
         ? css`
             p#goalsOption {
               color: var(--color-white-light);
               background-color: var(--color-secondary);
             }
           `
-        : selectedOption === 'Atividades'
+        : selectedOption === "Atividades"
         ? css`
             p#activitiesOption {
               color: var(--color-white-light);
               background-color: var(--color-secondary);
             }
           `
-        : selectedOption === 'Usuários'
+        : selectedOption === "Usuários"
         ? css`
             p#usersOption {
               color: var(--color-white-light);
               background-color: var(--color-secondary);
             }
           `
-        : ''}
+        : ""}
   }
 
   ${({ openMenu }) =>
@@ -111,10 +112,23 @@ export const Container = styled.nav`
     css`
       section.selected {
         z-index: 2;
+        position: fixed;
+        top: 25%;
+
+        left: 16px;
+        right: 16px;
+        width: calc(100% - 32px);
+        svg {
+        }
       }
 
       section.menu__options {
         display: block;
+        position: fixed;
+        top: calc(25% + 48px);
+
+        left: 16px;
+        right: 16px;
       }
     `}
 
@@ -142,7 +156,7 @@ export const Container = styled.nav`
         border-radius: 0;
 
         :hover {
-          z-index: 1;
+          z-index: 0;
         }
 
         :hover#infoOption {
@@ -156,31 +170,31 @@ export const Container = styled.nav`
     }
 
     ${({ selectedOption }) =>
-      selectedOption === 'Info'
+      selectedOption === "Info"
         ? css`
             p#infoOption {
               box-shadow: var(--box-shadow-static);
               border-radius: 8px 0 0 0;
             }
           `
-        : selectedOption === 'Metas'
+        : selectedOption === "Metas"
         ? css`
             p#goalsOption {
               box-shadow: var(--box-shadow-static);
             }
           `
-        : selectedOption === 'Atividades'
+        : selectedOption === "Atividades"
         ? css`
             p#activitiesOption {
               box-shadow: var(--box-shadow-static);
             }
           `
-        : selectedOption === 'Usuários'
+        : selectedOption === "Usuários"
         ? css`
             p#usersOption {
               box-shadow: var(--box-shadow-static);
             }
           `
-        : ''}
+        : ""}
   }
 `;

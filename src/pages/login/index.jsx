@@ -8,18 +8,15 @@ import { useAuth } from '../../providers/Auth';
 import { Input, InputPassword } from '../../components/Input';
 import { Button } from '../../components/Button';
 
+import { LoginValidation } from './Validation';
+
 import logoLogin from '../../assets/logoLogin.png';
 import flowersLogin from '../../assets/flowersLogin.png';
 import { AlreadyRegistered } from '../signup/style';
 import { Container, Form } from './styles';
 
 export const Login = () => {
-  const schema = yup
-    .object({
-      username: yup.string().required('Campo obrigatório'),
-      password: yup.string().required('Campo obrigatório'),
-    })
-    .required();
+  const schema = LoginValidation;
 
   const history = useHistory();
 

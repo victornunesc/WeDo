@@ -1,26 +1,28 @@
-import { useState, useContext } from 'react';
-import { FiCalendar } from 'react-icons/fi';
+import { useState } from "react";
+import { FiCalendar } from "react-icons/fi";
 
-import { IconButton } from '../Button';
-import { ActivityEdit } from '../ActivityEdit';
+import { IconButton } from "../Button";
+import { ActivityEdit } from "../ActivityEdit";
+
+import { formattedDate } from '../Input/Utility/formatter';
 
 import { Card } from './style';
 import { useGroup } from "../../providers/Groups"
 
-export const ActivityCard = ({ cardActivity }) => {
 
+export const ActivityCard = ({ cardActivity }) => {
   const {akuma} = useGroup()
+
   const [openModalEdit, setOpenModalEdit] = useState(false);
 
-  const id = cardActivity.id;
+  const { id, title, realization_time } = cardActivity;
 
-  const fixDate = cardActivity.realization_time.substr(0, 10)
-  const newDate = fixDate.split("-").reverse().join("/")
+  const newDate = formattedDate(new Date(realization_time));
 
   return (
     <Card>
       <div className="title">
-        <h3>{cardActivity.title}</h3>
+        <h3>{title}</h3>
       </div>
       <div className="date">
         <div className="alignItems">
@@ -42,7 +44,7 @@ export const ActivityCard = ({ cardActivity }) => {
         }
       </div>
       {openModalEdit && (
-        <ActivityEdit setOpenModalEdit={setOpenModalEdit} id={id}/>
+        <ActivityEdit setOpenModalEdit={setOpenModalEdit} id={id} />
       )}
     </Card>
   );

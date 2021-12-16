@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
 export const Container = styled.header`
   background: var(--color-white-light);
@@ -14,11 +14,13 @@ export const Container = styled.header`
   transition: 0.3s;
   position: fixed;
   top: 0;
+  z-index: 1;
 
   p.logo {
     font-size: var(--font-size-h2);
     line-height: var(--font-line-height-h2);
     font-weight: bold;
+    cursor: pointer;
   }
 
   section.menu__info {

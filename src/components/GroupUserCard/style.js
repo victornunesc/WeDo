@@ -8,6 +8,7 @@ export const Container = styled.div`
   align-items: center;
   height: 450px;
   overflow-y: scroll;
+  overflow-x: hidden;
 
   .card {
     width: 280px;
@@ -34,12 +35,15 @@ export const Container = styled.div`
 
   .name {
     display: flex;
-
     align-items: baseline;
     font-style: italic;
     font-weight: normal;
     font-size: var(--font-size-h3);
     line-height: var(--font-line-height-h3);
+    word-break: break-word;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .email {

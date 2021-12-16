@@ -1,17 +1,19 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 
-import { useUser } from '../../providers/User';
+import { useUser } from "../../providers/User";
 
-import { HeaderProfileEdit } from '../HeaderProfileEdit';
-import { HeaderMenu } from '../HeaderMenu';
+import { HeaderProfileEdit } from "../HeaderProfileEdit";
+import { HeaderMenu } from "../HeaderMenu";
 
-import profilePicture from '../../assets/Images/Profile/profile-picture.png';
-import { Container } from './style';
+import profilePicture from "../../assets/Images/Profile/profile-picture.png";
+import { Container } from "./style";
 
 const Header = () => {
   const [openEdit, setOpenEdit] = useState(false);
   const [openHover, setOpenHover] = useState(false);
   const { userInfo, getUserInfo } = useUser();
+  const history = useHistory();
 
   const toggleEdit = () => {
     setOpenEdit(!openEdit);
@@ -30,7 +32,9 @@ const Header = () => {
   return (
     <>
       <Container openHover={openHover}>
-        <p className="logo">WeDo</p>
+        <p className="logo" onClick={() => history.push("/")}>
+          WeDo
+        </p>
         <section className="menu__info">
           {!!username && (
             <p className="header__username">

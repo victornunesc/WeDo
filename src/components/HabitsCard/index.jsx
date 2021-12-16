@@ -2,12 +2,12 @@ import { useState } from 'react';
 
 import { useHabits } from '../../providers/Habits';
 
+import { AchievedBackgroundCounter } from '../AchievedBackgroundCounter';
 import { Button, IconButton } from '../Button';
 import { Modal } from '../Modal';
 import { HabitsEdit } from '../HabitsEdit';
 
 import { Container } from './style';
-import { AchievedBackgroundCounter } from '../AchievedBackgroundCounter';
 
 export const HabitsCard = ({ habit }) => {
   const [showEdit, setShowEdit] = useState(false);

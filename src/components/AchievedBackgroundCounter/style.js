@@ -1,6 +1,15 @@
 import styled from 'styled-components';
 
 export const Container = styled.section`
+  @keyframes fill {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
   height: 90px;
 
   p.content__title {
@@ -19,11 +28,36 @@ export const Container = styled.section`
     border-color: var(--color-grey-dark);
     box-sizing: border-box;
     position: relative;
+    overflow: hidden;
+
+    ::after,
+    ::before {
+      content: '';
+      width: 300px;
+      height: 300px;
+      position: absolute;
+      border-radius: 40%;
+      background-color: var(--color-utility-success);
+      transform: translateY(100%) rotate(0deg);
+      animation: fill 7s ease-in-out infinite;
+      top: calc(100% - 50%);
+      top: ${({ timesAchieved, maxTimes }) =>
+        `calc(100% - ${(timesAchieved * 100) / maxTimes}%)`};
+      right: -25%;
+    }
+
+    ::after {
+      animation: fill 7s ease-in-out infinite 3.5s;
+      top: calc(100% - 50%);
+      top: ${({ timesAchieved, maxTimes }) =>
+        `calc(100% - ${(timesAchieved * 100) / maxTimes}%)`};
+      left: -25%;
+    }
 
     div.graph__green {
       background-color: var(--color-utility-success);
       height: ${({ timesAchieved, maxTimes }) =>
-        `${(timesAchieved * 100) / maxTimes}%`};
+        `calc(${(timesAchieved * 100) / maxTimes}% - 5px)`};
       transition: 0.3s;
     }
 
@@ -38,6 +72,7 @@ export const Container = styled.section`
       height: 84px;
       text-shadow: 0px 8px 10px rgba(0, 0, 0, 0.5);
       font-weight: 700;
+      z-index: 1;
     }
   }
 `;

@@ -14,6 +14,7 @@ export const Container = styled.section`
   border-radius: 8px;
   padding: 8px;
   transition: 0.3s;
+  margin-top: 8px;
 
   section.content {
     display: flex;
@@ -67,9 +68,10 @@ export const Container = styled.section`
     }
   }
 
-  @media screen and (min-width: 900px) {
+  @media screen and (min-width: 800px) {
     max-width: 856px;
     padding: 16px;
+    margin-top: 0;
 
     section.content {
       header {
@@ -86,6 +88,19 @@ export const Container = styled.section`
           width: 216px;
           align-self: stretch;
         }
+      }
+    }
+  }
+
+  @media (max-width: 920px) {
+    header {
+      flex-direction: column;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+
+      h2 {
+        margin-bottom: 16px;
       }
     }
   }
