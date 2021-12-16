@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const ContainerModal = styled.div`
   background-color: var(--color-black-light);
@@ -7,7 +7,7 @@ export const ContainerModal = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 10px;
+  padding: 8px;
   position: fixed;
   opacity: 0.7;
   z-index: 1;

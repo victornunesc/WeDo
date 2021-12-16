@@ -1,14 +1,14 @@
-import { useState, useEffect } from 'react';
-import { Container } from './style';
-import { useParams } from 'react-router-dom';
-import { useGroup } from '../../providers/Groups';
+import { useState } from 'react';
+
 import { useAuth } from '../../providers/Auth';
+
 import { Button } from '../Button';
 import { GroupEdit } from '../GroupEdit';
 
+import { Container } from './style';
+
 export const GroupInfo = ({ specifiGroup }) => {
   const { user } = useAuth();
-  const { id } = useParams();
   const [modal, setModal] = useState(false);
 
   const description = specifiGroup.description;
@@ -32,7 +32,7 @@ export const GroupInfo = ({ specifiGroup }) => {
       <div className="activitis-groups">
         Atividades: <span>{activities && activities.length}</span>{' '}
       </div>
-      <div className="creator">
+      <footer className="creator">
         <p className="forOne">
           <span className="creator-span">@</span>
           {creator && creator.username}
@@ -43,7 +43,7 @@ export const GroupInfo = ({ specifiGroup }) => {
             Editar
           </Button>
         ) : null}
-      </div>
+      </footer>
       {modal ? <GroupEdit setModal={setModal} /> : null}
     </Container>
   );
