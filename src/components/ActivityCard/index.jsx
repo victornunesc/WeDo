@@ -1,12 +1,15 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { FiCalendar } from 'react-icons/fi';
 
 import { IconButton } from '../Button';
 import { ActivityEdit } from '../ActivityEdit';
 
 import { Card } from './style';
+import { useGroup } from "../../providers/Groups"
 
 export const ActivityCard = ({ cardActivity }) => {
+
+  const {akuma} = useGroup()
   const [openModalEdit, setOpenModalEdit] = useState(false);
 
   const id = cardActivity.id;
@@ -26,14 +29,17 @@ export const ActivityCard = ({ cardActivity }) => {
           </p>
           <p>{newDate}</p>
         </div>
-        <div className="icon">
-          <IconButton
-            primaryColor
-            arrowUp
-            card
-            onClick={() => setOpenModalEdit(true)}
-          />
-        </div>
+        {
+          !akuma && 
+          <div className="icon">
+            <IconButton
+              primaryColor
+              arrowUp
+              card
+              onClick={() => setOpenModalEdit(true)}
+            />
+          </div>
+        }
       </div>
       {openModalEdit && (
         <ActivityEdit setOpenModalEdit={setOpenModalEdit} id={id}/>

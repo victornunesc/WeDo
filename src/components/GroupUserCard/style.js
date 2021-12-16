@@ -6,7 +6,8 @@ export const Container = styled.div`
   justify-content: center;
   align-content: flex-start;
   align-items: center;
-  height: 400px;
+  height: 450px;
+  overflow-y: scroll;
 
   .card {
     width: 280px;
