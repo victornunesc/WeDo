@@ -1,18 +1,20 @@
-import { useEffect } from 'react';
+import { Container } from './style';
+import { Modal } from '../Modal';
+
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
-
-import { useActivities } from '../../providers/Activities';
-
-import { Modal } from '../Modal';
 import { Input } from '../Input';
 import { Button } from '../Button';
+import { useParams } from 'react-router-dom';
 
-import { Container } from './style';
+import { useContext } from 'react';
+import { ActivitiesContext } from '../../providers/Activities';
 
-export const ActivityEdit = ({ setOpenModalEdit, id }) => {
-  const { deleteActivity, updateActivity, restoreInfos } = useActivities();
+export const GroupActivityAdd = () => {
+  const params = useParams();
+
+  const { addActivity } = useContext(ActivitiesContext);
 
   const schema = yup.object().shape({
     title: yup.string().required('Campo Obrigatório'),
@@ -22,38 +24,32 @@ export const ActivityEdit = ({ setOpenModalEdit, id }) => {
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
   });
 
-  const handleEditActivity = (data) => {
-    updateActivity(id, data);
+  const handleAddActivity = (data) => {
+    addActivity(data, params.id);
   };
-
-  useEffect(() => {
-    restoreInfos(id, reset);
-  }, [setOpenModalEdit]);
 
   return (
     <>
-      <Modal onClick={() => setOpenModalEdit(false)} />
+      <Modal />
       <Container>
-        <h2>Editar Atividade</h2>
-        <form onSubmit={handleSubmit(handleEditActivity)}>
+        <h2>Adicionar Atividade</h2>
+        <form onSubmit={handleSubmit(handleAddActivity)}>
           <section className="inputs">
             <Input
               register={register}
               errors={errors}
               name="title"
               placeholder="Título"
-              isEmpty={false}
             />
+            {/* <Input register={register} errors={errors} name="realization_time" placeholder="Data"/> */}
             <input type="datetime-local" {...register('realization_time')} />
           </section>
-          <Button type="submit">Atualizar</Button>
-          <Button onClick={() => deleteActivity(id)}>Deletar</Button>
+          <Button type="submit">Adicionar</Button>
         </form>
       </Container>
     </>

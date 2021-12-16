@@ -6,12 +6,13 @@ import api from '../../services/api';
 
 import Header from '../../components/Header';
 import { RenderGroups } from '../../components/RenderGroups';
-import { CreateGroup } from '../../components/CreateGroups';
 import { FindGroups } from '../../components/FindGroups';
 import { ContainerGroupNone } from '../../components/ContainerGroupNone';
+import { GroupsCreate } from '../../components/GroupsCreate';
 import { Button } from '../../components/Button';
 
-import { Div, Container, Cabecalho, Footer } from './style';
+import { Container } from '../../components/GroupsContainer/style';
+import { Div, Cabecalho, Footer } from './style';
 
 export const Groups = () => {
   const [groups, setGroups] = useState([]);
@@ -40,7 +41,7 @@ export const Groups = () => {
     <>
       <Header />
       <Div>
-        <Container>
+        <Container className="container">
           <Cabecalho>
             <div className="flex">
               <h2>Grupos</h2>
@@ -77,7 +78,7 @@ export const Groups = () => {
             </Button>
           </Footer>
         </Container>
-        {modal ? <CreateGroup modal={modal} setModal={setModal} /> : null}
+        {modal ? <GroupsCreate modal={modal} setModal={setModal} /> : null}
       </Div>
     </>
   );

@@ -1,24 +1,27 @@
-import { Modal } from "../Modal";
-import { Container } from "./style";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-import { Input } from "../Input";
-import { Button } from "../Button";
-import api from "../../services/api";
-import { toast } from "react-toastify";
-import { useAuth } from "../../providers/Auth";
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+import { toast } from 'react-toastify';
 
-export const CreateGroup = ({ setModal }) => {
+import api from '../../services/api';
+import { useAuth } from '../../providers/Auth';
+
+import { Input } from '../Input';
+import { Button } from '../Button';
+import { Modal } from '../Modal';
+
+import { Container } from './style';
+
+export const GroupsCreate = ({ setModal }) => {
   const lastTest = () => {
     setModal(false);
   };
 
   const schema = yup
     .object({
-      name: yup.string().required("Campo Obrigatório"),
-      description: yup.string().required("Campo Obrigatório"),
-      category: yup.string().required("Campo Obrigatório"),
+      name: yup.string().required('Campo Obrigatório'),
+      description: yup.string().required('Campo Obrigatório'),
+      category: yup.string().required('Campo Obrigatório'),
     })
     .required();
 
@@ -39,7 +42,8 @@ export const CreateGroup = ({ setModal }) => {
         headers: { Authorization: `Bearer ${access}` },
       })
       .then((response) => {
-        toast.success("Grupo criado com sucesso");
+        toast.success('Grupo criado com sucesso');
+        setModal(false);
       })
       .catch((err) => console.log(err));
   };

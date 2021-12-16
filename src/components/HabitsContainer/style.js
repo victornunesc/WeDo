@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.section`
   display: flex;
@@ -25,5 +25,9 @@ export const Container = styled.section`
     overflow-y: scroll;
     padding: 4px 0 0 8px;
     margin: 0 8px 0 0;
+  }
+
+  @media (min-width: 800px) {
+    margin-right: 16px;
   }
 `;
