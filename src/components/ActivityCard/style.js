@@ -10,10 +10,14 @@ export const Card = styled.div `
     justify-content: space-between;
     border-radius: 10px;
     background-color: var(--color-primary-dark);
-    margin: 5px 0px;
+    margin: 5px 5px;
 
     :hover{
         background-color: var(--color-primary);
+    }
+
+    .title{
+        word-break: break-word;
     }
 
     .date{

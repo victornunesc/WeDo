@@ -11,6 +11,7 @@ import { GroupMenu } from '../../components/GroupMenu';
 import { Main, GroupTitle, Options, GroupInfos, Footer } from './style';
 
 export const Group = ({ group }) => {
+  const [selectedOption, setSelectedOption] = useState('Info');
   const [info, setInfo] = useState(true);
   const [goal, setGoal] = useState(false);
   const [activity, setActivity] = useState(false);
@@ -63,12 +64,15 @@ export const Group = ({ group }) => {
           <h2>Aqui vai (name)</h2>
           <Button className="font__body">Aqui vai (category)</Button>
         </GroupTitle>
-        <GroupMenu />
+        <GroupMenu
+          selectedOption={selectedOption}
+          setSelectedOption={setSelectedOption}
+        />
         <GroupInfos>
-          {info && <GroupInfo />}
-          {goal && <Goal />}
-          {activity && <Activity />}
-          {users && <Users />}
+          {selectedOption === 'Info' && <GroupInfo />}
+          {selectedOption === 'Metas' && <Goal />}
+          {selectedOption === 'Atividades' && <Activity />}
+          {selectedOption === 'Usuários' && <Users />}
         </GroupInfos>
         <Footer>
           <Button>Inscrever-se</Button>

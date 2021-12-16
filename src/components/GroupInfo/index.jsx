@@ -1,32 +1,27 @@
 import { useState, useEffect } from "react";
 import { Container } from "./style";
 import { useParams } from "react-router-dom";
-import api from "../../services/api";
+import { useGroup } from "../../providers/Groups";
 import { useAuth } from "../../providers/Auth";
 import { Button } from "../Button";
+import { GroupEdit } from "../GroupEdit";
 
 export const GroupInfo = () => {
   const { access, user } = useAuth();
   const { id } = useParams();
   const [userGroup, setUserGroup] = useState({});
+  const [modal, setModal] = useState(false);
+  const { loadGroup, specifiGroup } = useGroup();
 
-  console.log(user);
   useEffect(() => {
-    api
-      .get(`/groups/${id}/`, {
-        headers: { Authorization: `Bearer ${access}` },
-      })
-      .then((response) => {
-        setUserGroup(response.data);
-        console.log(response.data);
-      })
-      .catch((err) => console.log(err));
+    loadGroup(id);
   }, [id]);
-  const description = userGroup.description;
-  const lengthUser = userGroup.users_on_group;
-  const goals = userGroup.goals;
-  const activities = userGroup.activities;
-  const creator = userGroup.creator;
+
+  const description = specifiGroup.description;
+  const lengthUser = specifiGroup.users_on_group;
+  const goals = specifiGroup.goals;
+  const activities = specifiGroup.activities;
+  const creator = specifiGroup.creator;
 
   return (
     <Container>
@@ -49,9 +44,13 @@ export const GroupInfo = () => {
           {creator && creator.username}
         </p>
         {creator && creator.id === user.user_id ? (
-          <Button secondary> Editar</Button>
+          <Button onClick={() => setModal(true)} secondary>
+            {" "}
+            Editar
+          </Button>
         ) : null}
       </div>
+      {modal ? <GroupEdit setModal={setModal} /> : null}
     </Container>
   );
 };

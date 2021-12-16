@@ -15,7 +15,7 @@ export const HabitsEdit = ({ id, showEdit, toggleEdit }) => {
   const { updateHabit, deleteHabit, habitEditInfo } = useHabits();
 
   const schema = EditValidation;
-
+  
   const {
     register,
     handleSubmit,
@@ -87,6 +87,7 @@ export const HabitsEdit = ({ id, showEdit, toggleEdit }) => {
               label="Fácil"
               sizeBigger
             />
+
             <InputRadio
               register={register}
               name="difficulty"

@@ -6,34 +6,43 @@ import {Button} from "../Button"
 import * as yup from "yup"
 import {yupResolver} from "@hookform/resolvers/yup"
 import {useForm} from "react-hook-form"
+import {useContext} from "react"
+import {ActivitiesContext} from "../../providers/Activities"
+import { useEffect } from "react/cjs/react.development"
 
-export const ActivityEdit = () => {
+export const ActivityEdit = ({setOpenModalEdit, id}) => {
+
+    const {deleteActivity, updateActivity, restoreInfos} = useContext(ActivitiesContext)
 
     const schema = yup.object().shape({
         title: yup.string().required("Campo Obrigatório"),
-        date: yup.string().required("Campo Obrigatório")
+        realization_time: yup.string().required("Campo Obrigatório")
     })
 
-    const {register, handleSubmit, formState: {errors}} = useForm({
+    const {register, handleSubmit, reset, formState: {errors}} = useForm({
         resolver: yupResolver(schema)
     })
 
     const handleEditActivity = (data) => {
-        console.log(data)
+        updateActivity(id, data)
     }
+
+    useEffect(() => {
+        restoreInfos(id, reset)
+    }, [setOpenModalEdit])
 
     return (
         <>
-            <Modal/>
+            <Modal onClick={() => setOpenModalEdit(false)}/>
             <Container> 
                 <h2>Editar Atividade</h2>
                 <form onSubmit={handleSubmit(handleEditActivity)}>
                     <section className="inputs">
-                        <Input register={register} errors={errors} name="title" placeholder="Título"/>
-                        <input type="datetime-local" {...register("date")}/>
+                        <Input register={register} errors={errors} name="title" placeholder="Título" isEmpty={false}/>
+                        <input type="datetime-local" {...register("realization_time")}/>
                     </section>
                     <Button type="submit">Atualizar</Button>
-                    <Button>Deletar</Button>
+                    <Button onClick={() => deleteActivity(id)}>Deletar</Button>
                 </form>
             </Container>
         </>

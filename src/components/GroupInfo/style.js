@@ -73,6 +73,7 @@ export const Container = styled.div`
 
       .forOne {
         width: 200px;
+        margin-top: 16px;
       }
     }
   }

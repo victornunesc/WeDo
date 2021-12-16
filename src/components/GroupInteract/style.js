@@ -22,17 +22,7 @@ export const Container = styled.div `
                 width: 350px;
             }
         }
-
-        @media (max-width: 800px){
-            img{
-                display: none;
-            }
-        }
     }
-
-    .fundo{
-        background-color: var(--color-white-light);
-        padding: 10px;
         width: 419px;
         margin-top: 10px;
 
@@ -50,16 +40,32 @@ export const Container = styled.div `
 export const Container2 = styled.div `
     .addEnd{
         display: flex;
-        justify-content: flex-end;
-
+        flex-direction: row;
+        justify-content: space-between;
+        
+        h3{
+            margin-top: 5px;
+            font-style: italic;
+            font-weight: 400;
+        }
         Button{
             padding: 10px;
-            line-height: 10px;
+            line-height: 15px;
+        }
+        
+        @media (max-width: 500px){
+            flex-direction: column;
         }
     }
 `
 
 export const Center = styled.div `
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+
     img{
         position: relative;
         top: 50%;
