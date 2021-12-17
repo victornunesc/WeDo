@@ -1,8 +1,8 @@
-import { useGroup } from "../../providers/Groups";
+import { useGroup } from '../../providers/Groups';
 
-import { IconButton } from "../Button";
+import { Button, IconButton } from '../Button';
 
-import { Card, Section } from "./style";
+import { Card, Section } from './style';
 
 export const RenderGroups = ({
   groups,
@@ -20,7 +20,7 @@ export const RenderGroups = ({
 
   return (
     <Section>
-      {groupInput.length > 0 && input !== ""
+      {groupInput.length > 0 && input !== ''
         ? groupInput.map((group, index) => (
             <Card className="Card" key={index}>
               <div className="upPart">
@@ -61,7 +61,7 @@ export const RenderGroups = ({
               </div>
               <div className="downPart">
                 <div className="category-group-card">
-                  {" "}
+                  {' '}
                   <p className="category-group-card-p">{group.category}</p>
                 </div>
                 {group.users_on_group.length > 1 ||
@@ -79,7 +79,6 @@ export const RenderGroups = ({
                   onClick={() => {
                     groupConect(group.id);
                   }}
-                  /* className="icon-button-group" */
                   arrowUp
                   primaryColor
                   card
@@ -88,9 +87,12 @@ export const RenderGroups = ({
             </Card>
           ))}
       {bol ? (
-        <div className="section__render_full" onClick={() => setPage(page + 1)}>
+        <Button
+          className="section__render_full"
+          onClick={() => setPage(page + 1)}
+        >
           Ver mais
-        </div>
+        </Button>
       ) : null}
     </Section>
   );

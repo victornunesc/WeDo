@@ -48,7 +48,7 @@ const ActivitiesProvider = ({ children }) => {
       })
       .then((response) => {
         setActivities([...activities, response.data]);
-        toast.success('Atividade Criada!');
+        toast.success('Atividade criada!');
       })
       .catch((err) => {
         toast.error('Não foi possível criar a atividade');

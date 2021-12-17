@@ -1,16 +1,13 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-content: flex-start;
-  align-items: center;
-  height: 450px;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  
   a {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    overflow-y: scroll;
+    overflow-x: hidden;
     color: inherit;
     text-decoration: none;
     padding: 0;
@@ -50,10 +47,7 @@ export const Container = styled.div`
     .card:hover {
       background: var(--color-primary);
 
-      .username {
-        color: var(--color-primary-dark);
-      }
-
+      .username,
       .useremail {
         color: var(--color-primary-dark);
       }
@@ -74,15 +68,13 @@ export const Container = styled.div`
       }
     }
 
-    .username {
-      color: var(--color-primary);
-      margin-right: 12px;
-      width: 22px;
-    }
-
+    .username,
     .useremail {
       color: var(--color-primary);
       margin-right: 12px;
+    }
+    .username {
+      width: 22px;
     }
 
     svg {

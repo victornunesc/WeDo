@@ -3,18 +3,19 @@ import { useParams } from 'react-router-dom';
 
 import { useGroup } from '../../providers/Groups';
 
-import { Container } from '../GroupGoals/style';
 import { GroupUseCard } from '../GroupUserCard';
-import { TitleCounter } from '../GroupContent/Utility';
 import { EmptyCardInfo } from '../EmptyCardInfo';
 
+import { TitleCounter } from '../GroupContent/Utility';
+
+import { Container } from '../GroupGoals/style';
 import { Footer } from './style';
 
 export const GroupUserContainer = () => {
   const { specifiGroup, loadGroup } = useGroup();
   const { id } = useParams();
 
-  const users = specifiGroup.users_on_group;
+  const { users_on_group: users } = specifiGroup;
 
   useEffect(() => {
     loadGroup(id);
@@ -27,7 +28,7 @@ export const GroupUserContainer = () => {
       </main>
 
       <Footer>
-        <TitleCounter content={users} name="Usuário" />
+        {users.length > 0 && <TitleCounter content={users} name="Usuário" />}
       </Footer>
     </Container>
   );

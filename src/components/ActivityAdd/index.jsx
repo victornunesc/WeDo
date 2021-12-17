@@ -7,11 +7,11 @@ import { useActivities } from '../../providers/Activities';
 
 import { Input } from '../Input';
 import { Button } from '../Button';
+import { Modal } from '../Modal';
 
 import { activityAddValidation } from './Validation';
 import { formattedDate } from '../Input/Utility/formatter';
 
-import { Modal } from '../Modal';
 import { Container } from './style';
 
 export const ActivityAdd = ({ setOpenModal }) => {

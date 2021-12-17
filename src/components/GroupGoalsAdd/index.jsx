@@ -29,7 +29,7 @@ export const GroupGoalsAdd = ({ toggleAdd, groupId }) => {
 
   return (
     <Container>
-      <h2>Adicionar atividade</h2>
+      <h2>Adicionar meta</h2>
       <form onSubmit={handleSubmit(handleAddGoal)}>
         <section className="inputs">
           <Input

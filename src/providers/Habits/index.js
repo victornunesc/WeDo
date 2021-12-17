@@ -92,7 +92,7 @@ const HabitsProvider = ({ children }) => {
       })
       .catch((err) => {
         console.log(err);
-        toast.error('Não foi possível criar um Hábito');
+        toast.error('Não foi possível criar um hábito');
       });
   };
 

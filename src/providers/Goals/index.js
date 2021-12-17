@@ -1,9 +1,9 @@
-import { createContext, useContext, useState } from "react";
-import { toast } from "react-toastify";
+import { createContext, useContext, useState } from 'react';
+import { toast } from 'react-toastify';
 
-import api from "../../services/api";
-import { useAuth } from "../Auth";
-import { useGroup } from "../Groups";
+import api from '../../services/api';
+import { useAuth } from '../Auth';
+import { useGroup } from '../Groups';
 
 const GoalsContext = createContext();
 
@@ -26,14 +26,14 @@ const GoalsProvider = ({ children }) => {
           headers: { Authorization: `Bearer ${access}` },
         })
         .then((response) => {
-          toast.success("Meta adicionada com sucesso!");
+          toast.success('Meta adicionada com sucesso!');
           toggleAdd();
           loadGroup(groupId);
         })
         .catch((err) => console.log(err));
     } else {
       toast.error(
-        "Você precisa fazer parte do grupo para poder adicionar uma meta!"
+        'Você precisa fazer parte do grupo para poder adicionar uma meta!'
       );
     }
   };
@@ -45,13 +45,13 @@ const GoalsProvider = ({ children }) => {
           headers: { Authorization: `Bearer ${access}` },
         })
         .then((response) => {
-          toast.success("Meta removida com sucesso!");
+          toast.success('Meta removida com sucesso!');
           loadGroup(groupId);
         })
         .catch((err) => console.log(err));
     } else {
       toast.error(
-        "Você precisa fazer parte do grupo para poder remover uma meta!"
+        'Você precisa fazer parte do grupo para poder remover uma meta!'
       );
     }
   };
@@ -79,11 +79,11 @@ const GoalsProvider = ({ children }) => {
           headers: { Authorization: `Bearer ${access}` },
         })
         .then((response) => {
-          if (condition === "achieved") {
-            toast.success("Meta realizada!");
+          if (condition === 'achieved') {
+            toast.success('Meta realizada!');
           } else {
             toggleEdit();
-            toast.success("Meta atualizada com sucesso!");
+            toast.success('Meta atualizada com sucesso!');
           }
 
           setGoal(response.data);
@@ -92,7 +92,7 @@ const GoalsProvider = ({ children }) => {
         .catch((err) => console.log(err));
     } else {
       toast.error(
-        "Você precisa fazer parte do grupo para poder editar uma meta!"
+        'Você precisa fazer parte do grupo para poder editar uma meta!'
       );
     }
   };

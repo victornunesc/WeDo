@@ -31,9 +31,9 @@ const GroupProvider = ({ children }) => {
       })
       .then((response) => {
         loadGroup(id);
-        toast.success('inscrição realizada com sucesso');
+        toast.success('Inscrição realizada com sucesso');
       })
-      .catch((err) => toast.error('erro ao se inscrever'));
+      .catch((err) => toast.error('Erro ao se inscrever'));
   };
 
   const subOff = (id) => {
@@ -43,9 +43,9 @@ const GroupProvider = ({ children }) => {
       })
       .then((response) => {
         loadGroup(id);
-        toast.success('desinscrição realizada com sucesso');
+        toast.success('Desinscrição realizada com sucesso');
       })
-      .catch((err) => toast.error('erro ao se desinscrever'));
+      .catch((err) => toast.error('Erro ao se desinscrever'));
   };
 
   const loadMyGroups = () => {

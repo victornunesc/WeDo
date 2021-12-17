@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 export const Container = styled.section`
   display: flex;
@@ -23,6 +23,11 @@ export const Container = styled.section`
     margin: 8px 8px 0;
     font-weight: 700;
     flex: 1 0 auto;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
   }
 
   main.groupGoalsCard__container {
@@ -104,6 +109,12 @@ export const Container = styled.section`
       top: 25%;
       transform: translateX(-50%)
       box-shadow: var(--box-shadow-static);
+
+      p.title {
+         word-break: break-word;
+         white-space: normal;
+         text-align: center;
+      }
 
       footer.groupGoalsCard__container {
         section {
