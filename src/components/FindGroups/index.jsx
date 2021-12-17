@@ -3,16 +3,9 @@ import { useEffect } from 'react';
 import api from '../../services/api';
 import { useAuth } from '../../providers/Auth';
 
-import { Input } from './style';
+import { InputSearch } from '../Input';
 
-export const FindGroups = ({
-  placeholder,
-  type,
-  input,
-  setInput,
-  setGroupInput,
-  groupInput,
-}) => {
+export const FindGroups = ({ input, setInput, setGroupInput }) => {
   const { access } = useAuth();
 
   useEffect(() => {
@@ -31,10 +24,11 @@ export const FindGroups = ({
   }, [input]);
 
   return (
-    <Input
-      placeholder={placeholder}
-      type={type}
-      onChange={(e) => setInput(e.target.value)}
+    <InputSearch
+      placeholder="Pesquisar meus grupos..."
+      onChange={(e) => {
+        setInput(e.target.value);
+      }}
     />
   );
 };

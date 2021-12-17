@@ -8,7 +8,7 @@ export const Container = styled.div`
   min-height: 100vh;
 
   .span-redirect {
-    color: #b04a4a;
+    color: var(--color-secondary);
     cursor: pointer;
   }
 
@@ -22,11 +22,12 @@ export const Container = styled.div`
   @media (min-width: 600px) {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 
     .image {
-      width: 450px;
+      max-width: 600px;
+      width: 45%;
 
       @media (max-width: 1000px) {
         display: none;
@@ -37,8 +38,8 @@ export const Container = styled.div`
       height: 345px;
       position: absolute;
       transform: translateX(-50%);
-      bottom: 0;
-      left: 0;
+      bottom: -11px;
+      left: 8px;
 
       @media (max-width: 1200px) {
         display: none;
@@ -50,21 +51,25 @@ export const Container = styled.div`
 export const Form = styled.form`
   background-color: var(--color-white-light);
   min-height: 100vh;
-  width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  margin: 0 16px;
 
   Button {
     margin-top: 24px;
   }
 
   @media (min-width: 600px) {
+    box-shadow: var(--box-shadow-y);
     width: 600px;
     min-height: 80vh;
     border-radius: 10px;
+    padding: 16px;
+    max-width: 600px;
+    min-width: 500px;
+    margin-right: 40px;
   }
 `;

@@ -10,9 +10,15 @@ export const Container = styled.div`
 `;
 
 export const LeftSide = styled.div`
-  width: 50%;
+  max-width: 600px;
+  width: 75%;
   display: flex;
   justify-content: center;
+  margin-right: 40px;
+
+  img {
+    width: 100%;
+  }
 
   @media (max-width: 1000px) {
     display: none;
@@ -20,10 +26,13 @@ export const LeftSide = styled.div`
 `;
 
 export const RightSide = styled.div`
-  width: 50%;
   font-size: 1.2rem;
+  max-width: 600px;
+  min-width: 500px;
+  width: 100%;
 
   @media (max-width: 1000px) {
+    min-width: 300px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -38,7 +47,7 @@ export const Box = styled.div`
   justify-content: center;
   border-radius: 10px;
   position: relative;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--box-shadow-y);
 
   @media (max-width: 1000px) {
     width: 100%;
@@ -63,6 +72,7 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 16px;
 
   Button {
     margin-top: 24px;
@@ -73,9 +83,10 @@ export const AlreadyRegistered = styled.p`
   background-color: transparent;
   font-size: 1.2rem;
   margin-top: 24px;
+  text-align: center;
 
   span {
-    color: #b04a4a;
+    color: var(--color-secondary);
     cursor: pointer;
   }
 
@@ -86,8 +97,8 @@ export const AlreadyRegistered = styled.p`
 
 export const DivFlower = styled.div`
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: -18px;
+  right: 8px;
   transform: translateX(50%);
 
   @media (max-width: 1000px) {

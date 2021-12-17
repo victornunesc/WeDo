@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 
+import { useGroup } from '../../providers/Groups';
+
 import { EmptyCardInfo } from '../EmptyCardInfo';
 import { TitleCounter } from '../GroupContent/Utility';
 import { GroupGoalsCard } from '../GroupGoalsCard';
@@ -8,7 +10,6 @@ import { Button } from '../Button';
 import { Modal } from '../Modal';
 
 import { Container } from './style';
-import { useGroup } from '../../providers/Groups';
 
 export const GroupGoals = ({ specifiGroup }) => {
   const [hasGoals, setHasGoals] = useState(false);

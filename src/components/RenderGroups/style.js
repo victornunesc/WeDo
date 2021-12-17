@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Card = styled.div`
   width: 300px;
@@ -34,7 +34,7 @@ export const Card = styled.div`
     justify-content: space-around;
     align-items: center;
     text-align: center;
-    font-family: "Roboto", sans-serif;
+    font-family: 'Roboto', sans-serif;
   }
 
   .downPart {
@@ -43,7 +43,7 @@ export const Card = styled.div`
     display: flex;
     justify-content: space-around;
     color: var(--color-white);
-    font-family: "Roboto", sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: var(--font-size-p);
     line-height: var(--font-line-height-p);
     font-weight: bold;
@@ -130,10 +130,14 @@ export const Section = styled.section`
 
   .section__render_full {
     cursor: pointer;
+    max-width: 160px;
     width: 100%;
     text-align: center;
-  }
-  .section__render_full:hover {
-    color: var(--color-utility-danger);
+    font-weight: bold;
+
+    :hover {
+      background-color: var(--color-secondary-light);
+      color: var(--color-black);
+    }
   }
 `;

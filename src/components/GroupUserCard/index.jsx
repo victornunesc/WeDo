@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { FiMail, FiAtSign } from 'react-icons/fi';
+import { FiMail } from 'react-icons/fi';
 
 import { useGroup } from '../../providers/Groups';
 

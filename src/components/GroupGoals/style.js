@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 export const Container = styled.section`
   display: flex;
@@ -10,15 +10,16 @@ export const Container = styled.section`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 
-    .fixText{
+    .fixText {
       p {
         width: 100%;
         color: var(--color-black-light);
         font-size: var(--font-size-h3);
         font-style: italic;
       }
-      span{
+      span {
         color: var(--color-secondary);
       }
     }
@@ -44,9 +45,12 @@ export const Container = styled.section`
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    align-content: center;
     justify-content: space-evenly;
     overflow-y: scroll;
     overflow-x: hidden;
+    max-height: 416px;
+  }
 
   footer.goals__container {
     display: flex;

@@ -47,7 +47,7 @@ export const Container = styled.section`
     }
 
     ::after {
-      animation: fill 7s ease-in-out infinite 3.5s;
+      animation: fill 7s ease-in-out infinite 0.25s;
       top: calc(100% - 50%);
       top: ${({ timesAchieved, maxTimes }) =>
         `calc(100% - ${(timesAchieved * 100) / maxTimes}%)`};
@@ -57,7 +57,7 @@ export const Container = styled.section`
     div.graph__green {
       background-color: var(--color-utility-success);
       height: ${({ timesAchieved, maxTimes }) =>
-        `calc(${(timesAchieved * 100) / maxTimes}% - 5px)`};
+        `calc(${(timesAchieved * 100) / maxTimes}%)`};
       transition: 0.3s;
     }
 

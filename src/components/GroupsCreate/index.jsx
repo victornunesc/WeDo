@@ -1,14 +1,13 @@
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-import { toast } from "react-toastify";
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { toast } from 'react-toastify';
 
-import api from "../../services/api";
-import { useAuth } from "../../providers/Auth";
+import api from '../../services/api';
+import { useAuth } from '../../providers/Auth';
 
-import { Input } from "../Input";
-import { Button } from "../Button";
-import { Modal } from "../Modal";
+import { Input } from '../Input';
+import { Button } from '../Button';
+import { Modal } from '../Modal';
 
 import { groupsCreateValidation } from './Validation';
 
@@ -38,7 +37,7 @@ export const GroupsCreate = ({ setModal }) => {
         headers: { Authorization: `Bearer ${access}` },
       })
       .then((response) => {
-        toast.success("Grupo criado com sucesso");
+        toast.success('Grupo criado com sucesso');
         setModal(false);
       })
       .catch((err) => console.log(err));

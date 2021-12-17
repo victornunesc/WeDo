@@ -1,19 +1,18 @@
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
-import { Button } from "../Button";
+import { useActivities } from '../../providers/Activities';
+import { useGroup } from '../../providers/Groups';
 
-import { Container } from "../GroupGoals/style";
+import { Button } from '../Button';
+import { EmptyCardInfo } from '../EmptyCardInfo';
+import { ActivityAdd } from '../ActivityAdd';
+import { ActivityCard } from '../ActivityCard';
 
-import { EmptyCardInfo } from "../EmptyCardInfo";
+import { TitleCounter } from '../GroupContent/Utility';
 
-import { Center, Container2 } from "./style";
-import { ActivityAdd } from "../ActivityAdd";
-import { ActivityCard } from "../ActivityCard";
-import { useState } from "react";
-import { useActivities } from "../../providers/Activities";
-import { useEffect } from "react/cjs/react.development";
-import { useGroup } from "../../providers/Groups";
-import { useParams } from "react-router-dom";
-import { TitleCounter } from "../GroupContent/Utility"
+import { Container } from '../GroupGoals/style';
+import { Center, Container2 } from './style';
 
 export const Activity = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -44,10 +43,9 @@ export const Activity = () => {
       </Center>
       <div className="addEnd">
         <div className="fixText">
-          {
-            activities.length >= 1 &&
-            <TitleCounter content={activities} name="Atividade"/>
-          }
+          {activities.length >= 1 && (
+            <TitleCounter content={activities} name="Atividade" />
+          )}
         </div>
         {!akuma && (
           <Button onClick={() => setOpenModal(true)}>
