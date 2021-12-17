@@ -33,11 +33,13 @@ export const Container = styled.div`
     max-width: 420px;
     width: 100%;
     border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     text-align: center;
+    display: grid;
+    place-items: center;
     margin-bottom: 16px;
+    padding: 8px;
+    overflow-y: scroll;
+    flex-direction: column;
   }
 
   .p-description-group {
@@ -46,6 +48,7 @@ export const Container = styled.div`
     font-size: var(--font-size-h3);
     line-height: var(--font-line-height-h3);
     font-weight: 400;
+    word-break: break-word;
   }
 
   .creator {

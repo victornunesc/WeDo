@@ -1,6 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
+<<<<<<< HEAD
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -8,8 +9,13 @@ export const Container = styled.div`
   align-items: center;
   height: 450px;
   overflow-y: scroll;
+=======
+  a {
+    color: inherit;
+    text-decoration: none;
+    padding: 0;
+>>>>>>> af349da28c0e5f38c06cae91d8a31a7fc7b71a67
 
-  .card {
     width: 280px;
     height: 95px;
     background: var(--color-primary-dark);
@@ -17,53 +23,85 @@ export const Container = styled.div`
     margin: 4px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: flex-start;
     padding: 12px;
-  }
+    transition: 0.3s;
 
-  .card:hover {
-    background: var(--color-primary);
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      p {
+        span {
+          color: var(--color-primary-light);
+          margin-right: 12px;
+        }
+
+        word-break: break-word;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: var(--font-size-h3);
+        line-height: var(--font-line-height-h3);
+      }
+    }
+
+    .card:hover {
+      background: var(--color-primary);
+
+      .username {
+        color: var(--color-primary-dark);
+      }
+
+      .useremail {
+        color: var(--color-primary-dark);
+      }
+    }
+
+    .name,
+    .email {
+      display: flex;
+      align-items: center;
+      font-style: italic;
+      font-weight: normal;
+    }
+
+    .email {
+      p {
+        font-size: var(--font-size-p);
+        line-height: var(--font-line-height-p);
+      }
+    }
 
     .username {
-      color: var(--color-primary-dark);
+      color: var(--color-primary);
+      margin-right: 12px;
+      width: 22px;
     }
+
     .useremail {
-      color: var(--color-primary-dark);
+      color: var(--color-primary);
+      margin-right: 12px;
     }
-  }
 
-  .name {
-    display: flex;
+    svg {
+      width: 24px;
+      height: 24px;
+    }
 
-    align-items: baseline;
-    font-style: italic;
-    font-weight: normal;
-    font-size: var(--font-size-h3);
-    line-height: var(--font-line-height-h3);
-  }
+    :hover {
+      box-shadow: var(--box-shadow-y);
+      background-color: var(--color-primary-light);
 
-  .email {
-    display: flex;
-
-    align-items: baseline;
-    font-style: italic;
-    font-weight: normal;
-    font-size: var(--font-size-p);
-    line-height: var(--font-line-height-p);
-  }
-  .username {
-    color: var(--color-primary);
-    margin-right: 12px;
-    width: 22px;
-  }
-
-  .useremail {
-    color: var(--color-primary);
-    margin-right: 12px;
-  }
-
-  svg {
-    width: 22px;
-    height: 18px;
+      .name,
+      .email {
+        span,
+        svg {
+          color: var(--color-primary-dark);
+        }
+      }
+    }
   }
 `;

@@ -1,11 +1,14 @@
-import { Container } from "../GroupGoals/style";
-import { GroupUseCard } from "../GroupUserCard";
-import { TitleCounter } from "../GroupContent/Utility";
-import { useGroup } from "../../providers/Groups";
-import { useParams } from "react-router-dom";
-import { useEffect } from "react/cjs/react.development";
-import { Footer } from "./style";
-import { EmptyCardInfo } from "../EmptyCardInfo";
+import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+
+import { useGroup } from '../../providers/Groups';
+
+import { Container } from '../GroupGoals/style';
+import { GroupUseCard } from '../GroupUserCard';
+import { TitleCounter } from '../GroupContent/Utility';
+import { EmptyCardInfo } from '../EmptyCardInfo';
+
+import { Footer } from './style';
 
 export const GroupUserContainer = () => {
   const { specifiGroup, loadGroup } = useGroup();
@@ -16,10 +19,10 @@ export const GroupUserContainer = () => {
   useEffect(() => {
     loadGroup(id);
   }, [id]);
-  
+
   return (
     <Container>
-      <main>
+      <main className="users__container">
         {users.length > 0 ? <GroupUseCard /> : <EmptyCardInfo user />}
       </main>
 

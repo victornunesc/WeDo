@@ -1,9 +1,10 @@
-import { Container } from "./style";
-import { FiMail, FiAtSign } from "react-icons/fi";
+import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { FiMail, FiAtSign } from 'react-icons/fi';
 
-import { useEffect } from "react/cjs/react.development";
-import { useGroup } from "../../providers/Groups";
-import { useParams } from "react-router-dom";
+import { useGroup } from '../../providers/Groups';
+
+import { Container } from './style';
 
 export const GroupUseCard = () => {
   const { specifiGroup, loadGroup } = useGroup();
@@ -14,21 +15,24 @@ export const GroupUseCard = () => {
   }, [id]);
 
   return (
-    <Container>
+    <>
       {specifiGroup &&
-        specifiGroup.users_on_group.map((user) => (
-          <section key={user.id} className="card">
-            <div className="name">
-              <FiAtSign className="username" />
-              {user.username}
-            </div>
-            <div className="email">
-              {" "}
-              <FiMail className="useremail" />
-              {user.email}
-            </div>
-          </section>
+        specifiGroup.users_on_group.map(({ id, email, username }) => (
+          <Container key={id}>
+            <a href={`mailto:${email}`}>
+              <div className="name">
+                <p>
+                  <span>@</span>
+                  {username}
+                </p>
+              </div>
+              <div className="email">
+                <FiMail className="useremail" />
+                <p>{email}</p>
+              </div>
+            </a>
+          </Container>
         ))}
-    </Container>
+    </>
   );
 };

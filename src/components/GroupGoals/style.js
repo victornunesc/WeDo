@@ -18,39 +18,34 @@ export const Container = styled.section`
       color: var(--color-black-light);
     }
 
-    span{
+    span {
       color: var(--color-secondary);
     }
 
-    button{
+    button {
       padding: 10px;
       line-height: 10px;
     }
 
-    @media (max-width: 530px){
+    @media (max-width: 530px) {
       display: flex;
       flex-direction: column;
 
-      h3{
+      h3 {
         text-align: center;
       }
     }
   }
 
-  main.goals__container {
+  main.goals__container,
+  main.users__container {
     flex-basis: 100%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
     overflow-y: scroll;
-
-    div.simulation {
-      width: 300px;
-      height: 124px;
-      background-color: red;
-      margin: 4px;
-    }
+    overflow-x: hidden;
   }
 
   footer.goals__container {

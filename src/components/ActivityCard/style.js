@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Card = styled.div`
   width: 280px;
-  /* height: 95px; */
+  height: 95px;
   background-color: white;
   padding: 10px;
   display: flex;
@@ -11,14 +11,20 @@ export const Card = styled.div`
   border-radius: 10px;
   background-color: var(--color-primary-dark);
   margin: 4px;
+  transition: 0.3s;
 
   :hover {
     background-color: var(--color-primary);
-    
+    box-shadow: var(--box-shadow-y);
   }
 
   .title {
-    word-break: break-word;
+    h3 {
+      word-break: break-word;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
 
   .date {
@@ -26,6 +32,7 @@ export const Card = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
+    font-style: italic;
   }
 
   .alignItems {
