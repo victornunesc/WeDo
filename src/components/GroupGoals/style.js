@@ -22,16 +22,6 @@ export const Container = styled.section`
         color: var(--color-secondary);
       }
     }
-    /* h3 {
-      margin-top: 5px;
-      font-style: italic;
-      font-weight: 400;
-      color: var(--color-black-light);
-    }
-
-    p {
-      color: var(--color-secondary);
-    } */
 
     button {
       padding: 10px;
@@ -48,7 +38,8 @@ export const Container = styled.section`
     }
   }
 
-  main.goals__container {
+  main.goals__container,
+  main.users__container {
     flex-basis: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -56,14 +47,6 @@ export const Container = styled.section`
     justify-content: space-evenly;
     overflow-y: scroll;
     overflow-x: hidden;
-
-    div.simulation {
-      width: 300px;
-      height: 124px;
-      background-color: red;
-      margin: 4px;
-    }
-  }
 
   footer.goals__container {
     display: flex;
