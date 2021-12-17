@@ -22,7 +22,7 @@ export const GroupUserContainer = () => {
 
   return (
     <Container>
-      <main>
+      <main className="users__container">
         {users.length > 0 ? <GroupUseCard /> : <EmptyCardInfo user />}
       </main>
 

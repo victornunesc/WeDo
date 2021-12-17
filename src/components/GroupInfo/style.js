@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import imageInfo from "../../assets/ImageInfo.png";
+import styled from 'styled-components';
+import imageInfo from '../../assets/ImageInfo.png';
 
 export const Container = styled.div`
   display: flex;
@@ -33,10 +33,9 @@ export const Container = styled.div`
     max-width: 420px;
     width: 100%;
     border-radius: 8px;
-    display: flex;
-    justify-content: start;
-    align-items: center;
     text-align: center;
+    display: grid;
+    place-items: center;
     margin-bottom: 16px;
     padding: 8px;
     overflow-y: scroll;

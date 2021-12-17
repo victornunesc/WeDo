@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
@@ -62,10 +62,12 @@ export const Center = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   overflow-y: scroll;
   overflow-x: hidden;
-  max-height: 480px;
+  max-height: 416px;
+  flex: 1 0 100%;
 
   img {
     position: relative;
