@@ -6,11 +6,12 @@ import { useGoals } from '../../providers/Goals';
 import { Button } from '../Button';
 import { Input, InputRadioContainer, InputRadio } from '../Input';
 
+import { goalsAddValidation } from './Validation';
+
 import { Container } from './style';
-import { GoalsAddValidation } from './Validation';
 
 export const GroupGoalsAdd = ({ toggleAdd, groupId }) => {
-  const schema = GoalsAddValidation;
+  const schema = goalsAddValidation;
 
   const { addGoal } = useGoals();
 

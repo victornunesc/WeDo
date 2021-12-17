@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Main = styled.div`
   max-width: 1200px;
@@ -40,35 +40,50 @@ export const GroupTitle = styled.div`
   justify-content: space-between;
   align-items: center;
   background-color: var(--color-white);
-  padding: 10px;
+  padding: 8px 8px 12px;
   border-radius: 10px;
   margin-bottom: 40px;
+  position: relative;
 
   h2 {
     font-style: normal;
     font-weight: bold;
     font-size: var(--font-size-h2);
     line-height: var(--font-line-height-h2);
+    word-break: break-word;
+    padding: 8px;
   }
 
-  .font__body {
+  @media (max-width: 550px) {
+    h2 {
+      text-align: center;
+    }
+  }
+
+  .category {
     background: var(--color-secondary);
-    width: 134px;
-    height: 30px;
+    min-width: 136px;
+    width: auto;
+    height: 32px;
+    padding: 0 8px;
     border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: var(--color-white-light);
-    margin-bottom: -68px;
+
     font-style: normal;
     font-weight: bold;
     font-size: var(--font-size-body);
     line-height: var(--font-line-height-body);
+    position: absolute;
+    right: 8px;
+    bottom: -16px;
 
     @media (max-width: 550px) {
       width: 100%;
       margin: 10px 0 -60px 0;
+      position: static;
     }
   }
 

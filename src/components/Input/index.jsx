@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 
+import { dateMask } from './Utility/mask';
+import { formattedDate } from './Utility/formatter';
+
 import {
   Container,
   ContainerPassword,
@@ -13,22 +16,53 @@ export const Input = ({
   register,
   name,
   errors,
+  maskInput,
+  date,
+  fillInput,
   isEmpty = true,
+  ...rest
 }) => {
   const [haveText, setHaveText] = useState(!isEmpty);
   const [isErrored, setIsErrored] = useState(false);
+  const [inputValue, setInputValue] = useState('');
+  const [isEmptyValue, setIsEmptyValue] = useState(isEmpty);
+
+  dateMask(inputValue);
+
+  useEffect(() => {
+    if (date && fillInput) {
+      setInputValue(formattedDate(new Date()));
+    }
+  }, []);
 
   useEffect(() => {
     setIsErrored(!!errors[name]?.message);
   }, [errors[name]?.message]);
 
   return (
-    <Container haveText={haveText} isErrored={isErrored} isEmpty={isEmpty}>
+    <Container
+      haveText={haveText}
+      isErrored={isErrored}
+      isEmpty={isEmptyValue && inputValue === ''}
+    >
       <input
+        value={inputValue}
         type="text"
         {...register(name, {
-          onChange: (event) => setHaveText(event.target.value.trim() !== ''),
+          onChange: (event) => {
+            if (maskInput) {
+              let maskResult = dateMask(event.target.value);
+              setInputValue(maskResult);
+            } else {
+              setInputValue(event.target.value);
+            }
+            if (event.target.value === '') {
+              setIsEmptyValue(true);
+            }
+            setHaveText(event.target.value.trim() !== '');
+          },
         })}
+        {...rest}
       />
       <p className="placeholder">{placeholder}</p>
       {isErrored && <p className="error">{errors[name]?.message}</p>}

@@ -7,7 +7,7 @@ import { useGoals } from '../../providers/Goals';
 import { Input, InputRadio, InputRadioContainer } from '../Input';
 import { Button } from '../Button';
 
-import { GoalsEditValidation } from './Validation';
+import { goalsEditValidation } from './Validation';
 
 import { Container } from './style';
 
@@ -17,7 +17,7 @@ export const GroupGoalsEdit = ({
   toggleEdit,
   toggleShowDelete,
 }) => {
-  const schema = GoalsEditValidation;
+  const schema = goalsEditValidation;
 
   const { getGoal, updateGoal } = useGoals();
 

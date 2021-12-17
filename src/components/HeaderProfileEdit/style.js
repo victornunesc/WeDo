@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const ShowOnlyContainer = styled.div`
   width: 100%;
@@ -7,7 +7,7 @@ export const ShowOnlyContainer = styled.div`
   position: fixed;
   top: 0;
   opacity: 0.8;
-  z-index: 0;
+  z-index: 2;
 `;
 
 export const Container = styled.div`

@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
 export const Container = styled.section`
   display: flex;
@@ -11,27 +11,38 @@ export const Container = styled.section`
     flex-direction: row;
     justify-content: space-between;
 
-    h3 {
+    .fixText{
+      p {
+        width: 100%;
+        color: var(--color-black-light);
+        font-size: var(--font-size-h3);
+        font-style: italic;
+      }
+      span{
+        color: var(--color-secondary);
+      }
+    }
+    /* h3 {
       margin-top: 5px;
       font-style: italic;
       font-weight: 400;
       color: var(--color-black-light);
     }
 
-    span{
+    p {
       color: var(--color-secondary);
-    }
+    } */
 
-    button{
+    button {
       padding: 10px;
       line-height: 10px;
     }
 
-    @media (max-width: 530px){
+    @media (max-width: 530px) {
       display: flex;
       flex-direction: column;
 
-      h3{
+      h3 {
         text-align: center;
       }
     }
@@ -44,6 +55,7 @@ export const Container = styled.section`
     align-items: center;
     justify-content: space-evenly;
     overflow-y: scroll;
+    overflow-x: hidden;
 
     div.simulation {
       width: 300px;

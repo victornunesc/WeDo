@@ -1,17 +1,18 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import api from '../../services/api';
-import { useAuth } from '../../providers/Auth';
-import { useGroup } from '../../providers/Groups';
+import api from "../../services/api";
+import { useAuth } from "../../providers/Auth";
+import { useGroup } from "../../providers/Groups";
 
-import { Input } from '../Input';
-import { Button } from '../Button';
-import { Modal } from '../Modal';
+import { Input } from "../Input";
+import { Button } from "../Button";
+import { Modal } from "../Modal";
+
+import { groupEditValidation } from './Validation';
 
 import { Container } from './style';
 
@@ -20,13 +21,8 @@ export const GroupEdit = ({ setModal }) => {
     setModal(false);
   };
 
-  const schema = yup
-    .object({
-      name: yup.string().required('Campo Obrigatório'),
-      description: yup.string().required('Campo Obrigatório'),
-      category: yup.string().required('Campo Obrigatório'),
-    })
-    .required();
+  const schema = groupEditValidation;
+
 
   const {
     register,
@@ -60,7 +56,7 @@ export const GroupEdit = ({ setModal }) => {
         headers: { Authorization: `Bearer ${access}` },
       })
       .then((response) => {
-        toast.success('Grupo editado com sucesso');
+        toast.success("Grupo editado com sucesso");
         loadGroup(id);
         setModal(false);
       })
@@ -71,7 +67,7 @@ export const GroupEdit = ({ setModal }) => {
       <Modal onClick={lastTest} />
       <Container onSubmit={handleSubmit(formValue)}>
         <h2>Editar Grupo</h2>
-        <section>
+        <section className="happy">
           <Input
             isEmpty={false}
             register={register}

@@ -1,8 +1,8 @@
-import { useGroup } from '../../providers/Groups';
+import { useGroup } from "../../providers/Groups";
 
-import { IconButton } from '../Button';
+import { IconButton } from "../Button";
 
-import { Card, Section } from './style';
+import { Card, Section } from "./style";
 
 export const RenderGroups = ({
   groups,
@@ -20,7 +20,7 @@ export const RenderGroups = ({
 
   return (
     <Section>
-      {groupInput.length > 0 && input !== ''
+      {groupInput.length > 0 && input !== ""
         ? groupInput.map((group, index) => (
             <Card className="Card" key={index}>
               <div className="upPart">
@@ -28,7 +28,9 @@ export const RenderGroups = ({
                 <p className="group-description">{group.description}</p>
               </div>
               <div className="downPart">
-                <div className="category-group-card">{group.category}</div>
+                <div className="category-group-card">
+                  <p className="category-group-card-p">{group.category}</p>
+                </div>
                 {group.users_on_group.length > 1 ||
                 group.users_on_group.length === 0 ? (
                   <div className="user-on-group-card">
@@ -58,7 +60,10 @@ export const RenderGroups = ({
                 <p className="group-description">{group.description}</p>
               </div>
               <div className="downPart">
-                <div className="category-group-card">{group.category}</div>
+                <div className="category-group-card">
+                  {" "}
+                  <p className="category-group-card-p">{group.category}</p>
+                </div>
                 {group.users_on_group.length > 1 ||
                 group.users_on_group.length === 0 ? (
                   <div className="user-on-group-card">
@@ -74,9 +79,10 @@ export const RenderGroups = ({
                   onClick={() => {
                     groupConect(group.id);
                   }}
-                  className="icon-button-group"
+                  /* className="icon-button-group" */
                   arrowUp
                   primaryColor
+                  card
                 />
               </div>
             </Card>

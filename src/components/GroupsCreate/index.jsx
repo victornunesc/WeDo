@@ -1,14 +1,16 @@
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
-import { toast } from 'react-toastify';
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { toast } from "react-toastify";
 
-import api from '../../services/api';
-import { useAuth } from '../../providers/Auth';
+import api from "../../services/api";
+import { useAuth } from "../../providers/Auth";
 
-import { Input } from '../Input';
-import { Button } from '../Button';
-import { Modal } from '../Modal';
+import { Input } from "../Input";
+import { Button } from "../Button";
+import { Modal } from "../Modal";
+
+import { groupsCreateValidation } from './Validation';
 
 import { Container } from './style';
 
@@ -17,13 +19,7 @@ export const GroupsCreate = ({ setModal }) => {
     setModal(false);
   };
 
-  const schema = yup
-    .object({
-      name: yup.string().required('Campo Obrigatório'),
-      description: yup.string().required('Campo Obrigatório'),
-      category: yup.string().required('Campo Obrigatório'),
-    })
-    .required();
+  const schema = groupsCreateValidation;
 
   const {
     register,
@@ -42,7 +38,7 @@ export const GroupsCreate = ({ setModal }) => {
         headers: { Authorization: `Bearer ${access}` },
       })
       .then((response) => {
-        toast.success('Grupo criado com sucesso');
+        toast.success("Grupo criado com sucesso");
         setModal(false);
       })
       .catch((err) => console.log(err));
@@ -52,7 +48,7 @@ export const GroupsCreate = ({ setModal }) => {
       <Modal onClick={lastTest} />
       <Container onSubmit={handleSubmit(formValue)}>
         <h2>Adicionar Grupo</h2>
-        <section>
+        <section className="raiva">
           <Input
             register={register}
             errors={errors}
