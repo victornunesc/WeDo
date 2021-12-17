@@ -4,7 +4,6 @@ import { FiCalendar } from "react-icons/fi";
 import { IconButton } from "../Button";
 import { ActivityEdit } from "../ActivityEdit";
 
-
 import { formattedDate } from '../Input/Utility/formatter';
 
 import { Card } from './style';
