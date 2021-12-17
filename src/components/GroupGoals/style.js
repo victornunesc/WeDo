@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 export const Container = styled.section`
   display: flex;
@@ -37,7 +37,8 @@ export const Container = styled.section`
     }
   }
 
-  main.goals__container {
+  main.goals__container,
+  main.users__container {
     flex-basis: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -45,13 +46,6 @@ export const Container = styled.section`
     justify-content: space-evenly;
     overflow-y: scroll;
     overflow-x: hidden;
-
-    div.simulation {
-      width: 300px;
-      height: 124px;
-      background-color: red;
-      margin: 4px;
-    }
   }
 
   footer.goals__container {

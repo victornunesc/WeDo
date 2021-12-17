@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Card = styled.div`
   width: 280px;
@@ -11,9 +11,11 @@ export const Card = styled.div`
   border-radius: 10px;
   background-color: var(--color-primary-dark);
   margin: 4px;
+  transition: 0.3s;
 
   :hover {
     background-color: var(--color-primary);
+    box-shadow: var(--box-shadow-y);
   }
 
   .title {
@@ -30,6 +32,7 @@ export const Card = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
+    font-style: italic;
   }
 
   .alignItems {

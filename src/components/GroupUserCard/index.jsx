@@ -15,21 +15,24 @@ export const GroupUseCard = () => {
   }, [id]);
 
   return (
-    <Container>
+    <>
       {specifiGroup &&
-        specifiGroup.users_on_group.map((user) => (
-          <section key={user.id} className="card">
-            <div className="name">
-              <FiAtSign className="username" />
-              {user.username}
-            </div>
-            <div className="email">
-              {' '}
-              <FiMail className="useremail" />
-              {user.email}
-            </div>
-          </section>
+        specifiGroup.users_on_group.map(({ id, email, username }) => (
+          <Container key={id}>
+            <a href={`mailto:${email}`}>
+              <div className="name">
+                <p>
+                  <span>@</span>
+                  {username}
+                </p>
+              </div>
+              <div className="email">
+                <FiMail className="useremail" />
+                <p>{email}</p>
+              </div>
+            </a>
+          </Container>
         ))}
-    </Container>
+    </>
   );
 };
