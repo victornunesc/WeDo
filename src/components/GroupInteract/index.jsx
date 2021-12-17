@@ -13,7 +13,7 @@ import { useActivities } from "../../providers/Activities";
 import { useEffect } from "react/cjs/react.development";
 import { useGroup } from "../../providers/Groups";
 import { useParams } from "react-router-dom";
-
+import { TitleCounter } from "../GroupContent/Utility"
 
 export const Activity = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -43,9 +43,12 @@ export const Activity = () => {
         )}
       </Center>
       <div className="addEnd">
-        <h3>
-          <span>{activities.length}</span> Atividades no Grupo
-        </h3>
+        <div className="fixText">
+          {
+            activities.length >= 1 &&
+            <TitleCounter content={activities} name="Atividade"/>
+          }
+        </div>
         {!akuma && (
           <Button onClick={() => setOpenModal(true)}>
             Adicionar Atividade

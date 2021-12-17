@@ -4,17 +4,18 @@ import { FiCalendar } from "react-icons/fi";
 import { IconButton } from "../Button";
 import { ActivityEdit } from "../ActivityEdit";
 
-
 import { formattedDate } from '../Input/Utility/formatter';
 
 import { Card } from './style';
+import { useGroup } from "../../providers/Groups"
 
 
 export const ActivityCard = ({ cardActivity }) => {
+
+  const {akuma} = useGroup()
   const [openModalEdit, setOpenModalEdit] = useState(false);
 
   const { id, title, realization_time } = cardActivity;
-
 
   const newDate = formattedDate(new Date(realization_time));
 
@@ -30,14 +31,17 @@ export const ActivityCard = ({ cardActivity }) => {
           </p>
           <p>{newDate}</p>
         </div>
-        <div className="icon">
-          <IconButton
-            primaryColor
-            arrowUp
-            card
-            onClick={() => setOpenModalEdit(true)}
-          />
-        </div>
+        {
+          !akuma && 
+          <div className="icon">
+            <IconButton
+              primaryColor
+              arrowUp
+              card
+              onClick={() => setOpenModalEdit(true)}
+            />
+          </div>
+        }
       </div>
       {openModalEdit && (
         <ActivityEdit setOpenModalEdit={setOpenModalEdit} id={id} />

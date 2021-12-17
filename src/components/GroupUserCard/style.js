@@ -1,6 +1,15 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+  align-items: center;
+  height: 450px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  
   a {
     color: inherit;
     text-decoration: none;
